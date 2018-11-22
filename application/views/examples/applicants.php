@@ -6,7 +6,8 @@ include "header.php";
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 col-12">
-                        <form id="formSubmit" method="post" action="<?= base_url('Applicants/submitData') ?>" enctype="application/x-www-form-urlencoded">
+                        <form id="formSubmit" method="post" action="<?= base_url('Applicants/submitData') ?>"
+                              enctype="application/x-www-form-urlencoded">
                             <div class="card">
                                 <div class="card-header card-header-icon" data-background-color="purple">
                                     <i class="material-icons">assignment</i>
@@ -42,22 +43,34 @@ include "header.php";
                                             </tr>
                                             </tfoot>
                                             <tbody>
+                                            <script>
+                                                var applicants = new Array();
+                                            </script>
                                             <?php
+                                            $value = 0;
                                             foreach ($applicants as $row) {
                                                 ?>
                                                 <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
+                                                    id="tr<?= $value ?>"
                                                 <td></td>
                                                 <td><?= $row->aid ?></td>
                                                 <td><?= $row->name ?></td>
                                                 <td><?= $row->email ?></td>
-                                                <td><?= $row->marks / $row->count ?> / 100</td>
+                                                <td><?= $row->marks / $row->interviewers_count ?> / 100</td>
                                                 <td><?= $row->registered_date ?></td>
-                                                <!--                                        <td class="text-right">-->
-                                                <!--                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i-->
-                                                <!--                                                        class="material-icons">close</i></a>-->
-                                                <!--                                        </td>-->
                                                 </tr>
+                                                <script>
+                                                    <?php
+                                                    echo "
+                                                    applicants.push({
+                                                        comment: '$row->comment',
+                                                        count: '$row->interviewers_count'
+                                                      });
+                                                    ";
+                                                    ?>
+                                                </script>
                                                 <?php
+                                                $value++;
                                             }
                                             ?>
                                             </tbody>
@@ -75,7 +88,7 @@ include "header.php";
                                                 <div class="form-group label-floating is-empty">
                                                     <label class="control-label"></label>
                                                     <input id="txtId" type="text" class="form-control" name="txtId"
-                                                           disabled>
+                                                           readonly>
                                                 </div>
                                             </div>
                                             <div class="col-sm-2 label-on-left">Applicant Name</div>
@@ -83,7 +96,7 @@ include "header.php";
                                                 <div class="form-group label-floating is-empty">
                                                     <label class="control-label"></label>
                                                     <input id="txtName" type="text" class="form-control" name="txtName"
-                                                           disabled>
+                                                           readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +140,7 @@ include "header.php";
                                                 <td></td>
                                                 <td><?= $row->name ?></td>
                                                 <td><input type="number" class="form-control txtMarks" min="0"
-                                                           id="txtMarks<?= $value ?>" name="txtCount" value="0"
+                                                           id="txtMarks<?= $value ?>" name="txtMarks" value="0"
                                                            style="font-size: 16px;text-align: center"></td>
                                                 </tr>
                                                 <?php
@@ -136,7 +149,7 @@ include "header.php";
                                             <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
                                             <td></td>
                                             <td style="font-weight: 400">Total Marks</td>
-                                            <td><input type="text" class="form-control" disabled id="txtTotal"
+                                            <td><input type="text" class="form-control" readonly id="txtTotal"
                                                        name="txtTotal" placeholder="0 / 100"
                                                        style="font-size: 16px;text-align: center"></td>
                                             </tr>

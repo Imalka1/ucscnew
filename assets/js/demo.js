@@ -833,7 +833,7 @@ demo = {
             }).catch(swal.noop)
         } else if (type == 'submit-data') {
             swal({
-                title: 'Total Marks = ' + total + '<br>Interviewers Count = ' + count + '<br>Do you need to submit data?',
+                title: 'Total Marks = ' + total + '<br>Interviewers Count = ' + count + '<br>Do you need to submit?',
                 // text: "You won't be able to revert this!",
                 type: 'warning',
                 showCancelButton: true,

@@ -3,6 +3,8 @@ $('#tblApplicants tbody tr').click(function () {
     $('#txtName').val($(this).children('td:nth-child(2)').text());
     $('#txtMarks').val($(this).children('td:nth-child(4)').text().split(" / ")[0]);
     $('#txtTotal').val($(this).children('td:nth-child(4)').text());
+    $('#txtCount').val(applicants[$(this).attr('id').substring(2, $(this).attr('id').length)].count);
+    $('#txtReport').val(applicants[$(this).attr('id').substring(2, $(this).attr('id').length)].comment);
     // $('#txtAvg').val(parseInt($(this).children('td:nth-child(4)').text()) / 4);
 })
 

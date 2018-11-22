@@ -134,7 +134,7 @@
 </script>
 
 <!--edit-->
-<script src="<?= base_url('assets/view-js/tableSelectUser.js') ?>"></script>
+<script src="<?= base_url('assets/view-js/applicantController.js') ?>"></script>
 
 <!-- Mirrored from demos.creative-tim.com/bs3/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Jul 2018 13:04:37 GMT -->
 </html>

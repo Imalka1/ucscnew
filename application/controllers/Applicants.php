@@ -21,9 +21,9 @@ class Applicants extends CI_Controller
 
     public function submitData()
     {
-        echo "hg";
-//        $this->load->view('examples/applicants');
-//        redirect(base_url() . "main");
+        $this->load->model('Applicant');
+        $this->Applicant->submitApplicantMarks();
+        $this->index();
     }
 }
 
