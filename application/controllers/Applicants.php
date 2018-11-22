@@ -18,6 +18,13 @@ class Applicants extends CI_Controller
         $data['criteria_headings'] = $this->MarkingCriteria->getHeadings();
         $this->load->view('examples/applicants', $data);
     }
+
+    public function submitData()
+    {
+        echo "hg";
+//        $this->load->view('examples/applicants');
+//        redirect(base_url() . "main");
+    }
 }
 
 ?>

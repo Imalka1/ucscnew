@@ -34,26 +34,16 @@ $('.txtMarks').bind('keyup mouseup', function () {
 
 $('#submitBtn').click(function () {
     if ($('#txtCount').val() != 0 && $('#txtCount').val() != '') {
-
+        $('#formSubmit').submit(function (e) {
+            e.preventDefault();
+        });
+        demo.showSwal('submit-data', $('#txtCount').val(), $('#txtTotal').val())
     } else {
         demo.showSwal('interviewers-count');
     }
 });
 
-// $('.txtMarks').bind('keyup mouseup', function () {
-//     for (var i = 0; i < $("#tblApplicants tr").length - 2; i++) {
-//         if ($('#tblApplicants tbody tr:nth-child(' + (i + 1) + ')').children('td:nth-child(1)').text() == $('#txtId').val()) {
-//             var total = 0;
-//             for (var j = 0; j < $("#tblMarks tr").length - 4; j++) {
-//                 total += parseInt($('#txtMarks' + (j + 1) + '').val());
-//                 if (total > 100) {
-//                     demo.showSwal('marks-exceeded')
-//                     $('#' + $(this).attr('id')).val(parseInt($('#' + $(this).attr('id')).val()) - 1)
-//                     total -= 1;
-//                 }
-//             }
-//             // $('#tblApplicants tbody tr:nth-child(' + (i + 1) + ')').children('td:nth-child(4)').text(total + ' / 100');
-//             $('#txtTotal').val(total + ' / 100');
-//         }
-//     }
-// })
+function submitData() {
+    $("#formSubmit").unbind("submit");
+    $("#formSubmit").submit();
+}

@@ -787,7 +787,7 @@ demo = {
         }
     },
 
-    showSwal: function (type) {
+    showSwal: function (type, count, total) {
         if (type == 'basic') {
             swal({
                 title: "Here's a message!",
@@ -830,6 +830,19 @@ demo = {
                     confirmButtonClass: "btn btn-success",
                     buttonsStyling: false
                 })
+            }).catch(swal.noop)
+        } else if (type == 'submit-data') {
+            swal({
+                title: 'Total Marks = ' + total + '<br>Interviewers Count = ' + count + '<br>Do you need to submit data?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                confirmButtonText: 'Submit',
+                buttonsStyling: false
+            }).then(function () {
+                submitData();
             }).catch(swal.noop)
         } else if (type == 'warning-message-and-cancel') {
             swal({
