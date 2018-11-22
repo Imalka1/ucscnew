@@ -28,6 +28,7 @@ include "header.php";
                                             <th>Applicant Name</th>
                                             <th>Email Address</th>
                                             <th>Marks</th>
+                                            <th>Date</th>
                                         </tr>
                                         </thead>
                                         <tfoot>
@@ -36,6 +37,7 @@ include "header.php";
                                             <th>Applicant Name</th>
                                             <th>Email Address</th>
                                             <th>Marks</th>
+                                            <th>Date</th>
                                             <!--                                            <th class="text-right">Remove</th>-->
                                         </tr>
                                         </tfoot>
@@ -46,6 +48,7 @@ include "header.php";
                                         <td>bcd</td>
                                         <td>efg</td>
                                         <td>0 / 100</td>
+                                        <td>2018-02-02</td>
                                         <!--                                        <td class="text-right">-->
                                         <!--                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i-->
                                         <!--                                                        class="material-icons">close</i></a>-->
@@ -56,7 +59,8 @@ include "header.php";
                                         <td>abcd</td>
                                         <td>bcdd</td>
                                         <td>efg</td>
-                                        <td>2 / 100</td>
+                                        <td>0 / 100</td>
+                                        <td>2018-03-03</td>
                                         <!--                                        <td class="text-right">-->
                                         <!--                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i-->
                                         <!--                                                        class="material-icons">close</i></a>-->
@@ -95,7 +99,7 @@ include "header.php";
                                         <div class="col-sm-2 label-on-left">Interviewers Count</div>
                                         <div class="col-sm-10">
                                             <div class="form-group label-floating is-empty">
-                                                <input type="number" class="form-control" name="txtCount"
+                                                <input type="number" class="form-control" name="txtCount" id="txtCount"
                                                        style="font-size: 16px" value="0">
                                             </div>
                                         </div>

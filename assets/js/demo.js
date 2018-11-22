@@ -889,6 +889,14 @@ demo = {
                 timer: 3000,
                 showConfirmButton: false
             }).catch(swal.noop)
+        } else if (type == 'interviewers-count') {
+            swal({
+                title: "Set interviewers count!",
+                type: 'warning',
+                // text: "I will close in 2 seconds.",
+                timer: 3000,
+                showConfirmButton: false
+            }).catch(swal.noop)
         } else if (type == 'input-field') {
             swal({
                 title: 'Input something',
