@@ -11,6 +11,9 @@ class Applicants extends CI_Controller
 
     public function index()
     {
+        $this->load->model('Applicant');
+        $data['applicants'] = $this->Applicant->getApplicants();
+
         $this->load->model('MarkingCriteria');
         $data['criteria_headings'] = $this->MarkingCriteria->getHeadings();
         $this->load->view('examples/applicants', $data);

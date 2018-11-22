@@ -42,30 +42,24 @@ include "header.php";
                                         </tr>
                                         </tfoot>
                                         <tbody>
-                                        <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
-                                        <td></td>
-                                        <td>abc</td>
-                                        <td>bcd</td>
-                                        <td>efg</td>
-                                        <td>0 / 100</td>
-                                        <td>2018-02-02</td>
-                                        <!--                                        <td class="text-right">-->
-                                        <!--                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i-->
-                                        <!--                                                        class="material-icons">close</i></a>-->
-                                        <!--                                        </td>-->
-                                        </tr>
-                                        <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
-                                        <td></td>
-                                        <td>abcd</td>
-                                        <td>bcdd</td>
-                                        <td>efg</td>
-                                        <td>0 / 100</td>
-                                        <td>2018-03-03</td>
-                                        <!--                                        <td class="text-right">-->
-                                        <!--                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i-->
-                                        <!--                                                        class="material-icons">close</i></a>-->
-                                        <!--                                        </td>-->
-                                        </tr>
+                                        <?php
+                                        foreach ($applicants as $row) {
+                                            ?>
+                                            <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
+                                            <td></td>
+                                            <td><?= $row->aid ?></td>
+                                            <td><?= $row->name ?></td>
+                                            <td><?= $row->email ?></td>
+                                            <td><?= $row->marks / $row->count ?> / 100</td>
+                                            <td><?= $row->registered_date ?></td>
+                                            <!--                                        <td class="text-right">-->
+                                            <!--                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i-->
+                                            <!--                                                        class="material-icons">close</i></a>-->
+                                            <!--                                        </td>-->
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -142,7 +136,8 @@ include "header.php";
                                         <td></td>
                                         <td style="font-weight: 400">Total Marks</td>
                                         <td><input type="text" class="form-control" disabled id="txtTotal"
-                                                   name="txtTotal" placeholder="0 / 100" style="font-size: 16px;text-align: center"></td>
+                                                   name="txtTotal" placeholder="0 / 100"
+                                                   style="font-size: 16px;text-align: center"></td>
                                         </tr>
                                         <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
                                         <td></td>
@@ -162,7 +157,8 @@ include "header.php";
                                         <div class="col-sm-12" style="padding-top: 80px">
 
                                             <button type="submit" class="btn btn-fill"
-                                                    style="left: 50%;transform: translateX(-50%);font-weight: bold" id="submitBtn">
+                                                    style="left: 50%;transform: translateX(-50%);font-weight: bold"
+                                                    id="submitBtn">
                                                 Submit Marks
                                             </button>
 
