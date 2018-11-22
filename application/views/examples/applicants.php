@@ -140,24 +140,25 @@ include "header.php";
                                         <td><input type="text" class="form-control" disabled id="txtTotal"
                                                    name="txtTotal" placeholder="0 / 100" style="font-size: 16px;text-align: center"></td>
                                         </tr>
+                                        <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
+                                        <td></td>
+                                        <td>Referees Report</td>
+                                        <td><input type="text" class="form-control" id="txtReport"
+                                                   name="txtReport" style="font-size: 16px;text-align: center"></td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <div style="height: 50px"></div>
                                 <div class="row">
-                                    <div class="form-horizontal">
-                                        <!--                                        <div class="col-sm-4">-->
-                                        <!--                                            <button type="submit" class="btn btn-fill" style="left: 50%;transform: translateX(-50%);font-weight: bold">Calculate</button>-->
-                                        <!--                                        </div>-->
-
-                                    </div>
+                                    <div class="form-horizontal"></div>
                                 </div>
                                 <div class="row" style="padding-top: 10px">
                                     <div class="form-horizontal">
                                         <div class="col-sm-12" style="padding-top: 80px">
 
                                             <button type="submit" class="btn btn-fill"
-                                                    style="left: 50%;transform: translateX(-50%);font-weight: bold">
+                                                    style="left: 50%;transform: translateX(-50%);font-weight: bold" id="submitBtn">
                                                 Submit Marks
                                             </button>
 
