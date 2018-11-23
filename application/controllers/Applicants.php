@@ -26,7 +26,7 @@ class Applicants extends CI_Controller
     {
         $this->load->model('Applicant');
         $this->Applicant->submitApplicantMarks();
-        $this->index();
+        redirect(base_url() . "main/applicants");
     }
 }
 

@@ -106,7 +106,7 @@ include "header.php";
                                                         <?php
                                                         foreach ($detailed_criteria as $row2) {
                                                             if ($row2->mhid == $row1->mhid) {
-                                                                if ($row2->marks == 0) {
+                                                                if ($row2->marks == "0") {
                                                                     ?>
                                                                     <div class="row" style="margin-left: 10px">
                                                                         <div class="col-sm-12"

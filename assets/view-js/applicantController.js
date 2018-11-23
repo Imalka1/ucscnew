@@ -23,11 +23,13 @@ $('#tblApplicants tbody tr').click(function () {
 $('.txtMarks').bind('keyup mouseup', function () {
     var total = 0;
     for (var j = 0; j < $("#tblMarks tr").length - 4; j++) {
-        total += parseInt($('#txtMarks' + (j + 1) + '').val());
-        if (total > 100) {
-            demo.showSwal('marks-exceeded')
-            $('#' + $(this).attr('id')).val(parseInt($('#' + $(this).attr('id')).val()) - (total - 100))
-            total -= total - 100;
+        if(!isNaN(parseInt($('#txtMarks' + (j + 1) + '').val()))) {
+            total += parseInt($('#txtMarks' + (j + 1) + '').val());
+            if (total > 100) {
+                demo.showSwal('marks-exceeded')
+                $('#' + $(this).attr('id')).val(parseInt($('#' + $(this).attr('id')).val()) - (total - 100))
+                total -= total - 100;
+            }
         }
     }
     // $('#tblApplicants tbody tr:nth-child(' + (i + 1) + ')').children('td:nth-child(4)').text(total + ' / 100');
