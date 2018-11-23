@@ -787,7 +787,7 @@ demo = {
         }
     },
 
-    showSwal: function (type, count, total) {
+    showSwal: function (type, count, total, id) {
         if (type == 'basic') {
             swal({
                 title: "Here's a message!",
@@ -833,7 +833,7 @@ demo = {
             }).catch(swal.noop)
         } else if (type == 'submit-data') {
             swal({
-                title: 'Total Marks = ' + total + '<br>Interviewers Count = ' + count + '<br>Do you need to submit?',
+                title: 'ID = ' + id + '<br>Total Marks = ' + total + '<br>Interviewers Count = ' + count + '<br>Do you need to submit?',
                 // text: "You won't be able to revert this!",
                 type: 'warning',
                 showCancelButton: true,

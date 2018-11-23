@@ -18,6 +18,6 @@ class Applicant extends CI_Model
     {
         $this->load->database();
         $val = explode('/', $this->input->post('txtTotal'));
-        $this->db->query("update applicant set interviewers_count=?,marks=?,comment=? where aid=?", array($this->input->post('txtCount'), $val[0], $this->input->post('txtReport'), $this->input->post('txtId')));
+        $this->db->query("update applicant set interviewers_count=?,marks=marks+?,comment=? where aid=?", array($this->input->post('txtCount'), $val[0], $this->input->post('txtReport'), $this->input->post('txtId')));
     }
 }

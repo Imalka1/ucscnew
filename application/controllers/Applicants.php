@@ -16,6 +16,9 @@ class Applicants extends CI_Controller
 
         $this->load->model('MarkingCriteria');
         $data['criteria_headings'] = $this->MarkingCriteria->getHeadings();
+        $data['detailed_criteria_headings'] = $this->MarkingCriteria->getDetailedHeadings();
+        $data['detailed_criteria'] = $this->MarkingCriteria->getDetailedCriteria();
+
         $this->load->view('examples/applicants', $data);
     }
 

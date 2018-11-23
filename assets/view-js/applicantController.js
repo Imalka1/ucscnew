@@ -39,7 +39,7 @@ $('#submitBtn').click(function () {
         $('#formSubmit').submit(function (e) {
             e.preventDefault();
         });
-        demo.showSwal('submit-data', $('#txtCount').val(), $('#txtTotal').val())
+        demo.showSwal('submit-data', $('#txtCount').val(), $('#txtTotal').val(), $('#txtId').val())
     } else {
         demo.showSwal('interviewers-count');
     }

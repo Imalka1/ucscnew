@@ -76,10 +76,75 @@ include "header.php";
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    <hr>
+                                    <div class="row" style="padding-top: 100px">
+                                        <div class="col-md-12 col-12" style="text-align: center;"><h4 class="card-title"
+                                                                                                      style="color: #4e4e4e;font-size: 17px;font-weight: bold">
+                                                MARKING CRITERIA</h4></div>
+                                    </div>
+                                    <div class="row" style="padding-top: 40px;font-size: 18px">
+                                        <div class="form-horizontal">
+                                            <?php
+                                            $value = 0;
+                                            foreach ($detailed_criteria_headings as $row1) {
+                                                $value++;
+                                                if ($value % 2 != 0) {
+                                                    ?>
+                                                    <div class="row">
+                                                    <?php
+                                                }
+                                                ?>
+                                                <div class="col-sm-6">
+                                                    <div class="row" style="margin-left: 10px">
+                                                        <div class="col-sm-8"
+                                                             style="font-weight: 400;text-decoration: underline;padding-bottom: 10px;padding-top: 10px"><?= $row1->name ?></div>
+                                                        <div class="col-sm-4"
+                                                             style="font-weight: 400;text-decoration: underline;padding-bottom: 10px;padding-top: 10px">
+                                                            Marks
+                                                        </div>
+                                                        <?php
+                                                        foreach ($detailed_criteria as $row2) {
+                                                            if ($row2->mhid == $row1->mhid) {
+                                                                if ($row2->marks == 0) {
+                                                                    ?>
+                                                                    <div class="row" style="margin-left: 10px">
+                                                                        <div class="col-sm-12"
+                                                                             style="font-weight: 400;padding-top: 5px"><?= $row2->name ?></div>
+                                                                    </div>
+                                                                    <?php
+                                                                } else {
+                                                                    ?>
+                                                                    <div class="row" style="margin-left: 10px">
+                                                                        <div class="col-sm-8"
+                                                                             style="font-weight: 100"><?= $row2->name ?></div>
+                                                                        <div class="col-sm-4"
+                                                                             style="font-weight: 100"><?= $row2->marks ?>
+                                                                        </div>
+                                                                    </div>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                if ($value % 2 == 0) {
+                                                    ?>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <hr>
+
                                     <div class="row" style="padding-top: 100px">
                                         <div class="col-md-12 col-12" style="text-align: center"><h4 class="card-title"
                                                                                                      style="color: #4e4e4e;font-size: 17px;font-weight: bold">
-                                                MARKING CRITERIA</h4></div>
+                                                MARKING PANEL</h4></div>
                                     </div>
                                     <div class="row" style="padding-top: 20px;font-size: 18px">
                                         <div class="form-horizontal">
@@ -120,13 +185,13 @@ include "header.php";
                                                width="100%" style="width:100%">
                                             <thead>
                                             <tr>
-                                                <th>Marking Criteria</th>
+                                                <th>Marking Panel</th>
                                                 <th style="text-align: center">Marks</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
                                             <tr>
-                                                <th>Marking Criteria</th>
+                                                <th>Marking Panel</th>
                                                 <th style="text-align: center">Marks</th>
                                             </tr>
                                             </tfoot>
@@ -181,9 +246,9 @@ include "header.php";
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div><!-- end content-->
-                </div>
+                    </div>
+                    </form>
+                </div><!-- end content-->
             </div>
         </nav>
     </div>
