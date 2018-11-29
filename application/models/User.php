@@ -30,12 +30,12 @@ class User extends CI_Model
         return $this->password;
     }
 
-    public function getInterviewerUsername()
+    public function getInterviewer()
     {
         $email = $this->input->post('email');
         $this->load->database();
-        $this->sql = $this->db->query("SELECT name FROM interviewer i,user u where u.email=i.email && i.email=?", array($email));
-        return $this->sql->result()[0]->name;
+        $this->sql = $this->db->query("SELECT iid,name FROM interviewer i,user u where u.email=i.email && i.email=?", array($email));
+        return $this->sql->result()[0];
     }
 }
 

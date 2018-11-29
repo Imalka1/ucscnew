@@ -63,8 +63,7 @@ include "header.php";
                                                     <?php
                                                     echo "
                                                     applicants.push({
-                                                        comment: '$row->comment',
-                                                        count: '$row->interviewers_count'
+                                                        interviewers_count: '$row->interviewers_count'
                                                       });
                                                     ";
                                                     ?>
@@ -218,11 +217,11 @@ include "header.php";
                                                        name="txtTotal" placeholder="0 / 100"
                                                        style="font-size: 16px;text-align: center"></td>
                                             </tr>
-                                            <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
+                                            <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer;height: 100px"
                                             <td></td>
                                             <td>Referees Report</td>
-                                            <td><input type="text" class="form-control" id="txtReport"
-                                                       name="txtReport" style="font-size: 16px;text-align: center"></td>
+                                            <td><textarea class="form-control" id="txtReport" name="txtReport"
+                                                          style="font-size: 16px;height: 100px"></textarea></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -234,7 +233,8 @@ include "header.php";
                                     <div class="row" style="padding-top: 10px">
                                         <div class="form-horizontal">
                                             <div class="col-sm-12" style="padding-top: 80px">
-
+                                                <input type="hidden" name="txtInterviewerId"
+                                                       value="<?= $_SESSION["id"] ?>">
                                                 <button type="submit" class="btn btn-fill"
                                                         style="left: 50%;transform: translateX(-50%);font-weight: bold"
                                                         id="submitBtn">
@@ -253,6 +253,28 @@ include "header.php";
         </nav>
     </div>
 
+    <script>
+        function getComments(aid) {
+            $.ajax(
+                {
+                    type: "post",
+                    url: "<?= base_url('Applicants/getComments') ?>",
+                    data: {aid: aid},
+                    success: function (response) {
+                        var fields = response.split('~');
+                        var comment = '';
+                        for (var i = 0; i < fields.length; i++) {
+                            comment += fields[i] + '\n';
+                        }
+                        $('#txtReport').val(comment);
+                    }
+                    // error: function () {
+                    //     alert("Invalide!");
+                    // }
+                }
+            );
+        }
+    </script>
 <?php
 include "footer.php";
 ?>

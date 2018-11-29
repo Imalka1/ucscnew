@@ -24,8 +24,10 @@ class SignIn extends CI_Controller
             $this->load->library('session');
             foreach ($data['user_data'] as $row) {
                 if ($row->password == md5($this->User->getPassword())) {
+                    $interviewer = $this->User->getInterviewer();
                     $data = array(
-                        'username' => $this->User->getInterviewerUsername(),
+                        'id' => $interviewer->iid,
+                        'username' => $interviewer->name,
                         'accountType' => 'Interview');
                     $this->session->set_userdata($data);
                     redirect(base_url() . "main");

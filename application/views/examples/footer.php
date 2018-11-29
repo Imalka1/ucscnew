@@ -86,55 +86,57 @@
 <script src="<?= base_url('assets/js/demo.js') ?>"></script>
 <script src="<?= base_url('assets/js/data-tables.js') ?>"></script>
 
-<script>
-    // Facebook Pixel Code Don't Delete
-    !function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-            n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = '2.0';
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-    }(window,
-        document, 'script', '../../../../connect.facebook.net/en_US/fbevents.js');
-
-    try {
-        fbq('init', '111649226022273');
-        fbq('track', "PageView");
-
-    } catch (err) {
-        console.log('Facebook Track Error:', err);
-    }
-
-</script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=111649226022273&amp;ev=PageView&amp;noscript=1"
-    />
-</noscript>
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-        demo.initVectorMap();
-    });
-</script>
+<!--<script>-->
+<!--    // Facebook Pixel Code Don't Delete-->
+<!--    !function (f, b, e, v, n, t, s) {-->
+<!--        if (f.fbq) return;-->
+<!--        n = f.fbq = function () {-->
+<!--            n.callMethod ?-->
+<!--                n.callMethod.apply(n, arguments) : n.queue.push(arguments)-->
+<!--        };-->
+<!--        if (!f._fbq) f._fbq = n;-->
+<!--        n.push = n;-->
+<!--        n.loaded = !0;-->
+<!--        n.version = '2.0';-->
+<!--        n.queue = [];-->
+<!--        t = b.createElement(e);-->
+<!--        t.async = !0;-->
+<!--        t.src = v;-->
+<!--        s = b.getElementsByTagName(e)[0];-->
+<!--        s.parentNode.insertBefore(t, s)-->
+<!--    }(window,-->
+<!--        document, 'script', '../../../../connect.facebook.net/en_US/fbevents.js');-->
+<!---->
+<!--    try {-->
+<!--        fbq('init', '111649226022273');-->
+<!--        fbq('track', "PageView");-->
+<!---->
+<!--    } catch (err) {-->
+<!--        console.log('Facebook Track Error:', err);-->
+<!--    }-->
+<!---->
+<!--</script>-->
+<!--<noscript>-->
+<!--    <img height="1" width="1" style="display:none"-->
+<!--         src="https://www.facebook.com/tr?id=111649226022273&amp;ev=PageView&amp;noscript=1"-->
+<!--    />-->
+<!--</noscript>-->
+<!---->
+<!---->
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function () {-->
+<!---->
+<!--        // Javascript method's body can be found in assets/js/demos.js-->
+<!--        demo.initDashboardPageCharts();-->
+<!---->
+<!--        demo.initVectorMap();-->
+<!--    });-->
+<!--</script>-->
 
 <!--edit-->
 <script src="<?= base_url('assets/view-js/applicantController.js') ?>"></script>
+
+
 
 <!-- Mirrored from demos.creative-tim.com/bs3/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Jul 2018 13:04:37 GMT -->
 </html>

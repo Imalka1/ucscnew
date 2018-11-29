@@ -28,6 +28,15 @@ class Applicants extends CI_Controller
         $this->Applicant->submitApplicantMarks();
         redirect(base_url() . "main/applicants");
     }
+
+    public function getComments()
+    {
+        $this->load->model('Applicant');
+        $comments = $this->Applicant->getComments();
+        foreach ($comments as $row) {
+            echo $row->name.' = '.$row->description.'~';
+        }
+    }
 }
 
 ?>
