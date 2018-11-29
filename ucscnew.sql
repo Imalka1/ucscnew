@@ -18,24 +18,3 @@ insert into marking_field (mhid,name,marks) values (1,'Postgraduate / Profession
 insert into marking_field (mhid,name,marks) values (2,'National / International Awards','10'),(2,'Academic Awards','08'),(2,'Other','05');
 insert into marking_field (mhid,name,marks) values (3,'Journal','10'),(3,'Refreed Conference','05'),(3,'Abstract / Non-Refreed','02');
 insert into marking_field (mhid,name,marks) values (5,'Interfaculty (1st,2nd,3rd)','02'),(5,'Inter University','03'),(5,'National Pool','05'),(5,'Union President Secretary','03');
-insert into comment (iid,aid,description) values (1,'S001','D<br>');
-
-SELECT `applicant`.`aid`,
-    `applicant`.`email`,
-    `applicant`.`name`,
-    `applicant`.`dob`,
-    `applicant`.`registered_date`,
-    `applicant`.`address`,
-    `applicant`.`telephone`,
-    `applicant`.`interviewers_count`,
-    `applicant`.`marks`
-FROM `ucscnew`.`applicant`;
-
-SELECT `comment`.`cmid`,
-    `comment`.`iid`,
-    `comment`.`aid`,
-    `comment`.`description`
-FROM `ucscnew`.`comment`;
-
-update applicant set interviewers_count=1,marks=marks+0 where aid='S001';
-
