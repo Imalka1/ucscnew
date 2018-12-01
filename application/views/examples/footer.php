@@ -4,7 +4,7 @@
         <p class="copyright pull-right">
             &copy;
             <script>document.write(new Date().getFullYear())</script>
-            - University Of Colombo School of Computing
+            - University of Colombo School of Computing
         </p>
     </div>
 </footer>

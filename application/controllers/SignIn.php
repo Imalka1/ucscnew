@@ -26,9 +26,9 @@ class SignIn extends CI_Controller
                 if ($row->password == md5($this->User->getPassword())) {
                     $interviewer = $this->User->getInterviewer();
                     $data = array(
-                        'id' => $interviewer->iid,
+                        'id' => $interviewer->sid,
                         'username' => $interviewer->name,
-                        'accountType' => 'Interview');
+                        'accountType' => $row->accountType);
                     $this->session->set_userdata($data);
                     redirect(base_url() . "main");
                 } else {

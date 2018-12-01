@@ -98,7 +98,7 @@ if (!isset($_SESSION["accountType"])) {
                 <li>
                     <a href="<?= base_url('SignIn/logout') ?>">
                         <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
-                        <p style="color: #E9B500;font-weight: bold"> Sign Out </p>
+                        <p style="color: #E9B500;font-weight: 400"> Sign Out </p>
                     </a>
                 </li>
             </ul>
@@ -160,16 +160,27 @@ if (!isset($_SESSION["accountType"])) {
 
                 <?php
                 if (isset($_SESSION["accountType"])) {
-                    if ($_SESSION["accountType"] == "Interview") {
+                    if ($_SESSION["accountType"] == "interview_panel" || $_SESSION["accountType"] == "sar") {
                         ?>
                         <li
                             <?php
-                            if (basename($_SERVER['PHP_SELF']) == "applicants") {
+                            if (basename($_SERVER['PHP_SELF']) == "applicants" || basename($_SERVER['PHP_SELF']) == "sar") {
                                 echo "class='active'";
                             }
                             ?>
                         >
-                            <a href="<?= base_url('main/applicants') ?>">
+                            <a href="
+                            <?php
+                            if ($_SESSION["accountType"] == "interview_panel") {
+                                ?>
+                                <?= base_url('main/applicants') ?>
+                                <?php
+                            } else if ($_SESSION["accountType"] == "sar") {
+                                ?>
+                                <?= base_url('main/sar') ?>
+                                <?php
+                            }
+                            ?>">
                                 <i class="material-icons">group</i>
                                 <p> Applicants </p>
                             </a>

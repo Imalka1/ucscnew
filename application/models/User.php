@@ -16,7 +16,7 @@ class User extends CI_Model
         $this->password = $this->input->post('password');
         $accountType = $this->input->post('accountType');
         $this->load->database();
-        $this->sql = $this->db->query("SELECT email,password FROM user where email=? && accountType=?", array($email, $accountType));
+        $this->sql = $this->db->query("SELECT email,password,accountType FROM user where email=? && accountType=?", array($email, $accountType));
         return $this->sql->result();
     }
 
@@ -34,7 +34,7 @@ class User extends CI_Model
     {
         $email = $this->input->post('email');
         $this->load->database();
-        $this->sql = $this->db->query("SELECT iid,name FROM interviewer i,user u where u.email=i.email && i.email=?", array($email));
+        $this->sql = $this->db->query("SELECT sid,name FROM staff s,user u where u.email=s.email && s.email=?", array($email));
         return $this->sql->result()[0];
     }
 }

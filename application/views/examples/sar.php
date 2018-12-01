@@ -77,68 +77,6 @@ include "header.php";
                                     </div>
 
                                     <hr>
-                                    <div class="row" style="padding-top: 100px">
-                                        <div class="col-md-12 col-12" style="text-align: center;"><h4 class="card-title"
-                                                                                                      style="color: #4e4e4e;font-size: 17px;font-weight: bold">
-                                                MARKING CRITERIA</h4></div>
-                                    </div>
-                                    <div class="row" style="padding-top: 40px;font-size: 18px">
-                                        <div class="form-horizontal">
-                                            <?php
-                                            $value = 0;
-                                            foreach ($detailed_criteria_headings as $row1) {
-                                                $value++;
-                                                if ($value % 2 != 0) {
-                                                    ?>
-                                                    <div class="row">
-                                                    <?php
-                                                }
-                                                ?>
-                                                <div class="col-sm-6">
-                                                    <div class="row" style="margin-left: 10px">
-                                                        <div class="col-sm-8"
-                                                             style="font-weight: 400;text-decoration: underline;padding-bottom: 10px;padding-top: 10px"><?= $row1->name ?></div>
-                                                        <div class="col-sm-4"
-                                                             style="font-weight: 400;text-decoration: underline;padding-bottom: 10px;padding-top: 10px">
-                                                            Marks
-                                                        </div>
-                                                        <?php
-                                                        foreach ($detailed_criteria as $row2) {
-                                                            if ($row2->mhid == $row1->mhid) {
-                                                                if ($row2->marks == "0") {
-                                                                    ?>
-                                                                    <div class="row" style="margin-left: 10px">
-                                                                        <div class="col-sm-12"
-                                                                             style="font-weight: 400;padding-top: 5px"><?= $row2->name ?></div>
-                                                                    </div>
-                                                                    <?php
-                                                                } else {
-                                                                    ?>
-                                                                    <div class="row" style="margin-left: 10px">
-                                                                        <div class="col-sm-8"
-                                                                             style="font-weight: 100"><?= $row2->name ?></div>
-                                                                        <div class="col-sm-4"
-                                                                             style="font-weight: 100"><?= $row2->marks ?>
-                                                                        </div>
-                                                                    </div>
-                                                                    <?php
-                                                                }
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                                if ($value % 2 == 0) {
-                                                    ?>
-                                                    </div>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <hr>
 
                                     <div class="row" style="padding-top: 100px">
                                         <div class="col-md-12 col-12" style="text-align: center"><h4 class="card-title"
@@ -177,54 +115,6 @@ include "header.php";
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="material-datatables">
-                                        <table id="tblMarks"
-                                               class="table table-striped table-no-bordered table-hover"
-                                               cellspacing="0"
-                                               width="100%" style="width:100%">
-                                            <thead>
-                                            <tr>
-                                                <th>Marking Panel</th>
-                                                <th style="text-align: center">Marks</th>
-                                            </tr>
-                                            </thead>
-                                            <tfoot>
-                                            <tr>
-                                                <th>Marking Panel</th>
-                                                <th style="text-align: center">Marks</th>
-                                            </tr>
-                                            </tfoot>
-                                            <tbody>
-                                            <?php
-                                            $value = 0;
-                                            foreach ($criteria_headings as $row) {
-                                                $value++;
-                                                ?>
-                                                <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
-                                                <td></td>
-                                                <td><?= $row->name ?></td>
-                                                <td><input type="number" class="form-control txtMarks" min="0"
-                                                           id="txtMarks<?= $value ?>" name="txtMarks" value="0"
-                                                           style="font-size: 16px;text-align: center"></td>
-                                                </tr>
-                                                <?php
-                                            }
-                                            ?>
-                                            <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
-                                            <td></td>
-                                            <td style="font-weight: 400">Total Marks</td>
-                                            <td><input type="text" class="form-control" readonly id="txtTotal"
-                                                       name="txtTotal" placeholder="0 / 100"
-                                                       style="font-size: 16px;text-align: center"></td>
-                                            </tr>
-                                            <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer;height: 100px"
-                                            <td></td>
-                                            <td>Referees Report</td>
-                                            <td><textarea class="form-control" id="txtReport" name="txtReport" style="font-size: 16px;height: 120px"></textarea></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                     <div style="height: 50px"></div>
                                     <div class="row">
                                         <div class="form-horizontal"></div>
@@ -232,7 +122,7 @@ include "header.php";
                                     <div class="row" style="padding-top: 10px">
                                         <div class="form-horizontal">
                                             <div class="col-sm-12" style="padding-top: 80px">
-                                                <input type="hidden" name="txtStaffId"
+                                                <input type="hidden" name="txtInterviewerId"
                                                        value="<?= $_SESSION["id"] ?>">
                                                 <button type="submit" class="btn btn-fill"
                                                         style="left: 50%;transform: translateX(-50%);font-weight: bold"

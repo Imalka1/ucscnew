@@ -60,6 +60,7 @@ $route['login'] = 'SignIn';
 $route['main'] = 'Dashboard';
 $route['main/contact'] = 'Contact';
 $route['main/applicants'] = 'Applicants';
+$route['main/sar'] = 'Sar';
 
 //$route['login/login'] = 'SignIn/login';
 //$route['login/logout'] = 'SignIn/logout';

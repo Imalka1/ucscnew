@@ -93,6 +93,6 @@ if (isset($_SESSION["accountType"])) {
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand">University Of Colombo School of Computing</a>
+            <a class="navbar-brand">University of Colombo School of Computing</a>
         </div>
         
