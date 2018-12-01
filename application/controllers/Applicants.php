@@ -34,7 +34,7 @@ class Applicants extends CI_Controller
         $this->load->model('Applicant');
         $comments = $this->Applicant->getComments();
         foreach ($comments as $row) {
-            echo $row->name.' = '.$row->description.'~';
+            echo $row->title . '.' . $row->name . ' = ' . $row->description . '~';
         }
     }
 }

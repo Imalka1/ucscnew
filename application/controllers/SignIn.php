@@ -27,7 +27,7 @@ class SignIn extends CI_Controller
                     $interviewer = $this->User->getInterviewer();
                     $data = array(
                         'id' => $interviewer->sid,
-                        'username' => $interviewer->name,
+                        'username' => $interviewer->title . '.' . $interviewer->name,
                         'accountType' => $row->accountType);
                     $this->session->set_userdata($data);
                     redirect(base_url() . "main");

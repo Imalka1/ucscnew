@@ -34,7 +34,7 @@ class User extends CI_Model
     {
         $email = $this->input->post('email');
         $this->load->database();
-        $this->sql = $this->db->query("SELECT sid,name FROM staff s,user u where u.email=s.email && s.email=?", array($email));
+        $this->sql = $this->db->query("SELECT title,sid,name FROM staff s,user u where u.email=s.email && s.email=?", array($email));
         return $this->sql->result()[0];
     }
 }

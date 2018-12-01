@@ -25,7 +25,7 @@ class Applicant extends CI_Model
     public function getComments()
     {
         $this->load->database();
-        $sql = $this->db->query("SELECT name,description FROM comment c,staff s where s.sid=c.sid && aid=?", array($this->input->post('aid')));
+        $sql = $this->db->query("SELECT title,name,description FROM comment c,staff s where s.sid=c.sid && aid=?", array($this->input->post('aid')));
         return $sql->result();
     }
 }
