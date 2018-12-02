@@ -258,7 +258,7 @@ if (!isset($_SESSION["accountType"])) {
 
         <nav class="navbar navbar-transparent navbar-absolute">
             <div class="container-fluid">
-                <div style="right: 8px;position: absolute;padding-right: 50px;font-weight: bold;top: 20px;color: #352c24;margin-top:0px;background-color: #e9b500;padding:9px;border-radius: 18px;display: inline-block">Online -
+                <div style="right: 15px;position: absolute;padding-right: 50px;font-weight: bold;top: 20px;color: #352c24;margin-top:0px;background-color: #e9b500;padding:9px;border-radius: 18px;display: inline-block">Online -
                     <?php
                     if (isset($_SESSION["username"])) {
                         echo $_SESSION["username"];
