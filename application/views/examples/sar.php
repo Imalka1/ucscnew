@@ -85,7 +85,7 @@ include "header.php";
                                     <div class="row" style="padding-top: 100px">
                                         <div class="col-md-12 col-12" style="text-align: center"><h4 class="card-title"
                                                                                                      style="color: #4e4e4e;font-size: 17px;font-weight: bold">
-                                                MARKING PANEL</h4></div>
+                                                APPLICANT DETAILS</h4></div>
                                     </div>
                                     <div class="row" style="padding-top: 20px;font-size: 18px">
                                         <div class="form-horizontal">

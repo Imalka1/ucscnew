@@ -18,7 +18,7 @@ include "header.php";
                                 </div>
                                 <div class="card-content">
                                     <h4 class="card-title" style="color: #4e4e4e;font-size: 17px;font-weight: bold">
-                                        APPLICANT DETAILS</h4>
+                                        APPLICANTS</h4>
                                     <div class="toolbar">
                                         <!--        Here you can write extra buttons/actions for the toolbar              -->
                                     </div>
