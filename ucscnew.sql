@@ -12,7 +12,7 @@ create table marking_field(mid int auto_increment,mhid int,name varchar(100),mar
 insert into user values ('in1@gmail.com','900150983cd24fb0d6963f7d28e17f72','interview_panel'),('in2@gmail.com','900150983cd24fb0d6963f7d28e17f72','interview_panel');
 insert into user values ('di1@gmail.com','900150983cd24fb0d6963f7d28e17f72','sar'),('di2@gmail.com','900150983cd24fb0d6963f7d28e17f72','sar');
 insert into user values ('dimuthi1@gmail.com','900150983cd24fb0d6963f7d28e17f72','applicant'),('dimuthi2@gmail.com','900150983cd24fb0d6963f7d28e17f72','applicant');
-insert into staff (title,email,name) values ('Ms','in1@gmail.com','Dimuthi'),('Ms','in2@gmail.com','Dimuthi T'),('Ms','di1@gmail.com','Dimuthi Th'),('Ms','di2@gmail.com','Dimuthi Th');
+insert into staff (title,email,name) values ('Ms','in1@gmail.com','Dimuthi'),('Ms','in2@gmail.com','Dimuthi Tharaka'),('Ms','di1@gmail.com','Dimuthi Th'),('Ms','di2@gmail.com','Dimuthi Th');
 insert into applicant values ('S001','Ms','dimuthi1@gmail.com','Dimuthi Bomb1','1987-03-03','2018-03-02','Hikkaduwa','123-1234567',1,0),('S002','Ms','dimuthi2@gmail.com','Dimuthi Bomb2','1987-03-03','2018-03-03','Colombo','123-1234567',1,0);
 insert into marking_field_heading (name,detailed) values ('Academic Qualifications',1),('Other Qualifications / Academic Achievements',1),('Publications',1),('Subject Knowledge and Experience',0),('Extra Curricular Activities',1),('Presentation to prove teaching ability',0),('Performance at the interview',0);
 insert into marking_field (mhid,name,marks) values (1,'Bachelors Degree','0'),(1,'1st Class','15'),(1,'2nd Class','08'),(1,'3rd Class','04');
