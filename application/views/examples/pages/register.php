@@ -26,14 +26,16 @@ include "login-screen-header.php";
                                 <div class="card-header text-center" data-background-color="rose">
                                     <h4 class="card-title">Sign up</h4>
                                     <div class="social-line">
-                                        <a href="https://www.google.com/" target="_blank" class="btn btn-just-icon btn-simple">
+                                        <a href="https://www.facebook.com/" target="_blank"
+                                           class="btn btn-just-icon btn-simple">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                        <a href="https://www.google.com/" target="_blank"
+                                           class="btn btn-just-icon btn-simple">
                                             <i class="fa fa-google"></i>
                                         </a>
                                         <a href="#pablo" class="btn btn-just-icon btn-simple">
-                                            <i class="fa fa-youtube-play"></i>
-                                        </a>
-                                        <a href="https://www.dropbox.com/" target="_blank" class="btn btn-just-icon btn-simple">
-                                            <i class="fa fa-dropbox"></i>
+                                            <i class="fa fa-linkedin"></i>
                                         </a>
                                     </div>
                                 </div>
