@@ -1,4 +1,8 @@
 <?php
+$this->load->library('session');
+if ($_SESSION["accountType"] != 'interview_panel') {
+    redirect(base_url() . "main");
+}
 include "header.php";
 ?>
     <div class="content" style="padding-left: 0px;">

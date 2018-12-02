@@ -81,7 +81,7 @@ if (!isset($_SESSION["accountType"])) {
 
 <body>
 
-<div class="wrapper">
+<div class="wrapper" style="background-color: #eeeeee">
 
     <div class="sidebar" data-active-color="rose" data-background-color="black"
          data-image="<?= base_url('assets/img/catrin-johnson-486188-unsplash.jpg') ?>">
@@ -98,7 +98,7 @@ if (!isset($_SESSION["accountType"])) {
                 <li>
                     <a href="<?= base_url('SignIn/logout') ?>">
                         <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
-                        <p style="color: #E9B500;font-weight: 400"> Sign Out </p>
+                        <p style="color: #E9B500;font-weight: 500"> Sign Out </p>
                     </a>
                 </li>
             </ul>
