@@ -46,12 +46,27 @@ $this->load->library('session');
             <div style="padding-top: 50px">Academic Staff Recruitment</div>
         </div>
         <div class="row" style="background-color: white;border: 2px solid #7a4d01;margin: 50px;padding: 10px">
-            <div style="text-align: center;font-size: 30px;color: green;font-weight: bold;padding-bottom: 60px;text-decoration: underline">ADVERTISEMENT</div>
             <?php
+            if ($advertisement == null) {
+                ?>
+                <div style="font-size: 25px;text-align: center;color: red">No any advertisement yet</div>
+                <?php
+            }
             foreach ($advertisement as $row)
                 echo $row->message;
             ?>
         </div>
+        <?php
+        if ($advertisement != null) {
+            ?>
+            <button type="submit" class="btn btn-fill"
+                    style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
+                    id="submitVacancy">
+                Apply for vacancy
+            </button>
+            <?php
+        }
+        ?>
     </div>
 </div>
 <?php
