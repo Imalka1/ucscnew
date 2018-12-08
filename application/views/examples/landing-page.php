@@ -88,7 +88,15 @@ $this->load->library('session');
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
                 <h4 class="service-heading">Apply For Vacancies</h4>
-                <p class="text-muted">Apply for vacancies via system.</p>
+                <p class="text-muted">Applicants can apply for vacancies via system.</p>
+            </div>
+            <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+                <h4 class="service-heading">Applicant Details</h4>
+                <p class="text-muted">Keep a track of data of respective applicants and automatically categorize applicants for relevant positions.</p>
             </div>
             <div class="col-md-4">
             <span class="fa-stack fa-4x">
@@ -96,16 +104,7 @@ $this->load->library('session');
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
                 <h4 class="service-heading">Staff Services</h4>
-                <p class="text-muted">Automatically categorize applicants for relevant positions and further stuff for
-                    authorized logins.</p>
-            </div>
-            <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-                <h4 class="service-heading">Applicant Login</h4>
-                <p class="text-muted">Keep a track of data of respective applicants.</p>
+                <p class="text-muted">Authorized persons can maintain applicants in a well organized atmosphere.</p>
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4" style="padding-top: 80px;cursor: pointer">
