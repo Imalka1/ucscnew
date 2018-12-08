@@ -59,11 +59,13 @@ $this->load->library('session');
         <?php
         if ($advertisement != null) {
             ?>
-            <button type="submit" class="btn btn-fill"
-                    style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
-                    id="submitVacancy">
-                Apply for vacancy
-            </button>
+            <a href="<?= base_url('application_form') ?>" target="_blank">
+                <button type="submit" class="btn btn-fill"
+                        style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
+                        id="submitVacancy">
+                    Apply for vacancy
+                </button>
+            </a>
             <?php
         }
         ?>
