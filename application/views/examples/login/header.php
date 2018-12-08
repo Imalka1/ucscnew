@@ -53,8 +53,6 @@ if (isset($_SESSION["accountType"])) {
 
     <!-- Bootstrap core CSS     -->
     <link href="<?=base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet" />
-    
-
 
     <!--  Material Dashboard CSS    -->
     <link href="<?=base_url('assets/css/material-dashboard98f3.css')?>" rel="stylesheet"/>
@@ -83,6 +81,6 @@ if (isset($_SESSION["accountType"])) {
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="<?= base_url('main') ?>">University of Colombo School of Computing (Academic Staff Recruitment)</a>
+            <a class="navbar-brand" href="<?= base_url('') ?>">University of Colombo School of Computing (Academic Staff Recruitment)</a>
         </div>
         

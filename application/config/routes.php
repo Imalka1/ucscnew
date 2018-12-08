@@ -57,15 +57,9 @@ $route[''] = 'Welcome';
 
 $route['signin'] = 'LoginController/viewSignIn';
 $route['signup'] = 'LoginController/viewSignUp';
-//$route['main'] = 'LandingController';
 $route['dashboard'] = 'DashboardController';
 $route['interview/interview_panel'] = 'InterviewerController/viewInterviewPanel';
 $route['sar/advertisement'] = 'SarController/viewAdvertisement';
 $route['sar/applicants'] = 'SarController/viewApplicants';
 $route['sar/vacancy'] = 'SarController/viewVacancy';
-//$route['sar/advertisement_sar'] = 'Advertisement_SarController';
-//$route['main/vacancy'] = 'VacancyController';
 $route['advertisement'] = 'AdvertisementController';
-
-//$route['login/login'] = 'SignInController/login';
-//$route['login/logout'] = 'SignInController/logout';

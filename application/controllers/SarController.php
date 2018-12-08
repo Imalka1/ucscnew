@@ -30,7 +30,7 @@ class SarController extends CI_Controller
 
         $data['advertisement'] = $this->AdvertisementModel->getAdvertisement();
 
-        $this->load->view('examples/sar/advertisement_sar', $data);
+        $this->load->view('examples/sar/advertisement', $data);
     }
 
     public function viewVacancy()
