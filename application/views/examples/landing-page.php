@@ -38,7 +38,7 @@ $this->load->library('session');
         <div class="intro-text" style="font-weight: 400;font-size: 45px;padding-top: 200px;padding-bottom: 300px">
             <div>University of Colombo School of Computing</div>
             <div style="padding-top: 10px">Academic Staff Recruitment</div>
-            <a href="<?= base_url('login') ?>" style="color: inherit">
+            <a href="<?= base_url('signin') ?>" style="color: inherit">
                 <div style="font-weight: bold;color: #352c24;background-color: #e9b500;padding:20px;padding-left: 50px;padding-right: 50px;border-radius: 40px;display: inline-block;cursor: pointer;margin-top: 100px;font-size: 25px">
                     <?php
                     if (!isset($_SESSION["accountType"])) {
@@ -110,7 +110,7 @@ $this->load->library('session');
             <div class="col-md-4"></div>
             <div class="col-md-4" style="padding-top: 80px;cursor: pointer">
                 <div>
-                    <a href="<?= base_url('main/advertisement') ?>" style="color: inherit;text-decoration: none;" target="_blank">
+                    <a href="<?= base_url('advertisement') ?>" style="color: inherit;text-decoration: none;" target="_blank">
                     <span class="fa-stack fa-4x">
                       <i class="fas fa-circle fa-stack-2x" style="color: #cb941e"></i>
                       <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>

@@ -55,16 +55,17 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route[''] = 'Welcome';
 
-$route['register'] = 'SignUp';
-$route['login'] = 'SignIn';
-$route['main'] = 'Landing';
-$route['main/dashboard'] = 'Dashboard';
-$route['main/contact'] = 'Contact';
-$route['main/applicants'] = 'Applicants';
-$route['main/sar'] = 'Sar';
-$route['main/vacancy'] = 'Vacancy';
-$route['main/advertisement'] = 'Advertisement';
-$route['main/advertisement_sar'] = 'Advertisement_Sar';
+$route['signin'] = 'LoginController/viewSignIn';
+$route['signup'] = 'LoginController/viewSignUp';
+//$route['main'] = 'LandingController';
+$route['dashboard'] = 'DashboardController';
+$route['interview/interview_panel'] = 'InterviewerController/viewInterviewPanel';
+$route['sar/advertisement'] = 'SarController/viewAdvertisement';
+$route['sar/applicants'] = 'SarController/viewApplicants';
+$route['sar/vacancy'] = 'SarController/viewVacancy';
+//$route['sar/advertisement_sar'] = 'Advertisement_SarController';
+//$route['main/vacancy'] = 'VacancyController';
+$route['advertisement'] = 'AdvertisementController';
 
-//$route['login/login'] = 'SignIn/login';
-//$route['login/logout'] = 'SignIn/logout';
+//$route['login/login'] = 'SignInController/login';
+//$route['login/logout'] = 'SignInController/logout';

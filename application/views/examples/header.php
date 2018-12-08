@@ -108,16 +108,9 @@ if (!isset($_SESSION["accountType"])) {
             <ul class="nav">
                 <li>
                     <?php
-                    if (!isset($_SESSION["accountType"])) {
+                    if (isset($_SESSION["accountType"])) {
                         ?>
-                        <a href="<?= base_url('SignIn') ?>">
-                            <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
-                            <p style="color: #E9B500;font-weight: 500"> Sign In </p>
-                        </a>
-                        <?php
-                    } else {
-                        ?>
-                        <a href="<?= base_url('SignIn/logout') ?>">
+                        <a href="<?= base_url('LoginController/logout') ?>">
                             <i class="fa fa-power-off fa-3x" style="color: #E9B500"></i>
                             <p style="color: #E9B500;font-weight: 500"> Sign Out </p>
                         </a>
@@ -129,7 +122,7 @@ if (!isset($_SESSION["accountType"])) {
             <div class="user" style="padding-bottom: 8px;margin-top: 0px"></div>
             <ul class="nav">
                 <li>
-                    <a href="<?= base_url('main') ?>">
+                    <a href="<?= base_url('') ?>">
                         <i class="material-icons">home</i>
                         <p> Home </p>
                     </a>
@@ -150,7 +143,7 @@ if (!isset($_SESSION["accountType"])) {
 
                 <?php
                 if (isset($_SESSION["accountType"])) {
-                    if ($_SESSION["accountType"] == "Applicant") {
+                    if ($_SESSION["accountType"] == "ApplicantModel") {
                         ?>
                         <li>
                             <a data-toggle="collapse" href="#tablesExamples">
@@ -190,27 +183,37 @@ if (!isset($_SESSION["accountType"])) {
 
                 <?php
                 if (isset($_SESSION["accountType"])) {
-                    if ($_SESSION["accountType"] == "interview_panel" || $_SESSION["accountType"] == "sar") {
+                    if ($_SESSION["accountType"] == "interview_panel") {
                         ?>
                         <li
                             <?php
-                            if (basename($_SERVER['PHP_SELF']) == "applicants" || basename($_SERVER['PHP_SELF']) == "sar") {
+                            if (basename($_SERVER['PHP_SELF']) == "interview_panel") {
                                 echo "class='active'";
                             }
                             ?>
                         >
-                            <a href="
+                            <a href="<?= base_url('interview/interview_panel') ?>">
+                                <i class="material-icons">group</i>
+                                <p> Interview Panel </p>
+                            </a>
+                        </li>
+                        <?php
+                    }
+                }
+                ?>
+
+                <?php
+                if (isset($_SESSION["accountType"])) {
+                    if ($_SESSION["accountType"] == "sar") {
+                        ?>
+                        <li
                             <?php
-                            if ($_SESSION["accountType"] == "interview_panel") {
-                                ?>
-                                <?= base_url('main/applicants') ?>
-                                <?php
-                            } else if ($_SESSION["accountType"] == "sar") {
-                                ?>
-                                <?= base_url('main/sar') ?>
-                                <?php
+                            if (basename($_SERVER['PHP_SELF']) == "applicants") {
+                                echo "class='active'";
                             }
-                            ?>">
+                            ?>
+                        >
+                            <a href="<?= base_url('sar/applicants') ?>">
                                 <i class="material-icons">group</i>
                                 <p> Applicants </p>
                             </a>
@@ -235,7 +238,7 @@ if (!isset($_SESSION["accountType"])) {
                             <?php
                             if ($_SESSION["accountType"] == "sar") {
                                 ?>
-                                <?= base_url('main/vacancy') ?>
+                                <?= base_url('sar/vacancy') ?>
                                 <?php
                             }
                             ?>">
@@ -264,18 +267,7 @@ if (!isset($_SESSION["accountType"])) {
 
                             <div class="collapse" id="notificationExamples">
                                 <ul class="nav">
-                                    <li
-                                        <?php
-                                        if (basename($_SERVER['PHP_SELF']) == "advertisement-sar") {
-                                            echo "class='active'";
-                                        }
-                                        ?>
-                                    >
-                                        <a href="<?= base_url('main/advertisement-sar') ?>">
-                                            <span class="sidebar-mini"> AD </span>
-                                            <span class="sidebar-normal"> Advertisement </span>
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </div>
                         </li>
@@ -305,12 +297,12 @@ if (!isset($_SESSION["accountType"])) {
                                 <ul class="nav">
                                     <li
                                         <?php
-                                        if (basename($_SERVER['PHP_SELF']) == "advertisement_sar") {
+                                        if (basename($_SERVER['PHP_SELF']) == "advertisement") {
                                             echo "class='active'";
                                         }
                                         ?>
                                     >
-                                        <a href="<?= base_url('main/advertisement_sar') ?>">
+                                        <a href="<?= base_url('sar/advertisement') ?>">
                                             <span class="sidebar-mini"> AD </span>
                                             <span class="sidebar-normal"> Advertisement </span>
                                         </a>
@@ -375,13 +367,6 @@ if (!isset($_SESSION["accountType"])) {
                     }
                     ?>
                     <?php
-                    if (basename($_SERVER['PHP_SELF']) == "contact") {
-                        ?>
-                        <div class="navbar-brand" href="#"> Contact</div>
-                        <?php
-                    }
-                    ?>
-                    <?php
                     if (basename($_SERVER['PHP_SELF']) == "vacancy") {
                         ?>
                         <div class="navbar-brand" href="#"> Vacany Details</div>
@@ -389,7 +374,7 @@ if (!isset($_SESSION["accountType"])) {
                     }
                     ?>
                     <?php
-                    if (basename($_SERVER['PHP_SELF']) == "advertisement_sar") {
+                    if (basename($_SERVER['PHP_SELF']) == "advertisement") {
                         ?>
                         <div class="navbar-brand" href="#"> Advertisement</div>
                         <?php

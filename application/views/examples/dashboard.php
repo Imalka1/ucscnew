@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+$this->load->view('examples/header');
 ?>
 
 <div class="content">
@@ -31,6 +31,6 @@ include "header.php";
 
 
 <?php
-include "footer.php";
+$this->load->view('examples/footer');
 ?>
         			

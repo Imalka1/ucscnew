@@ -55,5 +55,5 @@ $this->load->library('session');
     </div>
 </div>
 <?php
-include "footer.php";
+$this->load->view('examples/footer');
 ?>
