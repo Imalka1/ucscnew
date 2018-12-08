@@ -25,7 +25,7 @@ $this->load->view('examples/header');
                 ?>
             </div>
         </div>
-        <form method="post" action="<?= base_url('AdvertisementController/confirmAdvertisement') ?>">
+        <form method="post" action="<?= base_url('SarController/confirmAdvertisement') ?>">
             <div class="row" style="background-color: white;border: 2px solid #7a4d01;padding: 10px">
                 <?php
                 foreach ($advertisement as $row)

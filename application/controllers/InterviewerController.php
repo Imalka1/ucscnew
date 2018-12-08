@@ -11,7 +11,7 @@ class InterviewerController extends CI_Controller
     public function viewInterviewPanel()
     {
         $this->load->model('ApplicantModel');
-        $data['applicants'] = $this->Applicant->getApplicants();
+        $data['applicants'] = $this->ApplicantModel->getApplicants();
 
         $this->load->model('MarkingCriteriaModel');
         $data['criteria_headings'] = $this->MarkingCriteriaModel->getHeadings();

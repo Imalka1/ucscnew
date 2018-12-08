@@ -135,7 +135,7 @@ if (!isset($_SESSION["accountType"])) {
                     }
                     ?>
                 >
-                    <a href="<?= base_url('main/dashboard') ?>">
+                    <a href="<?= base_url('dashboard') ?>">
                         <i class="material-icons">dashboard</i>
                         <p> About </p>
                     </a>
