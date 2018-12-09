@@ -18,10 +18,6 @@ $this->load->library('session');
         <!-- Bootstrap core CSS     -->
         <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet"/>
 
-
-        <!--  Material Dashboard CSS    -->
-        <link href="<?= base_url('assets/css/material-dashboard98f3.css?v=1.3.0') ?>" rel="stylesheet"/>
-
         <!--  CSS for Demo Purpose, don't include it in your project     -->
         <link href="<?= base_url('assets/css/demo.css') ?>" rel="stylesheet"/>
 
@@ -44,7 +40,7 @@ $this->load->library('session');
             <div style="text-align: center;font-size: 40px">
                 <div style="padding-top: 60px">Application</div>
             </div>
-            <div class="row" style="background-color: white;border: 2px solid #7a4d01;margin: 50px;padding: 10px">
+            <div style="background-color: white;border: 2px solid #666666;margin: 50px;padding: 10px">
                 <div class="row" style="margin-bottom: 30px">
                     <div class="col-sm-4" style="font-weight: bold;font-size: 20px">University of Colombo School of
                         Computing
@@ -80,6 +76,22 @@ $this->load->library('session');
                     <div class="col-sm-12">
                         (Please indicate the subject arrears of specialization based on your qualification and work
                         experience)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
+                    <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
+                </div>
+                <div class="row" id="aosId">
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary"
+                                style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                        </button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary"
+                                style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                        </button>
                     </div>
                 </div>
             </div>
