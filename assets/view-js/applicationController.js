@@ -26,54 +26,95 @@ $('#removeAos').click(function () {
     aosCount--;
 });
 
+
 $('#addSe').click(function () {
-    $('#seId').append('' +
-        '<div class="col-sm-12" style="margin-bottom: 15px;padding-left: 0px">' +
-        '<div class="col-sm-3"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
-        '<div class="col-sm-3"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '</div>'
-    );
+    addRowSe();
 });
 
 $('#removeSe').click(function () {
-    $('#seId div.col-sm-12:last-child').remove();
+    $('#seId tr:last-child').remove();
 });
 
 $('#addHe').click(function () {
-    $('#heId').append('' +
-        '<div class="col-sm-12 heRow" style="margin-bottom: 15px;padding-left: 0px">' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
-        '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-1"><input type="number" min="1" class="form-control"></div>' +
-        '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-12" style="margin-bottom: 10px;margin-top: 15px"><input type="file"></div>' +
-        '</div>'
-    );
+    addRowHe();
 });
 
 $('#removeHe').click(function () {
-    $('#heId div.heRow:last-child').remove();
+    $('#heId tr.rowHeFile:last-child').remove();
+    $('#heId tr.rowHe:last-child').remove();
 });
 
 $('#addAoq').click(function () {
-    $('#aoqId').append('' +
-        '<div class="col-sm-12 aoqRow" style="margin-bottom: 15px;padding-left: 0px">' +
-        '<div class="col-sm-4"><input type="text" class="form-control"></div>' +
+    addRowAoq()
+});
+
+$('#removeAoq').click(function () {
+    $('#aoqId tr.rowAoqFile:last-child').remove();
+    $('#aoqId tr.rowAoq:last-child').remove();
+});
+
+$('#addPq').click(function () {
+    $('#pqId').append('' +
+        '<div class="col-sm-12 pqRow" style="margin-bottom: 15px;padding-left: 0px">' +
         '<div class="col-sm-4"><input type="text" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-12" style="margin-bottom: 10px;margin-top: 15px"><input type="file"></div>' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
         '</div>'
     );
 });
 
-$('#removeAoq').click(function () {
-    $('#aoqId div.aoqRow:last-child').remove();
+$('#removePq').click(function () {
+    $('#pqId div.pqRow:last-child').remove();
+});
+
+function addRowSe() {
+    $('#seId').append('' +
+        '<tr class="rowSe">\n' +
+        '<td width="30%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '</tr>'
+    );
+}
+
+function addRowHe() {
+    $('#heId').append('' +
+        '<tr class="rowHe">\n' +
+        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '<td width="12%"><input type="date" class="form-control"></td>\n' +
+        '<td width="12%"><input type="date" class="form-control"></td>\n' +
+        '<td width="10%"><input type="text" class="form-control"></td>\n' +
+        '<td width="10%"><input type="number" class="form-control"></td>\n' +
+        '<td width="10%"><input type="text" class="form-control"></td>\n' +
+        '<td width="10%"><input type="text" class="form-control"></td>\n' +
+        '<td width="10%"><input type="text" class="form-control"></td>\n' +
+        '</tr>' +
+        '<tr class="rowHeFile">\n' +
+        '<td colspan="8"><input type="file"></td>\n' +
+        '</tr>'
+    );
+}
+
+function addRowAoq(){
+    $('#aoqId').append('' +
+        '<tr class="rowAoq">\n' +
+        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '</tr>' +
+        '<tr class="rowAoqFile">\n' +
+        '<td colspan="4"><input type="file"></td>\n' +
+        '</tr>'
+    );
+}
+
+$(window).ready(function () {
+    addRowSe();
+    addRowHe();
+    addRowAoq();
 });

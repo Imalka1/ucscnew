@@ -280,42 +280,22 @@ $this->load->library('session');
                 <div class="col-sm-12" style="margin-bottom: 15px">
                     (a) Secondary Education
                 </div>
-                <div class="col-sm-3">
-                    Name of the School
-                </div>
-                <div class="col-sm-2">
-                    From
-                </div>
-                <div class="col-sm-2">
-                    To
-                </div>
-                <div class="col-sm-3">
-                    Examination passed
-                </div>
-                <div class="col-sm-2">
-                    Year
-                </div>
-                <div id="seId">
-                    <div class="col-sm-12" style="padding-left: 0px">
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="30%">Name of the School</th>
+                            <th width="20%">From</th>
+                            <th width="20%">To</th>
+                            <th width="15%">Examination passed</th>
+                            <th width="15%">Year</th>
+                        </tr>
+                        </thead>
+                        <tbody id="seId"></tbody>
+                    </table>
                 </div>
             </div>
-            <div class="row" style="margin-top: 20px">
+            <div class="row">
                 <div class="col-sm-6">
                     <button class="btn btn-primary" id="addSe"
                             style="left: 50%;transform: translateX(-50%);position: relative">Add Field
@@ -336,60 +316,22 @@ $this->load->library('session');
                 <div class="col-sm-12" style="margin-bottom: 15px">
                     (b) Higher Education (<b>*Graduate & Postgraduate Qualifications</b>)
                 </div>
-                <div class="col-sm-2">
-                    Name of the University / Institution
-                </div>
-                <div class="col-sm-2">
-                    From
-                </div>
-                <div class="col-sm-2">
-                    To
-                </div>
-                <div class="col-sm-1">
-                    Degree Obtained
-                </div>
-                <div class="col-sm-1">
-                    Duration of the Course (No. of years)
-                </div>
-                <div class="col-sm-1">
-                    Class
-                </div>
-                <div class="col-sm-1">
-                    Awarding Year
-                </div>
-                <div class="col-sm-2">
-                    Index No
-                </div>
-                <div id="heId">
-                    <div class="col-sm-12 heRow" style="padding-left: 0px">
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="date" class="form-control">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="number" min="1" class="form-control">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-12" style="margin-bottom: 20px">
-                            <input type="file">
-                        </div>
-                    </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="25%">Name of the University / Institution</th>
+                            <th width="12%">From</th>
+                            <th width="12%">To</th>
+                            <th width="10%">Degree Obtained</th>
+                            <th width="10%">Duration of the Course (No. of years)</th>
+                            <th width="10%">Class</th>
+                            <th width="10%">Awarding Year</th>
+                            <th width="11%">Index No</th>
+                        </tr>
+                        </thead>
+                        <tbody id="heId"></tbody>
+                    </table>
                 </div>
             </div>
             <div class="row" style="margin-top: 20px">
@@ -410,7 +352,7 @@ $this->load->library('session');
                 </div>
             </div>
 
-<!--            Any Other Qualifications-->
+            <!--            Any Other Qualifications-->
 
             <hr>
 
@@ -419,36 +361,18 @@ $this->load->library('session');
                     <span style="font-weight: bold;margin-right: 10px">10.</span>
                     **Any Other Qualifications
                 </div>
-                <div class="col-sm-4">
-                    Institution
-                </div>
-                <div class="col-sm-4">
-                    Diploma etc
-                </div>
-                <div class="col-sm-2">
-                    Duration
-                </div>
-                <div class="col-sm-2">
-                    Year
-                </div>
-                <div id="aoqId">
-                    <div class="col-sm-12 aoqRow" style="padding-left: 0px">
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-12" style="margin-bottom: 20px">
-                            <input type="file">
-                        </div>
-                    </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="25%">Institution</th>
+                            <th width="25%">Diploma etc</th>
+                            <th width="25%">Duration</th>
+                            <th width="25%">Year</th>
+                        </tr>
+                        </thead>
+                        <tbody id="aoqId"></tbody>
+                    </table>
                 </div>
             </div>
             <div class="row" style="margin-top: 20px">
@@ -468,8 +392,63 @@ $this->load->library('session');
                     </button>
                 </div>
             </div>
+
+            <!--            Professional Qualifications-->
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">11.</span>
+                    Professional Qualifications
+                </div>
+                <div class="col-sm-4">
+                    Institution
+                </div>
+                <div class="col-sm-2">
+                    From
+                </div>
+                <div class="col-sm-2">
+                    To
+                </div>
+                <div class="col-sm-2">
+                    Duration
+                </div>
+                <div class="col-sm-2">
+                    Type of Qualification
+                </div>
+                <div id="pqId">
+                    <div class="col-sm-12 pqRow" style="padding-left: 0px">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addPq"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removePq"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
         </div>
-        <!--        </div>-->
     </div>
 <?php
 $this->load->view('examples/footer');
