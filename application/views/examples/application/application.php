@@ -56,8 +56,8 @@ $this->load->library('session');
                     <div class="col-sm-4" style="font-weight: bold;font-size: 20px">University of Colombo School of
                         Computing
                     </div>
-                    <div class="col-sm-4" style="text-align: center">Application No : <span id="appNo"></span></div>
-                    <div class="col-sm-4" style="text-align: center">Date issued : <span id="appDate"></span></div>
+                    <div class="col-sm-4" style="text-align: center;margin-top: 10px">Application No : <span id="appNo"></span></div>
+                    <div class="col-sm-4" style="text-align: center;margin-top: 10px">Date issued : <span id="appDate"></span></div>
                 </div>
 
                 <hr>
