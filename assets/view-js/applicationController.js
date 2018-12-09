@@ -25,3 +25,19 @@ $('#removeAos').click(function () {
     $('#aosId div.col-sm-6:last-child').remove();
     aosCount--;
 });
+
+$('#addSe').click(function () {
+    $('#seId').append('' +
+        '<div class="col-sm-12" style="margin-bottom: 15px">' +
+        '<div class="col-sm-3"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
+        '<div class="col-sm-3"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '</div>'
+    );
+});
+
+$('#removeSe').click(function () {
+    $('#seId div.col-sm-12:last-child').remove();
+});

@@ -200,6 +200,133 @@ $this->load->library('session');
                     <input type="text" class="form-control">
                 </div>
             </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">6.</span>
+                    Email Address
+                </div>
+                <div class="col-sm-6">
+                    Personal
+                </div>
+                <div class="col-sm-6">
+                    Official
+                </div>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">7.</span>
+                </div>
+                <div class="col-sm-6">
+                    Date of birth
+                </div>
+                <div class="col-sm-6" style="text-align: center">
+                    Age as at closing date of the application
+                </div>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-sm-6" style="margin-top: 5px;text-align: center">
+                    0 Years 0 Months 0 Days
+                    <input type="hidden" id="txtClosingDate">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">8.</span>
+                </div>
+                <div class="col-sm-12">
+                    (a) Applicants citizenship
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-12">
+                    (b) If a Citizen of Sri Lanka How obtained (Tick Relevant Cage)
+                </div>
+                <div class="col-sm-12" style="margin-top: 20px">
+                    <div class="col-sm-6">
+                        By descent<input type="checkbox"
+                                         style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    </div>
+                    <div class="col-sm-6">
+                        By registration<input type="checkbox"
+                                              style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">9.</span>
+                    Educational Qualifications
+                </div>
+                <div class="col-sm-12" style="margin-bottom: 15px">
+                    (a) Secondary Education
+                </div>
+                <div class="col-sm-3">
+                    Name of the School
+                </div>
+                <div class="col-sm-2">
+                    From
+                </div>
+                <div class="col-sm-2">
+                    To
+                </div>
+                <div class="col-sm-3">
+                    Examination passed
+                </div>
+                <div class="col-sm-2">
+                    Year
+                </div>
+                <div id="seId">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addSe"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removeSe"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
         </div>
         <!--        </div>-->
     </div>
