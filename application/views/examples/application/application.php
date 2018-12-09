@@ -29,7 +29,7 @@ $this->load->library('session');
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
               rel="stylesheet">
         <style>
-            hr{
+            hr {
                 display: block;
                 margin-top: 25px;
                 margin-bottom: 25px;
@@ -44,112 +44,114 @@ $this->load->library('session');
 
     <body>
 
-    <div class="wrapper" style="background-color: #f5f5f5">
+    <div class="wrapper" style="background-color: #f5f5f5;padding-bottom: 5px">
 
 
-        <div style="background-color: #f5f5f5">
-            <div style="text-align: center;font-size: 40px">
-                <div style="padding-top: 60px">Application</div>
+        <!--        <div style="background-color: #f5f5f5">-->
+        <div style="text-align: center;font-size: 40px">
+            <div style="padding-top: 60px">Application Form</div>
+        </div>
+        <div style="background-color: white;border: 2px solid #666666;margin: 50px;padding: 10px">
+            <div class="row" style="margin-bottom: 30px">
+                <div class="col-sm-4" style="font-weight: bold;font-size: 20px">University of Colombo School of
+                    Computing
+                </div>
+                <div class="col-sm-4" style="text-align: center;margin-top: 10px">Application No : <span
+                            id="appNo"></span></div>
+                <div class="col-sm-4" style="text-align: center;margin-top: 10px">Date issued : <span
+                            id="appDate"></span></div>
             </div>
-            <div style="background-color: white;border: 2px solid #666666;margin: 50px;padding: 10px">
-                <div class="row" style="margin-bottom: 30px">
-                    <div class="col-sm-4" style="font-weight: bold;font-size: 20px">University of Colombo School of
-                        Computing
-                    </div>
-                    <div class="col-sm-4" style="text-align: center;margin-top: 10px">Application No : <span id="appNo"></span></div>
-                    <div class="col-sm-4" style="text-align: center;margin-top: 10px">Date issued : <span id="appDate"></span></div>
-                </div>
 
-                <hr>
+            <hr>
 
-                <div class="row" style="margin-bottom: 20px">
-                    <div class="col-sm-12" style="font-weight: bold">
-                        Posts applied for
-                    </div>
+            <div class="row" style="margin-bottom: 20px">
+                <div class="col-sm-12" style="font-weight: bold">
+                    Posts applied for
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        Lecturer (Probationary)<input type="checkbox"
-                                                      style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
-                    </div>
-                    <div class="col-sm-6">
-                        Senior Lecturer Gr. II<input type="checkbox"
-                                                     style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    Lecturer (Probationary)<input type="checkbox"
+                                                  style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
                 </div>
+                <div class="col-sm-6">
+                    Senior Lecturer Gr. II<input type="checkbox"
+                                                 style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                </div>
+            </div>
 
-                <hr>
+            <hr>
 
-                <div class="row" style="margin-bottom: 20px">
-                    <div class="col-sm-12" style="font-weight: bold">
-                        Areas of Specialization
-                    </div>
-                    <div class="col-sm-12">
-                        (Please indicate the subject arrears of specialization based on your qualification and work
-                        experience)
-                    </div>
+            <div class="row" style="margin-bottom: 20px">
+                <div class="col-sm-12" style="font-weight: bold">
+                    Areas of Specialization
                 </div>
-                <div class="row" id="aosId">
-                    <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
-                    <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
+                <div class="col-sm-12">
+                    (Please indicate the subject arrears of specialization based on your qualification and work
+                    experience)
                 </div>
-                <div class="row" style="margin-top: 20px">
-                    <div class="col-sm-6">
-                        <button class="btn btn-primary" id="addAos"
-                                style="left: 50%;transform: translateX(-50%);position: relative">Add Field
-                        </button>
-                    </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-primary" id="removeAos"
-                                style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
-                        </button>
-                    </div>
+            </div>
+            <div class="row" id="aosId">
+                <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
+                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addAos"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
                 </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removeAos"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
 
-                <hr>
+            <hr>
 
-                <div class="row">
-                    <div class="col-sm-12" style="font-weight: bold;margin-bottom: 10px">1.</div>
-                    <div class="col-sm-6">Full Name of the applicant (in block capitals)</div>
-                    <div class="col-sm-6">Surname with initials (in block capitals)</div>
-                    <div class="col-sm-6"><input type="text" class="form-control"></div>
-                    <div class="col-sm-6"><input type="text" class="form-control"></div>
-                    <div class="col-sm-12">NIC No./ Passport No./ Driving License No</div>
-                    <div class="col-sm-6"><input type="text" class="form-control"></div>
+            <div class="row">
+                <div class="col-sm-12" style="font-weight: bold;margin-bottom: 10px">1.</div>
+                <div class="col-sm-6">Full Name of the applicant (in block capitals)</div>
+                <div class="col-sm-6">Surname with initials (in block capitals)</div>
+                <div class="col-sm-6"><input type="text" class="form-control"></div>
+                <div class="col-sm-6"><input type="text" class="form-control"></div>
+                <div class="col-sm-12">NIC No./ Passport No./ Driving License No</div>
+                <div class="col-sm-6"><input type="text" class="form-control"></div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-4" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">2.</span>
+                    Gender
                 </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="col-sm-4" style="margin-bottom: 10px">
-                        <span style="font-weight: bold;margin-right: 10px">2.</span>
-                        Gender
-                    </div>
-                    <div class="col-sm-4">
-                        Male<input type="checkbox"
-                                   style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
-                    </div>
-                    <div class="col-sm-4">
-                        Female<input type="checkbox"
-                                     style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
-                    </div>
+                <div class="col-sm-4">
+                    Male<input type="checkbox"
+                               style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
                 </div>
-                <div class="row" style="margin-top: 40px">
-                    <div class="col-sm-4" style="margin-bottom: 10px">
-                        <span style="font-weight: bold;margin-right: 10px">3.</span>
-                        Civil Status
-                    </div>
-                    <div class="col-sm-4">
-                        Married<input type="checkbox"
-                                   style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
-                    </div>
-                    <div class="col-sm-4">
-                        Unmarried<input type="checkbox"
-                                     style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
-                    </div>
+                <div class="col-sm-4">
+                    Female<input type="checkbox"
+                                 style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 40px">
+                <div class="col-sm-4" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">3.</span>
+                    Civil Status
+                </div>
+                <div class="col-sm-4">
+                    Married<input type="checkbox"
+                                  style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                </div>
+                <div class="col-sm-4">
+                    Unmarried<input type="checkbox"
+                                    style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
                 </div>
             </div>
         </div>
+        <!--        </div>-->
     </div>
 <?php
 $this->load->view('examples/footer');
