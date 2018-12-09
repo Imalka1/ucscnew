@@ -78,18 +78,18 @@ $this->load->library('session');
                         experience)
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="aosId">
                     <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
                     <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
                 </div>
-                <div class="row" id="aosId">
+                <div class="row" style="margin-top: 20px">
                     <div class="col-sm-6">
-                        <button class="btn btn-primary"
+                        <button class="btn btn-primary" id="addAos"
                                 style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                         </button>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-primary"
+                        <button class="btn btn-primary" id="removeAos"
                                 style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                         </button>
                     </div>
