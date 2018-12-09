@@ -129,11 +129,11 @@ $this->load->library('session');
                 </div>
                 <div class="col-sm-4">
                     Male<input type="checkbox"
-                               style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                               style="margin-left: 45px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
                 </div>
                 <div class="col-sm-4">
                     Female<input type="checkbox"
-                                 style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                                 style="margin-left: 47px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
                 </div>
             </div>
             <div class="row" style="margin-top: 40px">
@@ -148,6 +148,56 @@ $this->load->library('session');
                 <div class="col-sm-4">
                     Unmarried<input type="checkbox"
                                     style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">4.</span>
+                    Address
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    Postal Address
+                </div>
+                <div class="col-sm-6">
+                    Permanent Address (if different from postal address)
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">5.</span>
+                    Contact Numbers
+                </div>
+                <div class="col-sm-4">
+                    Mobile
+                </div>
+                <div class="col-sm-4">
+                    Home
+                </div>
+                <div class="col-sm-4">
+                    Office
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control">
                 </div>
             </div>
         </div>
