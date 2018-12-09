@@ -284,6 +284,7 @@ $this->load->library('session');
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th width="3%"></th>
                             <th width="30%">Name of the School</th>
                             <th width="20%">From</th>
                             <th width="20%">To</th>
@@ -320,6 +321,7 @@ $this->load->library('session');
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th width="3%"></th>
                             <th width="25%">Name of the University / Institution</th>
                             <th width="12%">From</th>
                             <th width="12%">To</th>
@@ -365,6 +367,7 @@ $this->load->library('session');
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th width="3%"></th>
                             <th width="25%">Institution</th>
                             <th width="25%">Diploma etc</th>
                             <th width="25%">Duration</th>
@@ -401,39 +404,20 @@ $this->load->library('session');
                     <span style="font-weight: bold;margin-right: 10px">11.</span>
                     Professional Qualifications
                 </div>
-                <div class="col-sm-4">
-                    Institution
-                </div>
-                <div class="col-sm-2">
-                    From
-                </div>
-                <div class="col-sm-2">
-                    To
-                </div>
-                <div class="col-sm-2">
-                    Duration
-                </div>
-                <div class="col-sm-2">
-                    Type of Qualification
-                </div>
-                <div id="pqId">
-                    <div class="col-sm-12 pqRow" style="padding-left: 0px">
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="3%"></th>
+                            <th width="30%">Institution</th>
+                            <th width="15%">From</th>
+                            <th width="15%">To</th>
+                            <th width="20%">Duration</th>
+                            <th width="20%">Type of Qualification</th>
+                        </tr>
+                        </thead>
+                        <tbody id="pqId"></tbody>
+                    </table>
                 </div>
             </div>
             <div class="row" style="margin-top: 20px">

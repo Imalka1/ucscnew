@@ -22,8 +22,8 @@ $('#addAos').click(function () {
 });
 
 $('#removeAos').click(function () {
-    $('#aosId div.col-sm-6:last-child').remove();
     aosCount--;
+    $('#aosId div.col-sm-6:last-child').remove();
 });
 
 
@@ -32,6 +32,7 @@ $('#addSe').click(function () {
 });
 
 $('#removeSe').click(function () {
+    rowSe--;
     $('#seId tr:last-child').remove();
 });
 
@@ -40,6 +41,7 @@ $('#addHe').click(function () {
 });
 
 $('#removeHe').click(function () {
+    rowHe--;
     $('#heId tr.rowHeFile:last-child').remove();
     $('#heId tr.rowHe:last-child').remove();
 });
@@ -49,29 +51,26 @@ $('#addAoq').click(function () {
 });
 
 $('#removeAoq').click(function () {
+    rowAoq--;
     $('#aoqId tr.rowAoqFile:last-child').remove();
     $('#aoqId tr.rowAoq:last-child').remove();
 });
 
 $('#addPq').click(function () {
-    $('#pqId').append('' +
-        '<div class="col-sm-12 pqRow" style="margin-bottom: 15px;padding-left: 0px">' +
-        '<div class="col-sm-4"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
-        '</div>'
-    );
+    addRowPq();
 });
 
 $('#removePq').click(function () {
-    $('#pqId div.pqRow:last-child').remove();
+    rowPq--;
+    $('#pqId tr.rowPq:last-child').remove();
 });
+
+var rowSe = 1;
 
 function addRowSe() {
     $('#seId').append('' +
         '<tr class="rowSe">\n' +
+        '<td width="3%">' + rowSe++ + '</td>\n' +
         '<td width="30%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
@@ -81,9 +80,12 @@ function addRowSe() {
     );
 }
 
+var rowHe = 1;
+
 function addRowHe() {
     $('#heId').append('' +
         '<tr class="rowHe">\n' +
+        '<td width="3%">' + rowHe++ + '</td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="12%"><input type="date" class="form-control"></td>\n' +
         '<td width="12%"><input type="date" class="form-control"></td>\n' +
@@ -94,21 +96,39 @@ function addRowHe() {
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '</tr>' +
         '<tr class="rowHeFile">\n' +
-        '<td colspan="8"><input type="file"></td>\n' +
+        '<td colspan="9"><input type="file"></td>\n' +
         '</tr>'
     );
 }
 
-function addRowAoq(){
+var rowAoq = 1;
+
+function addRowAoq() {
     $('#aoqId').append('' +
         '<tr class="rowAoq">\n' +
+        '<td width="3%">' + rowAoq++ + '</td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '</tr>' +
         '<tr class="rowAoqFile">\n' +
-        '<td colspan="4"><input type="file"></td>\n' +
+        '<td colspan="5"><input type="file"></td>\n' +
+        '</tr>'
+    );
+}
+
+var rowPq = 1;
+
+function addRowPq() {
+    $('#pqId').append('' +
+        '<tr class="rowPq">\n' +
+        '<td width="3%">' + rowPq++ + '</td>\n' +
+        '<td width="30%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '</tr>'
     );
 }
@@ -117,4 +137,5 @@ $(window).ready(function () {
     addRowSe();
     addRowHe();
     addRowAoq();
+    addRowPq();
 });
