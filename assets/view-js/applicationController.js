@@ -132,7 +132,7 @@ function addRowHe() {
         '<td width="12%"><input type="date" class="form-control"></td>\n' +
         '<td width="12%"><input type="date" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
-        '<td width="10%"><input type="number" class="form-control"></td>\n' +
+        '<td width="10%"><input type="number" min="1" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
@@ -151,7 +151,7 @@ function addRowAoq() {
         '<td width="3%">' + rowAoq++ + '</td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
-        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '</tr>' +
         '<tr class="rowAoqFile">\n' +
@@ -169,7 +169,7 @@ function addRowPq() {
         '<td width="30%"><input type="text" class="form-control"></td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
-        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="number" min="1" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '</tr>'
     );
@@ -183,7 +183,7 @@ function addRowEr() {
         '<td width="3%">' + rowEr++ + '</td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
-        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="number" min="1" class="form-control"></td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
