@@ -38,6 +38,14 @@ $this->load->library('session');
                 border-style: inset;
                 /*border-width: 1px;*/
             }
+
+            input[type=checkbox] {
+                margin-left: 30px;
+                -ms-transform: scale(2); /* IE */
+                -moz-transform: scale(2); /* FF */
+                -webkit-transform: scale(2); /* Safari and Chrome */
+                -o-transform: scale(2); /* Opera */
+            }
         </style>
     </head>
 
@@ -71,12 +79,10 @@ $this->load->library('session');
             </div>
             <div class="row">
                 <div class="col-sm-6">
-                    Lecturer (Probationary)<input type="checkbox"
-                                                  style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    Lecturer (Probationary)<input type="checkbox">
                 </div>
                 <div class="col-sm-6">
-                    Senior Lecturer Gr. II<input type="checkbox"
-                                                 style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    Senior Lecturer Gr. II<input type="checkbox">
                 </div>
             </div>
 
@@ -93,7 +99,7 @@ $this->load->library('session');
             </div>
             <div class="row" id="aosId">
                 <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
-                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
+<!--                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>-->
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-sm-6">
@@ -128,12 +134,10 @@ $this->load->library('session');
                     Gender
                 </div>
                 <div class="col-sm-4">
-                    Male<input type="checkbox"
-                               style="margin-left: 45px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    Male<input type="checkbox">
                 </div>
                 <div class="col-sm-4">
-                    Female<input type="checkbox"
-                                 style="margin-left: 47px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    Female<input type="checkbox">
                 </div>
             </div>
             <div class="row" style="margin-top: 40px">
@@ -142,12 +146,10 @@ $this->load->library('session');
                     Civil Status
                 </div>
                 <div class="col-sm-4">
-                    Married<input type="checkbox"
-                                  style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    Married<input type="checkbox">
                 </div>
                 <div class="col-sm-4">
-                    Unmarried<input type="checkbox"
-                                    style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    Unmarried<input type="checkbox">
                 </div>
             </div>
 
@@ -260,12 +262,10 @@ $this->load->library('session');
                 </div>
                 <div class="col-sm-12" style="margin-top: 20px">
                     <div class="col-sm-6">
-                        By descent<input type="checkbox"
-                                         style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                        By descent<input type="checkbox">
                     </div>
                     <div class="col-sm-6">
-                        By registration<input type="checkbox"
-                                              style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                        By registration<input type="checkbox">
                     </div>
                 </div>
             </div>
@@ -430,6 +430,157 @@ $this->load->library('session');
                     <button class="btn btn-primary" id="removePq"
                             style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                     </button>
+                </div>
+            </div>
+
+            <!--            Proficiency in Sinhala/ Tamil/ English-->
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">12.</span>
+                    Proficiency in Sinhala/ Tamil/ English
+                </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="10%">Language</th>
+                            <th width="45%" colspan="4">***Ability to Work</th>
+                            <th width="45%" colspan="4">***Ability to Teach</th>
+                        </tr>
+                        <tr>
+                            <th width="10%"></th>
+                            <th width="11.25%">Very Good</th>
+                            <th width="11.25%">Good</th>
+                            <th width="11.25%">Fair</th>
+                            <th width="11.25%">No Knowledge</th>
+                            <th width="11.25%">Very Good</th>
+                            <th width="11.25%">Good</th>
+                            <th width="11.25%">Fair</th>
+                            <th width="11.25%">No Knowledge</th>
+                        </tr>
+                        </thead>
+                        <tbody id="psteId"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-12">
+                    <b>***Note:</b> indicate your level based on self-evaluation of your ability
+                </div>
+            </div>
+
+            <!--            Employment Records (from present to past)-->
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">13.</span>
+                    Employment Records (from present to past)
+                </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="3%"></th>
+                            <th width="15%">Post</th>
+                            <th width="20%">Institution / Company</th>
+                            <th width="15%">Duration</th>
+                            <th width="15%">From</th>
+                            <th width="15%">To</th>
+                            <th width="20%">Last drawn Monthly Salary (Rs.)</th>
+                        </tr>
+                        </thead>
+                        <tbody id="erId"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addEr"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removeEr"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">14.</span>
+                    Experience relevant to the post applied for (Please indicate the tasks handled with the duration)
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">15.</span>
+                    Details of research and publications, if any (if space is insufficient, please use separate sheet of same size)
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">16.</span>
+                    Referees
+                </div>
+                <div class="col-sm-12">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="3%"></th>
+                            <th width="20%">Name</th>
+                            <th width="20%">Designation </th>
+                            <th width="20%">Address</th>
+                            <th width="20%">Email Address</th>
+                            <th width="20%">Contact Number</th>
+                        </tr>
+                        </thead>
+                        <tbody id="refId"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addRef"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removeRef"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <b>N.B.</b> When applying for the Academic Posts, one of the referees should be either the Professor or a Senior Lecturer of the Department of Study in which the applicant had his/her University Education or the Head of the Institutions in which the candidate works
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">17.</span>
+                    Any other information that you would like to indicate
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control">
                 </div>
             </div>
         </div>

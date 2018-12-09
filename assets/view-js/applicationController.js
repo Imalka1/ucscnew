@@ -15,15 +15,17 @@ $('#submitVacancy').click(function () {
     // window.location.replace('');
 });
 
-var aosCount = 3;
+var aosCount = 2;
 $('#addAos').click(function () {
     $('#aosId').append('' +
         '<div class="col-sm-6" style="margin-bottom: 15px"><span>' + aosCount++ + '.</span> <input type="text" class="form-control"></div>')
 });
 
 $('#removeAos').click(function () {
-    aosCount--;
-    $('#aosId div.col-sm-6:last-child').remove();
+    if (aosCount > 2) {
+        aosCount--;
+        $('#aosId div.col-sm-6:last-child').remove();
+    }
 });
 
 
@@ -32,8 +34,10 @@ $('#addSe').click(function () {
 });
 
 $('#removeSe').click(function () {
-    rowSe--;
-    $('#seId tr:last-child').remove();
+    if (rowSe > 1) {
+        rowSe--;
+        $('#seId tr:last-child').remove();
+    }
 });
 
 $('#addHe').click(function () {
@@ -41,9 +45,11 @@ $('#addHe').click(function () {
 });
 
 $('#removeHe').click(function () {
-    rowHe--;
-    $('#heId tr.rowHeFile:last-child').remove();
-    $('#heId tr.rowHe:last-child').remove();
+    if (rowHe > 1) {
+        rowHe--;
+        $('#heId tr.rowHeFile:last-child').remove();
+        $('#heId tr.rowHe:last-child').remove();
+    }
 });
 
 $('#addAoq').click(function () {
@@ -51,9 +57,11 @@ $('#addAoq').click(function () {
 });
 
 $('#removeAoq').click(function () {
-    rowAoq--;
-    $('#aoqId tr.rowAoqFile:last-child').remove();
-    $('#aoqId tr.rowAoq:last-child').remove();
+    if (rowAoq > 1) {
+        rowAoq--;
+        $('#aoqId tr.rowAoqFile:last-child').remove();
+        $('#aoqId tr.rowAoq:last-child').remove();
+    }
 });
 
 $('#addPq').click(function () {
@@ -61,8 +69,32 @@ $('#addPq').click(function () {
 });
 
 $('#removePq').click(function () {
-    rowPq--;
-    $('#pqId tr.rowPq:last-child').remove();
+    if (rowPq > 1) {
+        rowPq--;
+        $('#pqId tr.rowPq:last-child').remove();
+    }
+});
+
+$('#addEr').click(function () {
+    addRowEr();
+});
+
+$('#removeEr').click(function () {
+    if (rowEr > 1) {
+        rowEr--;
+        $('#erId tr.rowEr:last-child').remove();
+    }
+});
+
+$('#addRef').click(function () {
+    addRowRef();
+});
+
+$('#removeRef').click(function () {
+    if (rowRef > 1) {
+        rowRef--;
+        $('#refId tr.rowRef:last-child').remove();
+    }
 });
 
 var rowSe = 1;
@@ -133,9 +165,62 @@ function addRowPq() {
     );
 }
 
+function addRowPste() {
+    var languages = ["Sinhala", "English", "Tamil"];
+    for (var i = 0; i < languages.length; i++) {
+        $('#psteId').append('' +
+            '<tr class="rowPste">\n' +
+            '<td width="10%">' + languages[i] + '</td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
+            '</tr>'
+        );
+    }
+}
+
+var rowEr = 1;
+
+function addRowEr() {
+    $('#erId').append('' +
+        '<tr class="rowEr">\n' +
+        '<td width="3%">' + rowEr++ + '</td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '</tr>'
+    );
+}
+
+var rowRef = 1;
+
+function addRowRef() {
+    $('#refId').append('' +
+        '<tr class="rowRef">\n' +
+        '<td width="3%">' + rowRef++ + '</td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
+        '</tr>'
+    );
+}
+
 $(window).ready(function () {
     addRowSe();
     addRowHe();
     addRowAoq();
     addRowPq();
+    addRowPste();
+    addRowEr();
+    addRowRef();
 });
