@@ -99,7 +99,7 @@ $this->load->library('session');
             </div>
             <div class="row" id="aosId">
                 <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
-<!--                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>-->
+                <!--                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>-->
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-sm-6">
@@ -524,7 +524,8 @@ $this->load->library('session');
             <div class="row" style="margin-top: 50px">
                 <div class="col-sm-12" style="margin-bottom: 10px">
                     <span style="font-weight: bold;margin-right: 10px">15.</span>
-                    Details of research and publications, if any (if space is insufficient, please use separate sheet of same size)
+                    Details of research and publications, if any (if space is insufficient, please use separate sheet of
+                    same size)
                 </div>
                 <div class="col-sm-12">
                     <input type="text" class="form-control">
@@ -544,7 +545,7 @@ $this->load->library('session');
                         <tr>
                             <th width="3%"></th>
                             <th width="20%">Name</th>
-                            <th width="20%">Designation </th>
+                            <th width="20%">Designation</th>
                             <th width="20%">Address</th>
                             <th width="20%">Email Address</th>
                             <th width="20%">Contact Number</th>
@@ -566,9 +567,12 @@ $this->load->library('session');
                     </button>
                 </div>
             </div>
+
             <div class="row" style="margin-top: 50px">
                 <div class="col-sm-12" style="margin-bottom: 10px">
-                    <b>N.B.</b> When applying for the Academic Posts, one of the referees should be either the Professor or a Senior Lecturer of the Department of Study in which the applicant had his/her University Education or the Head of the Institutions in which the candidate works
+                    <b>N.B.</b> When applying for the Academic Posts, one of the referees should be either the Professor
+                    or a Senior Lecturer of the Department of Study in which the applicant had his/her University
+                    Education or the Head of the Institutions in which the candidate works
                 </div>
             </div>
 
@@ -581,6 +585,55 @@ $this->load->library('session');
                 </div>
                 <div class="col-sm-12">
                     <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    I hereby declare that the particulars furnished by me in the application are true and accurate. I am
+                    also aware that if any particulars contained herein are found to be false or incorrect I am liable
+                    to disqualification if the inaccuracy is discovered before the selection and dismissal without any
+                    compensation if the inaccuracy is discovered after the appointment.
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;margin-bottom: 50px">
+                <div class="col-sm-6" style="margin-bottom: 10px">
+                    Date :
+                </div>
+                <div class="col-sm-6" style="margin-bottom: 10px">
+                    Signature :
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12"><b>Recommendation of the Head of the Institution</b></div>
+                <div class="col-sm-12" style="margin-bottom: 10px">(Only for permanent employees works at the Higher
+                    Educational Institutions, Government Departments and Government Corporations etc.)
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    I recommended and forwarded herewith the application of Dr./Mr./ Mrs./ Miss…………………………………………. for the
+                    above post and agree/ do not agree to release him/ her in case selected to the post applied for.
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 100px">
+                <div class="col-sm-6" style="text-align: center">
+                    Date
+                </div>
+                <div class="col-sm-6" style="text-align: center">
+                    Name
+                </div>
+            </div>
+            <div class="row" style="margin-top: 100px;margin-bottom: 50px">
+                <div class="col-sm-6" style="text-align: center">
+                    Signature of the Head of Institution
+                </div>
+                <div class="col-sm-6" style="text-align: center">
+                    Official Stamp
                 </div>
             </div>
         </div>
