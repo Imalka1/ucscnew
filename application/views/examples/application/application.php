@@ -409,6 +409,65 @@ $this->load->library('session');
                     </button>
                 </div>
             </div>
+
+<!--            Any Other Qualifications-->
+
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <span style="font-weight: bold;margin-right: 10px">10.</span>
+                    **Any Other Qualifications
+                </div>
+                <div class="col-sm-4">
+                    Institution
+                </div>
+                <div class="col-sm-4">
+                    Diploma etc
+                </div>
+                <div class="col-sm-2">
+                    Duration
+                </div>
+                <div class="col-sm-2">
+                    Year
+                </div>
+                <div id="aoqId">
+                    <div class="col-sm-12 aoqRow" style="padding-left: 0px">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-12" style="margin-bottom: 20px">
+                            <input type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-12">
+                    <b>*Note:</b> Certified copies of the certificates should be attached
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addAoq"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removeAoq"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
         </div>
         <!--        </div>-->
     </div>

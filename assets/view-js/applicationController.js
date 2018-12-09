@@ -61,3 +61,19 @@ $('#addHe').click(function () {
 $('#removeHe').click(function () {
     $('#heId div.heRow:last-child').remove();
 });
+
+$('#addAoq').click(function () {
+    $('#aoqId').append('' +
+        '<div class="col-sm-12 aoqRow" style="margin-bottom: 15px;padding-left: 0px">' +
+        '<div class="col-sm-4"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-4"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-12" style="margin-bottom: 10px;margin-top: 15px"><input type="file"></div>' +
+        '</div>'
+    );
+});
+
+$('#removeAoq').click(function () {
+    $('#aoqId div.aoqRow:last-child').remove();
+});
