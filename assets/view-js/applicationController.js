@@ -28,7 +28,7 @@ $('#removeAos').click(function () {
 
 $('#addSe').click(function () {
     $('#seId').append('' +
-        '<div class="col-sm-12" style="margin-bottom: 15px">' +
+        '<div class="col-sm-12" style="margin-bottom: 15px;padding-left: 0px">' +
         '<div class="col-sm-3"><input type="text" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
@@ -40,4 +40,23 @@ $('#addSe').click(function () {
 
 $('#removeSe').click(function () {
     $('#seId div.col-sm-12:last-child').remove();
+});
+
+$('#addHe').click(function () {
+    $('#heId').append('' +
+        '<div class="col-sm-12" style="margin-bottom: 15px;padding-left: 0px">' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
+        '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-1"><input type="number" min="1" class="form-control"></div>' +
+        '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '</div>'
+    );
+});
+
+$('#removeHe').click(function () {
+    $('#heId div.col-sm-12:last-child').remove();
 });

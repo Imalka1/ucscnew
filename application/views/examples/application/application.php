@@ -296,7 +296,7 @@ $this->load->library('session');
                     Year
                 </div>
                 <div id="seId">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="padding-left: 0px">
                         <div class="col-sm-3">
                             <input type="text" class="form-control">
                         </div>
@@ -323,6 +323,80 @@ $this->load->library('session');
                 </div>
                 <div class="col-sm-6">
                     <button class="btn btn-primary" id="removeSe"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                    </button>
+                </div>
+            </div>
+
+            <!--            (b) Higher Education (*Graduate & Postgraduate Qualifications)-->
+
+            <hr>
+
+            <div class="row" style="margin-top: 50px">
+                <div class="col-sm-12" style="margin-bottom: 15px">
+                    (b) Higher Education (*Graduate & Postgraduate Qualifications)
+                </div>
+                <div class="col-sm-2">
+                    Name of the University / Institution
+                </div>
+                <div class="col-sm-2">
+                    From
+                </div>
+                <div class="col-sm-2">
+                    To
+                </div>
+                <div class="col-sm-1">
+                    Degree Obtained
+                </div>
+                <div class="col-sm-1">
+                    Duration of the Course (No. of years)
+                </div>
+                <div class="col-sm-1">
+                    Class
+                </div>
+                <div class="col-sm-1">
+                    Awarding Year
+                </div>
+                <div class="col-sm-2">
+                    Index No
+                </div>
+                <div id="heId">
+                    <div class="col-sm-12" style="padding-left: 0px">
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="number" min="1" class="form-control">
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="addHe"
+                            style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                    </button>
+                </div>
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" id="removeHe"
                             style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                     </button>
                 </div>
