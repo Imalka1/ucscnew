@@ -22,7 +22,6 @@ $('#addAos').click(function () {
 });
 
 $('#removeAos').click(function () {
-    console.log($('#aosId div.col-sm-6:last-child'))
     $('#aosId div.col-sm-6:last-child').remove();
     aosCount--;
 });

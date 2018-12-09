@@ -28,6 +28,17 @@ $this->load->library('session');
               href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
               rel="stylesheet">
+        <style>
+            hr{
+                display: block;
+                margin-top: 25px;
+                margin-bottom: 25px;
+                margin-left: auto;
+                margin-right: auto;
+                border-style: inset;
+                /*border-width: 1px;*/
+            }
+        </style>
     </head>
 
 
@@ -92,6 +103,49 @@ $this->load->library('session');
                         <button class="btn btn-primary" id="removeAos"
                                 style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                         </button>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-sm-12" style="font-weight: bold;margin-bottom: 10px">1.</div>
+                    <div class="col-sm-6">Full Name of the applicant (in block capitals)</div>
+                    <div class="col-sm-6">Surname with initials (in block capitals)</div>
+                    <div class="col-sm-6"><input type="text" class="form-control"></div>
+                    <div class="col-sm-6"><input type="text" class="form-control"></div>
+                    <div class="col-sm-12">NIC No./ Passport No./ Driving License No</div>
+                    <div class="col-sm-6"><input type="text" class="form-control"></div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-sm-4" style="margin-bottom: 10px">
+                        <span style="font-weight: bold;margin-right: 10px">2.</span>
+                        Gender
+                    </div>
+                    <div class="col-sm-4">
+                        Male<input type="checkbox"
+                                   style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    </div>
+                    <div class="col-sm-4">
+                        Female<input type="checkbox"
+                                     style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 40px">
+                    <div class="col-sm-4" style="margin-bottom: 10px">
+                        <span style="font-weight: bold;margin-right: 10px">3.</span>
+                        Civil Status
+                    </div>
+                    <div class="col-sm-4">
+                        Married<input type="checkbox"
+                                   style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
+                    </div>
+                    <div class="col-sm-4">
+                        Unmarried<input type="checkbox"
+                                     style="margin-left: 30px;-ms-transform: scale(2); /* IE */-moz-transform: scale(2); /* FF */-webkit-transform: scale(2); /* Safari and Chrome */-o-transform: scale(2); /* Opera */">
                     </div>
                 </div>
             </div>
