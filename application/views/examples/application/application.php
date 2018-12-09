@@ -238,7 +238,7 @@ $this->load->library('session');
                     <input type="date" class="form-control">
                 </div>
                 <div class="col-sm-6" style="margin-top: 5px;text-align: center">
-                    0 Years 0 Months 0 Days
+                    0 Years / 0 Months / 0 Days
                     <input type="hidden" id="txtClosingDate">
                 </div>
             </div>
@@ -334,7 +334,7 @@ $this->load->library('session');
 
             <div class="row" style="margin-top: 50px">
                 <div class="col-sm-12" style="margin-bottom: 15px">
-                    (b) Higher Education (*Graduate & Postgraduate Qualifications)
+                    (b) Higher Education (<b>*Graduate & Postgraduate Qualifications</b>)
                 </div>
                 <div class="col-sm-2">
                     Name of the University / Institution
@@ -361,7 +361,7 @@ $this->load->library('session');
                     Index No
                 </div>
                 <div id="heId">
-                    <div class="col-sm-12" style="padding-left: 0px">
+                    <div class="col-sm-12 heRow" style="padding-left: 0px">
                         <div class="col-sm-2">
                             <input type="text" class="form-control">
                         </div>
@@ -386,7 +386,15 @@ $this->load->library('session');
                         <div class="col-sm-2">
                             <input type="text" class="form-control">
                         </div>
+                        <div class="col-sm-12" style="margin-bottom: 20px">
+                            <input type="file">
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-12">
+                    <b>*Note:</b> Certified copies of the certificates and transcripts should be attached
                 </div>
             </div>
             <div class="row" style="margin-top: 20px">

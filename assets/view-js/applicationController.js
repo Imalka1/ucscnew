@@ -44,7 +44,7 @@ $('#removeSe').click(function () {
 
 $('#addHe').click(function () {
     $('#heId').append('' +
-        '<div class="col-sm-12" style="margin-bottom: 15px;padding-left: 0px">' +
+        '<div class="col-sm-12 heRow" style="margin-bottom: 15px;padding-left: 0px">' +
         '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="date" class="form-control"></div>' +
@@ -53,10 +53,11 @@ $('#addHe').click(function () {
         '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
         '<div class="col-sm-1"><input type="text" class="form-control"></div>' +
         '<div class="col-sm-2"><input type="text" class="form-control"></div>' +
+        '<div class="col-sm-12" style="margin-bottom: 10px;margin-top: 15px"><input type="file"></div>' +
         '</div>'
     );
 });
 
 $('#removeHe').click(function () {
-    $('#heId div.col-sm-12:last-child').remove();
+    $('#heId div.heRow:last-child').remove();
 });
