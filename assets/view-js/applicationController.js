@@ -18,6 +18,11 @@ $('#submitVacancy').click(function () {
 var aosCount = 3;
 $('#addAos').click(function () {
     $('#aosId').append('' +
-        '<div class="col-sm-6" style="margin-bottom: 15px"><span>' + aosCount++ + '.</span> <input type="text" class="form-control"></div>' +
         '<div class="col-sm-6" style="margin-bottom: 15px"><span>' + aosCount++ + '.</span> <input type="text" class="form-control"></div>')
+});
+
+$('#removeAos').click(function () {
+    console.log($('#aosId div.col-sm-6:last-child'))
+    $('#aosId div.col-sm-6:last-child').remove();
+    aosCount--;
 });
