@@ -46,6 +46,14 @@ $this->load->library('session');
                 -webkit-transform: scale(2); /* Safari and Chrome */
                 -o-transform: scale(2); /* Opera */
             }
+
+            input[type=radio] {
+                margin-left: 30px;
+                -ms-transform: scale(2); /* IE */
+                -moz-transform: scale(2); /* FF */
+                -webkit-transform: scale(2); /* Safari and Chrome */
+                -o-transform: scale(2); /* Opera */
+            }
         </style>
     </head>
 
@@ -134,10 +142,10 @@ $this->load->library('session');
                     Gender
                 </div>
                 <div class="col-sm-4">
-                    Male<input type="checkbox" style="margin-left: 47px">
+                    Male<input type="radio" name="gender" style="margin-left: 47px">
                 </div>
                 <div class="col-sm-4">
-                    Female<input type="checkbox" style="margin-left: 47px">
+                    Female<input type="radio" name="gender" style="margin-left: 47px">
                 </div>
             </div>
             <div class="row" style="margin-top: 40px">
@@ -146,10 +154,10 @@ $this->load->library('session');
                     Civil Status
                 </div>
                 <div class="col-sm-4">
-                    Married<input type="checkbox">
+                    Married<input type="radio" name="civilStatus">
                 </div>
                 <div class="col-sm-4">
-                    Unmarried<input type="checkbox">
+                    Unmarried<input type="radio" name="civilStatus">
                 </div>
             </div>
 
@@ -262,10 +270,10 @@ $this->load->library('session');
                 </div>
                 <div class="col-sm-12" style="margin-top: 20px">
                     <div class="col-sm-6">
-                        By descent<input type="checkbox">
+                        By descent<input type="radio" name="citizen">
                     </div>
                     <div class="col-sm-6">
-                        By registration<input type="checkbox">
+                        By registration<input type="radio" name="citizen">
                     </div>
                 </div>
             </div>
@@ -461,7 +469,41 @@ $this->load->library('session');
                             <th width="11.25%">No Knowledge</th>
                         </tr>
                         </thead>
-                        <tbody id="psteId"></tbody>
+                        <tbody id="psteId">
+                        <tr class="rowPste">
+                            <td width="10%">Sinhala</td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                        </tr>
+                        <tr class="rowPste">
+                            <td width="10%">English</td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                        </tr>
+                        <tr class="rowPste">
+                            <td width="10%">Tamil</td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                            <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                        </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -517,18 +559,17 @@ $this->load->library('session');
                     Experience relevant to the post applied for (Please indicate the tasks handled with the duration)
                 </div>
                 <div class="col-sm-12">
-                    <input type="text" class="form-control">
+                    <textarea name="" id="" rows="7" class="form-control"></textarea>
                 </div>
             </div>
 
             <div class="row" style="margin-top: 50px">
                 <div class="col-sm-12" style="margin-bottom: 10px">
                     <span style="font-weight: bold;margin-right: 10px">15.</span>
-                    Details of research and publications, if any (if space is insufficient, please use separate sheet of
-                    same size)
+                    Details of research and publications
                 </div>
                 <div class="col-sm-12">
-                    <input type="text" class="form-control">
+                    <textarea name="" id="" rows="7" class="form-control"></textarea>
                 </div>
             </div>
 
@@ -584,7 +625,7 @@ $this->load->library('session');
                     Any other information that you would like to indicate
                 </div>
                 <div class="col-sm-12">
-                    <input type="text" class="form-control">
+                    <textarea name="" id="" rows="7" class="form-control"></textarea>
                 </div>
             </div>
 
@@ -597,18 +638,18 @@ $this->load->library('session');
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 50px">
-                <div class="col-sm-1">
-                    <input type="checkbox">
-                </div>
-                <div class="col-sm-11" style="margin-bottom: 10px">
-                    I agree to the Terms and Conditions
+            <div class="row" style="margin-top: 50px;margin-bottom: 10px">
+                <div class="col-sm-12">
+                    <input type="checkbox" id="chkAgreement"><span style="margin-left: 30px">I agree to the terms and conditions</span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-12">
-                    <button class="btn btn-primary" style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;margin-bottom: 80px">Submit the form</button>
+                    <button class="btn btn-primary" id="submitBtn"
+                            style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;margin-bottom: 80px">
+                        Submit the form
+                    </button>
                 </div>
             </div>
         </div>

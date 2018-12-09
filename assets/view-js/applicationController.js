@@ -28,7 +28,6 @@ $('#removeAos').click(function () {
     }
 });
 
-
 $('#addSe').click(function () {
     addRowSe();
 });
@@ -95,6 +94,17 @@ $('#removeRef').click(function () {
         rowRef--;
         $('#refId tr.rowRef:last-child').remove();
     }
+});
+
+$(document).ready(function () {
+    $('#chkAgreement').on('change', function () {
+        console.log(1)
+        if ($('#chkAgreement').is(':checked')) {
+            $('#submitBtn').attr('disabled', false);
+        } else {
+            $('#submitBtn').attr('disabled', true);
+        }
+    });
 });
 
 var rowSe = 1;
@@ -165,25 +175,6 @@ function addRowPq() {
     );
 }
 
-function addRowPste() {
-    var languages = ["Sinhala", "English", "Tamil"];
-    for (var i = 0; i < languages.length; i++) {
-        $('#psteId').append('' +
-            '<tr class="rowPste">\n' +
-            '<td width="10%">' + languages[i] + '</td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '<td width="11.25%"><input type="checkbox" style="margin-left: 65px"></td>\n' +
-            '</tr>'
-        );
-    }
-}
-
 var rowEr = 1;
 
 function addRowEr() {
@@ -220,7 +211,6 @@ $(window).ready(function () {
     addRowHe();
     addRowAoq();
     addRowPq();
-    addRowPste();
     addRowEr();
     addRowRef();
 });
