@@ -99,7 +99,7 @@ $this->load->library('session');
             </div>
             <div class="row" id="aosId">
                 <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
-                <!--                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>-->
+                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-sm-6">
@@ -597,43 +597,18 @@ $this->load->library('session');
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 50px;margin-bottom: 50px">
-                <div class="col-sm-6" style="margin-bottom: 10px">
-                    Date :
-                </div>
-                <div class="col-sm-6" style="margin-bottom: 10px">
-                    Signature :
-                </div>
-            </div>
-
             <div class="row" style="margin-top: 50px">
-                <div class="col-sm-12"><b>Recommendation of the Head of the Institution</b></div>
-                <div class="col-sm-12" style="margin-bottom: 10px">(Only for permanent employees works at the Higher
-                    Educational Institutions, Government Departments and Government Corporations etc.)
+                <div class="col-sm-1">
+                    <input type="checkbox">
+                </div>
+                <div class="col-sm-11" style="margin-bottom: 10px">
+                    I agree to the Terms and Conditions
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 50px">
-                <div class="col-sm-12" style="margin-bottom: 10px">
-                    I recommended and forwarded herewith the application of Dr./Mr./ Mrs./ Miss…………………………………………. for the
-                    above post and agree/ do not agree to release him/ her in case selected to the post applied for.
-                </div>
-            </div>
-
-            <div class="row" style="margin-top: 100px">
-                <div class="col-sm-6" style="text-align: center">
-                    Date
-                </div>
-                <div class="col-sm-6" style="text-align: center">
-                    Name
-                </div>
-            </div>
-            <div class="row" style="margin-top: 100px;margin-bottom: 50px">
-                <div class="col-sm-6" style="text-align: center">
-                    Signature of the Head of Institution
-                </div>
-                <div class="col-sm-6" style="text-align: center">
-                    Official Stamp
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary" style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;margin-bottom: 80px">Submit the form</button>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ $('#submitVacancy').click(function () {
     // window.location.replace('');
 });
 
-var aosCount = 2;
+var aosCount = 3;
 $('#addAos').click(function () {
     $('#aosId').append('' +
         '<div class="col-sm-6" style="margin-bottom: 15px"><span>' + aosCount++ + '.</span> <input type="text" class="form-control"></div>')
