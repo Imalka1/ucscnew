@@ -134,10 +134,10 @@ $this->load->library('session');
                     Gender
                 </div>
                 <div class="col-sm-4">
-                    Male<input type="checkbox">
+                    Male<input type="checkbox" style="margin-left: 47px">
                 </div>
                 <div class="col-sm-4">
-                    Female<input type="checkbox">
+                    Female<input type="checkbox" style="margin-left: 47px">
                 </div>
             </div>
             <div class="row" style="margin-top: 40px">
