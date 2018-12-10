@@ -670,12 +670,6 @@ $this->load->library('session');
     arr1.push(<?php
         echo "'<option>MSc</option>'";
         ?>);
-
-    function addDataRowHe(val) {
-        for (var i = 0; i < arr1.length; i++) {
-            $('#degreeId' + val + '').append(arr1[i])
-        }
-    }
 </script>
 <?php
 $this->load->view('examples/footer');

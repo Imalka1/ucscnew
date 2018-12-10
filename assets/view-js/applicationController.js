@@ -150,6 +150,12 @@ function addRowHe() {
     );
 }
 
+function addDataRowHe(val) {
+    for (var i = 0; i < arr1.length; i++) {
+        $('#degreeId' + val + '').append(arr1[i])
+    }
+}
+
 var rowAoq = 1;
 
 function addRowAoq() {
