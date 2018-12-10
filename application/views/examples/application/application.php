@@ -630,7 +630,7 @@ $this->load->library('session');
 
         <div class="row">
             <div class="col-sm-12" style="margin-top: 50px;margin-bottom: 10px">
-                <b>Note:-</b>&nbsp;&nbsp;Please make sure that have completed all required fields with correct details.
+                <b>Note:-</b>&nbsp;&nbsp;Please make sure that you have completed all required fields with correct details.
             </div>
         </div>
 
