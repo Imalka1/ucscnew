@@ -41,6 +41,7 @@ $('#removeSe').click(function () {
 
 $('#addHe').click(function () {
     addRowHe();
+    addDataRowHe(rowHe);
 });
 
 $('#removeHe').click(function () {
@@ -112,7 +113,7 @@ var rowSe = 1;
 function addRowSe() {
     $('#seId').append('' +
         '<tr class="rowSe">\n' +
-        '<td width="3%">' + rowSe++ + '</td>\n' +
+        '<th width="3%">' + rowSe++ + '</th>\n' +
         '<td width="30%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
@@ -127,18 +128,24 @@ var rowHe = 1;
 function addRowHe() {
     $('#heId').append('' +
         '<tr class="rowHe">\n' +
-        '<td width="3%">' + rowHe++ + '</td>\n' +
+        '<th width="3%">' + rowHe++ + '.</th>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="12%"><input type="date" class="form-control"></td>\n' +
         '<td width="12%"><input type="date" class="form-control"></td>\n' +
-        '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '<td width="10%"><input type="number" min="1" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '<td width="10%"><input type="text" class="form-control"></td>\n' +
         '</tr>' +
         '<tr class="rowHeFile">\n' +
-        '<td colspan="9"><input type="file"></td>\n' +
+        '<td colspan="6">' +
+        '<div class="row">' +
+        '<div class="col-sm-2">Degree Obtained</div>' +
+        '<div class="col-sm-5"><select class="form-control" id="degreeId' + rowHe + '"></select></div>' +
+        '<div class="col-sm-5"><select class="form-control"></select></div>' +
+        '</div>' +
+        '</td>\n' +
+        '<td colspan="2"><input type="file"></td>\n' +
         '</tr>'
     );
 }
@@ -148,7 +155,7 @@ var rowAoq = 1;
 function addRowAoq() {
     $('#aoqId').append('' +
         '<tr class="rowAoq">\n' +
-        '<td width="3%">' + rowAoq++ + '</td>\n' +
+        '<th width="3%">' + rowAoq++ + '</th>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="25%"><input type="text" class="form-control"></td>\n' +
         '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
@@ -165,7 +172,7 @@ var rowPq = 1;
 function addRowPq() {
     $('#pqId').append('' +
         '<tr class="rowPq">\n' +
-        '<td width="3%">' + rowPq++ + '</td>\n' +
+        '<th width="3%">' + rowPq++ + '</th>\n' +
         '<td width="30%"><input type="text" class="form-control"></td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
@@ -180,7 +187,7 @@ var rowEr = 1;
 function addRowEr() {
     $('#erId').append('' +
         '<tr class="rowEr">\n' +
-        '<td width="3%">' + rowEr++ + '</td>\n' +
+        '<th width="3%">' + rowEr++ + '</th>\n' +
         '<td width="15%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '<td width="15%"><input type="number" min="1" class="form-control"></td>\n' +
@@ -196,7 +203,7 @@ var rowRef = 1;
 function addRowRef() {
     $('#refId').append('' +
         '<tr class="rowRef">\n' +
-        '<td width="3%">' + rowRef++ + '</td>\n' +
+        '<th width="3%">' + rowRef++ + '</th>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '<td width="20%"><input type="text" class="form-control"></td>\n' +
@@ -209,6 +216,7 @@ function addRowRef() {
 $(window).ready(function () {
     addRowSe();
     addRowHe();
+    addDataRowHe(rowHe);
     addRowAoq();
     addRowPq();
     addRowEr();
