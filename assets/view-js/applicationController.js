@@ -140,7 +140,7 @@ function addRowHe() {
         '<tr class="rowHeFile">\n' +
         '<td colspan="6">' +
         '<div class="row">' +
-        '<div class="col-sm-2">Degree Obtained</div>' +
+        '<div class="col-sm-2" style="line-height: 30px"><b>Degree Obtained</b></div>' +
         '<div class="col-sm-5"><select class="form-control" id="degreeId' + rowHe + '"></select></div>' +
         '<div class="col-sm-5"><select class="form-control"></select></div>' +
         '</div>' +
