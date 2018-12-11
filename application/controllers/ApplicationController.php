@@ -33,4 +33,39 @@ class ApplicationController extends CI_Controller
     {
         $this->load->view('examples/application/application3');
     }
+
+    public function page4()
+    {
+        $this->load->view('examples/application/application4');
+    }
+
+    public function page5()
+    {
+        $this->load->view('examples/application/application5');
+    }
+
+    public function page6()
+    {
+        $this->load->view('examples/application/application6');
+    }
+
+    public function page7()
+    {
+        $this->load->view('examples/application/application7');
+    }
+
+    public function page8()
+    {
+        $this->load->view('examples/application/application8');
+    }
+
+    public function page9()
+    {
+        $this->load->view('examples/application/application9');
+    }
+
+    public function page10()
+    {
+        $this->load->view('examples/application/application10');
+    }
 }
