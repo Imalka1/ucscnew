@@ -33,12 +33,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addAos"
+                <button class="btn btn-primary" id="addAos" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeAos"
+                <button class="btn btn-primary" id="removeAos" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -202,11 +202,14 @@ $this->load->view('examples/application/header');
 
         <hr>
 
-        <div class="row" style="margin-top: 100px">
+        <div class="row" style="margin-top: 100px;margin-bottom: 80px">
             <div class="col-sm-12">
                 <button class="btn btn-primary" type="submit"
                         style="left: 50%;transform: translateX(-50%);position: relative">Next Page
                 </button>
+            </div>
+            <div class="col-sm-12" style="margin-top: 50px;text-align: center;font-weight: bold">
+                (Page 1)
             </div>
         </div>
     </form>

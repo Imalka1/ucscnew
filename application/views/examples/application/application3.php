@@ -27,12 +27,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addEr"
+                <button class="btn btn-primary" id="addEr" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeEr"
+                <button class="btn btn-primary" id="removeEr" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -85,12 +85,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addRef"
+                <button class="btn btn-primary" id="addRef" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeRef"
+                <button class="btn btn-primary" id="removeRef" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -142,15 +142,18 @@ $this->load->view('examples/application/header');
             <div class="col-sm-6">
                 <a href="<?= base_url('application_form/page2') ?>">
                     <button class="btn btn-primary" type="button"
-                            style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;margin-bottom: 80px">Previous Page
+                            style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;">Previous Page
                     </button>
                 </a>
             </div>
             <div class="col-sm-6">
                 <button class="btn btn-primary" id="submitBtn" type="submit"
-                        style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;margin-bottom: 80px">
+                        style="left: 50%;transform: translateX(-50%);position: relative;margin-top: 80px;">
                     Submit the form
                 </button>
+            </div>
+            <div class="col-sm-12" style="margin-top: 50px;margin-bottom: 80px;text-align: center;font-weight: bold">
+                (Page 3)
             </div>
         </div>
     </form>

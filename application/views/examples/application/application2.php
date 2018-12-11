@@ -28,12 +28,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addSe"
+                <button class="btn btn-primary" id="addSe" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeSe"
+                <button class="btn btn-primary" id="removeSe" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -72,12 +72,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addHe"
+                <button class="btn btn-primary" id="addHe" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeHe"
+                <button class="btn btn-primary" id="removeHe" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -114,12 +114,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addAoq"
+                <button class="btn btn-primary" id="addAoq" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeAoq"
+                <button class="btn btn-primary" id="removeAoq" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -151,12 +151,12 @@ $this->load->view('examples/application/header');
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addPq"
+                <button class="btn btn-primary" id="addPq" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removePq"
+                <button class="btn btn-primary" id="removePq" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -237,7 +237,7 @@ $this->load->view('examples/application/header');
 
         <hr>
 
-        <div class="row" style="margin-top: 100px">
+        <div class="row" style="margin-top: 100px;margin-bottom: 80px">
             <div class="col-sm-6">
                 <a href="<?= base_url('application_form/page1') ?>">
                     <button class="btn btn-primary" type="button"
@@ -249,6 +249,9 @@ $this->load->view('examples/application/header');
                 <button class="btn btn-primary" type="submit"
                         style="left: 50%;transform: translateX(-50%);position: relative">Next Page
                 </button>
+            </div>
+            <div class="col-sm-12" style="margin-top: 50px;text-align: center;font-weight: bold">
+                (Page 2)
             </div>
         </div>
     </form>
