@@ -16,6 +16,21 @@ class ApplicationController extends CI_Controller
 
     public function index()
     {
-        $this->load->view('examples/application/application');
+
+    }
+
+    public function page1()
+    {
+        $this->load->view('examples/application/application1');
+    }
+
+    public function page2()
+    {
+        $this->load->view('examples/application/application2');
+    }
+
+    public function page3()
+    {
+        $this->load->view('examples/application/application3');
     }
 }
