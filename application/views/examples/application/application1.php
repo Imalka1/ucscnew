@@ -52,7 +52,7 @@ $this->load->view('examples/application/header');
             <div class="col-sm-6">Surname with initials (in block capitals)</div>
             <div class="col-sm-6"><input type="text" class="form-control"></div>
             <div class="col-sm-6"><input type="text" class="form-control"></div>
-            <div class="col-sm-12">NIC No./ Passport No./ Driving License No</div>
+            <div class="col-sm-12" style="margin-top: 10px">NIC No./ Passport No./ Driving License No</div>
             <div class="col-sm-6"><input type="text" class="form-control"></div>
         </div>
 
