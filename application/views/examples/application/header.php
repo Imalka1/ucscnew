@@ -1,5 +1,8 @@
 <?php
 $this->load->library('session');
+//if (!isset($_SESSION["application"])) {
+//    redirect(base_url() . "main");
+//}
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,14 +71,20 @@ $this->load->library('session');
         <div style="padding-top: 60px">Application Form</div>
     </div>
     <div style="background-color: white;border: 2px solid #666666;margin: 50px;padding: 10px">
-        <div class="row" style="margin-bottom: 30px">
+        <div class="row" style="margin-bottom: 10px">
             <div class="col-sm-4" style="font-weight: bold;font-size: 20px">University of Colombo School of
                 Computing
             </div>
             <div class="col-sm-4" style="text-align: center;margin-top: 10px">Application No : <span
-                        id="appNo"></span></div>
+                        id="appNo"><?= $applicationNo ?></span>
+            </div>
             <div class="col-sm-4" style="text-align: center;margin-top: 10px">Date issued : <span
-                        id="appDate"></span></div>
+                        id="appDate"></span>
+            </div>
+            <div class="col-sm-12"
+                 style="font-weight: bold;font-size: 20px;text-align: center;margin-top: 20px"><?= $year ?>
+                Intake
+            </div>
         </div>
 
-        <hr>
+        <hr style="margin-top: 5px">

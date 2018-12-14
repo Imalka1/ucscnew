@@ -3,7 +3,7 @@ $this->load->view('examples/application/header');
 ?>
     <!--            Any Other Qualifications-->
     <form action="<?= base_url('application_form/page3') ?>">
-        <div class="row">
+        <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
                 <span style="font-weight: bold;margin-right: 10px">9.</span>
                 Educational Qualifications
