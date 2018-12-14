@@ -1,5 +1,8 @@
 <?php
 $this->load->view('examples/application/header');
+if (basename($_SERVER['PHP_SELF']) == 'page1AppNo') {
+    redirect(base_url() . 'application_form/page1');
+}
 ?>
     <form action="<?= base_url('application_form/page2') ?>">
         <div class="row" style="margin-bottom: 20px">

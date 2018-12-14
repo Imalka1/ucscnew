@@ -1,7 +1,7 @@
 <?php
 $this->load->library('session');
-//if (!isset($_SESSION["application"])) {
-//    redirect(base_url() . "main");
+//if (basename($_SERVER['PHP_SELF']) == 'page1AppNo') {
+//    redirect(base_url() . 'application_form/page1');
 //}
 ?>
 <!doctype html>

@@ -59,7 +59,7 @@ $this->load->library('session');
         <?php
         if ($advertisement != null) {
             ?>
-            <a href="<?= base_url('application_form/page1') ?>" target="_blank">
+            <a href="<?= base_url('application_form/page1AppNo') ?>" target="_blank">
                 <button type="submit" class="btn btn-fill"
                         style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
                         id="submitVacancy">

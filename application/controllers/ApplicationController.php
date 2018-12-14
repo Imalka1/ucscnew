@@ -5,9 +5,10 @@
  * Date: 2018-12-09
  * Time: 1:00 AM
  */
-
 class ApplicationController extends CI_Controller
 {
+
+
     public function __construct()
     {
         parent::__construct();
@@ -19,15 +20,30 @@ class ApplicationController extends CI_Controller
 
     }
 
-    private function getData(){
-        $data['applicationNo'] = '19L002';
+    private function getDataWithAppNo()
+    {
+        $this->load->library('session');
+        $_SESSION['applicationNo'] = '20190001';
+        $data['applicationNo'] = $_SESSION['applicationNo'];
         $data['year'] = '2019';
         return $data;
     }
 
+    private function getData()
+    {
+        $this->load->library('session');
+        $data['applicationNo'] = $_SESSION['applicationNo'];
+        $data['year'] = '2019';
+        return $data;
+    }
+
+    public function page1WithAppNo()
+    {
+        $this->load->view('examples/application/application1', $this->getDataWithAppNo());
+    }
+
     public function page1()
     {
-
         $this->load->view('examples/application/application1', $this->getData());
     }
 
