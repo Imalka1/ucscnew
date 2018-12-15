@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-sm-12">
-        <b>Note:-</b>&nbsp;&nbsp;You will receive an email with a password to your personal email after the submission of page 1.<br>
-        <span style="margin-left: 47px">If you need to complete the rest of submissions later(since page 2) or view completed form, you should get login to the system with your personal email and the password that you received.</span>
+        <b>Note:-</b>&nbsp;&nbsp;You will receive an email with an application number and a password to your personal email after the page 1 submission.<br>
+        <span style="margin-left: 47px">Your application number will display after the page 1 submission.</span><br>
+        <span style="margin-left: 47px">If you need to complete the rest of submissions later(since page 2) or view completed form, you should get login to the system with your personal email and the password that you received.</span><br>
     </div>
 </div>
 </div>

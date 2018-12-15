@@ -13,5 +13,9 @@ class ApplicationModel extends CI_Model
         parent::__construct();
     }
 
-
+    public function submitApplicantAndGetAppNumber()
+    {
+        $this->load->database();
+        $this->db->query("insert into comment (sid,aid,description) values (?,?,?)", array($this->input->post('txtStaffId'), $this->input->post('txtId'), $this->input->post('txtReport')));
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: Imalka Gunawardana
@@ -20,31 +21,39 @@ class ApplicationController extends CI_Controller
 
     }
 
-    private function getDataWithAppNo()
-    {
-        $this->load->library('session');
-        $_SESSION['applicationNo'] = '20190001';
-        $data['applicationNo'] = $_SESSION['applicationNo'];
-        $data['year'] = '2019';
-        return $data;
-    }
-
     private function getData()
     {
         $this->load->library('session');
-        $data['applicationNo'] = $_SESSION['applicationNo'];
+        $data['applicationNo'] = '';
+        if (isset($_SESSION['applicationNo'])) {
+            $data['applicationNo'] = $_SESSION['applicationNo'];
+        }
         $data['year'] = '2019';
         return $data;
     }
 
-    public function page1WithAppNo()
+    public function startPage1()
     {
-        $this->load->view('examples/application/application1', $this->getDataWithAppNo());
+        $this->load->library('session');
+        $_SESSION['applicationNo'] = '';
+        $data['applicationNo'] = $_SESSION['applicationNo'];
+        $data['year'] = '2019';
+        $this->load->view('examples/application/application1', $data);
     }
 
     public function page1()
     {
         $this->load->view('examples/application/application1', $this->getData());
+    }
+
+    public function startPage2()
+    {
+        $this->load->library('session');
+        $this->load->model('ApplicationModel');
+        $_SESSION['applicationNo'] = '2019001';
+        $data['applicationNo'] = $_SESSION['applicationNo'];
+        $data['year'] = '2019';
+        $this->load->view('examples/application/application2', $data);
     }
 
     public function page2()

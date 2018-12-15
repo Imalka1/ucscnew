@@ -64,7 +64,6 @@ $route['sar/applicants'] = 'SarController/viewApplicants';
 $route['sar/vacancy'] = 'SarController/viewVacancy';
 $route['advertisement'] = 'AdvertisementController';
 $route['application_form/page1'] = 'ApplicationController/page1';
-$route['application_form/page1AppNo'] = 'ApplicationController/page1WithAppNo';
 $route['application_form/page2'] = 'ApplicationController/page2';
 $route['application_form/page3'] = 'ApplicationController/page3';
 $route['application_form/page4'] = 'ApplicationController/page4';

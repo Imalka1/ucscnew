@@ -1,4 +1,7 @@
 <?php
+if (basename($_SERVER['PHP_SELF']) == 'startPage2') {
+    redirect(base_url() . 'application_form/page2');
+}
 $this->load->view('examples/application/header');
 ?>
     <!--            Any Other Qualifications-->
