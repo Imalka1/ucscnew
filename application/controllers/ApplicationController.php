@@ -10,9 +10,12 @@ include 'EmailController.php';
 
 class ApplicationController extends CI_Controller
 {
+    private $data;
+
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
         $this->load->helper('url');
     }
 
@@ -21,87 +24,97 @@ class ApplicationController extends CI_Controller
 
     }
 
-    private function getData()
+    private function setData()
     {
-        $this->load->library('session');
-        $data['applicationNo'] = '';
+        $this->data['applicationNo'] = '';
         if (isset($_SESSION['applicationNo'])) {
-            $data['applicationNo'] = $_SESSION['applicationNo'];
+            $this->data['applicationNo'] = $_SESSION['applicationNo'];
         }
-        $data['year'] = '2019';
-        return $data;
+        $this->data['year'] = '2019';
     }
 
     public function startPage1()
     {
-        $this->load->library('session');
         $_SESSION['applicationNo'] = '';
-        $data['applicationNo'] = $_SESSION['applicationNo'];
-        $data['year'] = '2019';
-        $this->load->view('examples/application/application1', $data);
+        $this->data['applicationNo'] = $_SESSION['applicationNo'];
+        redirect(base_url() . "application_form/page1");
     }
 
     public function page1()
     {
-        $this->load->view('examples/application/application1', $this->getData());
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+                $this->data['personalEmail'] = 'imalkagunawardana1@gmail.com';
+            }
+        }
+        $this->load->view('examples/application/application1', $this->data);
     }
 
     public function startPage2()
     {
-        $this->load->library('session');
         $this->load->model('ApplicationModel');
-        $data = $this->ApplicationModel->submitApplicantAndGetAppNumber();
-        $_SESSION['applicationNo'] = $data['id'];
-        $data['applicationNo'] = $_SESSION['applicationNo'];
-        $data['year'] = '2019';
+        $this->data = $this->ApplicationModel->submitApplicantAndGetAppNumber();
+        $_SESSION['applicationNo'] = $this->data['id'];
+        $this->data['applicationNo'] = $_SESSION['applicationNo'];
+        $this->data['year'] = '2019';
         $email = new EmailController();
         $this->load->library('email');
-        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
-        $this->load->view('examples/application/application2', $data);
+//        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
+        redirect(base_url() . "application_form/page2");
     }
 
     public function page2()
     {
-        $this->load->view('examples/application/application2', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application2', $this->data);
     }
 
     public function page3()
     {
-        $this->load->view('examples/application/application3', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application3', $this->data);
     }
 
     public function page4()
     {
-        $this->load->view('examples/application/application4', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application4', $this->data);
     }
 
     public function page5()
     {
-        $this->load->view('examples/application/application5', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application5', $this->data);
     }
 
     public function page6()
     {
-        $this->load->view('examples/application/application6', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application6', $this->data);
     }
 
     public function page7()
     {
-        $this->load->view('examples/application/application7', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application7', $this->data);
     }
 
     public function page8()
     {
-        $this->load->view('examples/application/application8', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application8', $this->data);
     }
 
     public function page9()
     {
-        $this->load->view('examples/application/application9', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application9', $this->data);
     }
 
     public function page10()
     {
-        $this->load->view('examples/application/application10', $this->getData());
+        $this->setData();
+        $this->load->view('examples/application/application10', $this->data);
     }
 }

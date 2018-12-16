@@ -1,11 +1,11 @@
 <?php
 $this->load->library('session');
-if (basename($_SERVER['PHP_SELF']) == 'startPage1') {
-    redirect(base_url() . 'application_form/page1');
-}
-if (basename($_SERVER['PHP_SELF']) == 'startPage2') {
-    redirect(base_url() . 'application_form/page2');
-}
+//if (basename($_SERVER['PHP_SELF']) == 'startPage1') {
+//    redirect(base_url() . 'application_form/page1');
+//}
+//if (basename($_SERVER['PHP_SELF']) == 'startPage2') {
+//    redirect(base_url() . 'application_form/page2');
+//}
 if (isset($applicationNo)) {
     if (basename($_SERVER['PHP_SELF']) != 'page1' && $applicationNo == '') {
         redirect(base_url() . 'application_form/page1');
