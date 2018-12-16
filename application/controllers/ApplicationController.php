@@ -6,10 +6,10 @@
  * Date: 2018-12-09
  * Time: 1:00 AM
  */
+include 'EmailController.php';
+
 class ApplicationController extends CI_Controller
 {
-
-
     public function __construct()
     {
         parent::__construct();
@@ -50,10 +50,13 @@ class ApplicationController extends CI_Controller
     {
         $this->load->library('session');
         $this->load->model('ApplicationModel');
-        $id = $this->ApplicationModel->submitApplicantAndGetAppNumber();
-        $_SESSION['applicationNo'] = $id;
+        $data = $this->ApplicationModel->submitApplicantAndGetAppNumber();
+        $_SESSION['applicationNo'] = $data['id'];
         $data['applicationNo'] = $_SESSION['applicationNo'];
         $data['year'] = '2019';
+        $email = new EmailController();
+        $this->load->library('email');
+        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
         $this->load->view('examples/application/application2', $data);
     }
 

@@ -4,11 +4,11 @@ $this->load->view('examples/application/header');
 <?php
 if ($_SESSION['applicationNo'] == '') {
     ?>
-    <form action="<?= base_url('ApplicationController/startPage2') ?>">
+    <form method="post" action="<?= base_url('ApplicationController/startPage2') ?>">
     <?php
 } else {
     ?>
-    <form action="<?= base_url('ApplicationController/page2') ?>">
+    <form method="post" action="<?= base_url('ApplicationController/page2') ?>">
     <?php
 }
 ?>
@@ -157,7 +157,7 @@ if ($_SESSION['applicationNo'] == '') {
             Official
         </div>
         <div class="col-sm-6">
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" required name="personalEmail">
         </div>
         <div class="col-sm-6">
             <input type="email" class="form-control">

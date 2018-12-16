@@ -49,11 +49,8 @@
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
 <script src="<?= base_url('assets/ajax/libs/core-js/2.4.1/core.js') ?>"</script>
 
-<!-- Library for adding dinamically elements -->
-<
-script
-src = "<?= base_url('assets/js/arrive.min.js') ?>"
-type = "text/javascript" ></script>
+// <!-- Library for adding dinamically elements -->
+//<script src = "<?//= base_url('assets/js/arrive.min.js') ?>//" type = "text/javascript" ></script>
 
 <!-- Forms Validations Plugin -->
 <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>

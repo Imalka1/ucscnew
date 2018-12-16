@@ -1,10 +1,13 @@
 <?php
 
+include 'EmailController.php';
+
 class SarController extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
         $this->load->helper('url');
     }
 
@@ -46,5 +49,12 @@ class SarController extends CI_Controller
         $this->load->model('AdvertisementModel');
         $this->AdvertisementModel->confirmAdvertisement();
         redirect(base_url() . "sar/advertisement?confirmed=success");
+    }
+
+    public function send_mail()
+    {
+        $email = new EmailController();
+        $this->load->library('email');
+        $email->send_mail($this->email, $this->input->post('operatorEmail'), $this->input->post('txtDetails'));
     }
 }

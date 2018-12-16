@@ -35,7 +35,7 @@ $this->load->view('examples/header');
             <div class="row" style="margin-top: 30px">
                 <div class="col-md-12 col-12">
                     <div class="card">
-                        <form class="form-horizontal" method="post" action="<?= base_url('EmailController/send_mail') ?>">
+                        <form class="form-horizontal" method="post" action="<?= base_url('SarController/send_mail') ?>">
                             <div class="card-header card-header-text" data-background-color="rose">
                                 <h4 class="card-title" style="font-weight: lighter">VACANCY DETAILS</h4>
                             </div>
