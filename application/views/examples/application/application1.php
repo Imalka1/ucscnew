@@ -1,7 +1,4 @@
 <?php
-if (basename($_SERVER['PHP_SELF']) == 'startPage1') {
-    redirect(base_url() . 'application_form/page1');
-}
 $this->load->view('examples/application/header');
 ?>
 <?php

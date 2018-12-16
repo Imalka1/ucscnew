@@ -49,7 +49,7 @@ $this->load->library('session');
             <?php
             if ($advertisement == null) {
                 ?>
-                <div style="font-size: 25px;text-align: center;color: red">No any advertisement yet</div>
+                <div style="font-size: 25px;text-align: center;color: red">No any advertisements yet</div>
                 <?php
             }
             foreach ($advertisement as $row)

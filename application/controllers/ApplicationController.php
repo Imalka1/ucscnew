@@ -50,7 +50,8 @@ class ApplicationController extends CI_Controller
     {
         $this->load->library('session');
         $this->load->model('ApplicationModel');
-        $_SESSION['applicationNo'] = '2019001';
+        $id = $this->ApplicationModel->submitApplicantAndGetAppNumber();
+        $_SESSION['applicationNo'] = $id;
         $data['applicationNo'] = $_SESSION['applicationNo'];
         $data['year'] = '2019';
         $this->load->view('examples/application/application2', $data);
