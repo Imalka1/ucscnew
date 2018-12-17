@@ -66,16 +66,37 @@ $this->load->view('examples/application/header');
         $('#removeEr').click(function () {
             if (rowEr > 1) {
                 rowEr--;
+                <?php
+                if (isset($applicantData)) {
+                ?>
                 $('#erId tr.rowErButton:last-child').remove();
                 $('#erId tr.rowEr:last-child').remove();
+                <?php
+                } else {
+                ?>
+                $('#erId tr.rowEr:last-child').remove();
+                <?php
+                }
+                ?>
             }
         });
 
         var rowEr = 1;
 
         function addRowEr() {
-            $('#erId').append('' +
-                '<tr class="rowEr">\n' +
+            $('#erId').append(
+                <?php
+                if (isset($applicantData)) {
+                    echo 'getText1()+getText2()';
+                } else {
+                    echo 'getText1()';
+                }
+                ?>
+            );
+        }
+
+        function getText1() {
+            return '<tr class="rowEr">\n' +
                 '<th width="3%">' + rowEr++ + '</th>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="20%"><input type="text" class="form-control"></td>\n' +
@@ -83,16 +104,18 @@ $this->load->view('examples/application/header');
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '</tr>'+
-                '<tr class="rowErButton">\n' +
+                '</tr>';
+        }
+
+        function getText2() {
+            return '<tr class="rowErButton">\n' +
                 '<td colspan="7">' +
                 '<div class="row">' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
                 '</div>' +
                 '</td>\n' +
-                '</tr>'
-            );
+                '</tr>';
         }
 
         $(window).ready(function () {

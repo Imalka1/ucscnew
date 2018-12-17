@@ -68,32 +68,55 @@ $this->load->view('examples/application/header');
         $('#removeSe').click(function () {
             if (rowSe > 1) {
                 rowSe--;
+                <?php
+                if (isset($applicantData)) {
+                ?>
                 $('#seId tr.rowSeButton:last-child').remove();
                 $('#seId tr.rowSe:last-child').remove();
+                <?php
+                } else {
+                ?>
+                $('#seId tr.rowSe:last-child').remove();
+                <?php
+                }
+                ?>
             }
         });
 
         var rowSe = 1;
 
         function addRowSe() {
-            $('#seId').append('' +
-                '<tr class="rowSe">\n' +
+            $('#seId').append(
+                <?php
+                if (isset($applicantData)) {
+                    echo 'getText1()+getText2()';
+                } else {
+                    echo 'getText1()';
+                }
+                ?>
+            );
+        }
+
+        function getText1() {
+            return '<tr class="rowSe">\n' +
                 '<th width="3%">' + rowSe++ + '</th>\n' +
                 '<td width="30%"><input type="text" class="form-control"></td>\n' +
                 '<td width="20%"><input type="text" class="form-control"></td>\n' +
                 '<td width="20%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
-                '</tr>' +
-                '<tr class="rowSeButton">\n' +
+                '</tr>';
+        }
+
+        function getText2() {
+            return '<tr class="rowSeButton">\n' +
                 '<td colspan="6">' +
                 '<div class="row">' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
                 '</div>' +
                 '</td>\n' +
-                '</tr>'
-            );
+                '</tr>';
         }
 
         $(window).ready(function () {

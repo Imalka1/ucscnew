@@ -75,17 +75,45 @@ $this->load->view('examples/application/header');
         $('#removeHe').click(function () {
             if (rowHe > 1) {
                 rowHe--;
+                <?php
+                if (isset($applicantData)) {
+                ?>
                 $('#heId tr.rowHeButton:last-child').remove();
                 $('#heId tr.rowHeFile:last-child').remove();
                 $('#heId tr.rowHe:last-child').remove();
+                <?php
+                } else {
+                ?>
+                $('#heId tr.rowHeFile:last-child').remove();
+                $('#heId tr.rowHe:last-child').remove();
+                <?php
+                }
+                ?>
             }
         });
 
         var rowHe = 1;
 
         function addRowHe() {
-            $('#heId').append('' +
-                '<tr class="rowHe">\n' +
+            $('#heId').append(
+                <?php
+                if (isset($applicantData)) {
+                    echo 'getText1()+getText2()';
+                } else {
+                    echo 'getText1()';
+                }
+                ?>
+            );
+        }
+
+        function addDataRowHe(val) {
+            for (var i = 0; i < arr1.length; i++) {
+                $('#degreeId' + val + '').append(arr1[i])
+            }
+        }
+
+        function getText1() {
+            return '<tr class="rowHe">\n' +
                 '<th width="3%">' + rowHe++ + '.</th>\n' +
                 '<td width="25%"><input type="text" class="form-control"></td>\n' +
                 '<td width="12%"><input type="date" class="form-control"></td>\n' +
@@ -104,22 +132,18 @@ $this->load->view('examples/application/header');
                 '</div>' +
                 '</td>\n' +
                 '<td colspan="2"><input type="file"></td>\n' +
-                '</tr>' +
-                '<tr class="rowHeButton">\n' +
+                '</tr>';
+        }
+
+        function getText2() {
+            return '<tr class="rowHeButton">\n' +
                 '<td colspan="8">' +
                 '<div class="row">' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
                 '</div>' +
                 '</td>\n' +
-                '</tr>'
-            );
-        }
-
-        function addDataRowHe(val) {
-            for (var i = 0; i < arr1.length; i++) {
-                $('#degreeId' + val + '').append(arr1[i])
-            }
+                '</tr>';
         }
 
         $(window).ready(function () {

@@ -65,32 +65,55 @@ $this->load->view('examples/application/header');
         $('#removePq').click(function () {
             if (rowPq > 1) {
                 rowPq--;
+                <?php
+                if (isset($applicantData)) {
+                ?>
                 $('#pqId tr.rowPqButton:last-child').remove();
                 $('#pqId tr.rowPq:last-child').remove();
+                <?php
+                } else {
+                ?>
+                $('#pqId tr.rowPq:last-child').remove();
+                <?php
+                }
+                ?>
             }
         });
 
         var rowPq = 1;
 
         function addRowPq() {
-            $('#pqId').append('' +
-                '<tr class="rowPq">\n' +
+            $('#pqId').append(
+                <?php
+                if (isset($applicantData)) {
+                    echo 'getText1()+getText2()';
+                } else {
+                    echo 'getText1()';
+                }
+                ?>
+            );
+        }
+
+        function getText1() {
+            return '<tr class="rowPq">\n' +
                 '<th width="3%">' + rowPq++ + '</th>\n' +
                 '<td width="30%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="20%"><input type="number" min="1" class="form-control"></td>\n' +
                 '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '</tr>'+
-                '<tr class="rowPqButton">\n' +
+                '</tr>';
+        }
+
+        function getText2() {
+            return '<tr class="rowPqButton">\n' +
                 '<td colspan="6">' +
                 '<div class="row">' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
                 '</div>' +
                 '</td>\n' +
-                '</tr>'
-            );
+                '</tr>';
         }
 
         $(window).ready(function () {

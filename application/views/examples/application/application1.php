@@ -237,6 +237,8 @@ if ($_SESSION['applicationNo'] == '') {
             }
         });
 
+        //--------------------------------------------------------Calculate Age---------------------------------------------------------------------
+
         $('#ageId').html('0 Years / 0 Months / 0 Days');
 
         $('#dateId').bind('keyup mouseup', function () {

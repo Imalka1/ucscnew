@@ -67,6 +67,11 @@ class ApplicationController extends CI_Controller
     public function page2()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+                $this->data['applicantData'] = 'imalkagunawardana1@gmail.com';
+            }
+        }
         $this->load->view('examples/application/application2', $this->data);
     }
 

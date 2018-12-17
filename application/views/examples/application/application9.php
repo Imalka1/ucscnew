@@ -72,32 +72,55 @@ $this->load->view('examples/application/header');
         $('#removeRef').click(function () {
             if (rowRef > 1) {
                 rowRef--;
+                <?php
+                if (isset($applicantData)) {
+                ?>
                 $('#refId tr.rowRefButton:last-child').remove();
                 $('#refId tr.rowRef:last-child').remove();
+                <?php
+                } else {
+                ?>
+                $('#refId tr.rowRef:last-child').remove();
+                <?php
+                }
+                ?>
             }
         });
 
         var rowRef = 1;
 
         function addRowRef() {
-            $('#refId').append('' +
-                '<tr class="rowRef">\n' +
-                '<th width="3%">' + rowRef++ + '</th>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '</tr>'+
-                '<tr class="rowRefButton">\n' +
+            $('#refId').append(
+                <?php
+                if (isset($applicantData)) {
+                    echo 'getText1()+getText2()';
+                } else {
+                    echo 'getText1()';
+                }
+                ?>
+            );
+        }
+
+        function getText1() {
+            return '<tr class="rowRefButton">\n' +
                 '<td colspan="6">' +
                 '<div class="row">' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
                 '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
                 '</div>' +
                 '</td>\n' +
-                '</tr>'
-            );
+                '</tr>';
+        }
+
+        function getText2() {
+            return '<tr class="rowRefButton">\n' +
+                '<td colspan="6">' +
+                '<div class="row">' +
+                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
+                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '</div>' +
+                '</td>\n' +
+                '</tr>';
         }
 
         $(window).ready(function () {

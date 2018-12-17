@@ -69,16 +69,37 @@ $this->load->view('examples/application/header');
         $('#removeAoq').click(function () {
             if (rowAoq > 1) {
                 rowAoq--;
+                <?php
+                if (isset($applicantData)) {
+                ?>
                 $('#aoqId tr.rowAoqFile:last-child').remove();
                 $('#aoqId tr.rowAoq:last-child').remove();
+                <?php
+                } else {
+                ?>
+                $('#aoqId tr.rowAoq:last-child').remove();
+                <?php
+                }
+                ?>
             }
         });
 
         var rowAoq = 1;
 
         function addRowAoq() {
-            $('#aoqId').append('' +
-                '<tr class="rowAoq">\n' +
+            $('#aoqId').append(
+                <?php
+                if (isset($applicantData)) {
+                    echo 'getText2()';
+                } else {
+                    echo 'getText1()';
+                }
+                ?>
+            );
+        }
+
+        function getText1() {
+            return '<tr class="rowAoq">\n' +
                 '<th width="3%">' + rowAoq++ + '</th>\n' +
                 '<td width="25%"><input type="text" class="form-control"></td>\n' +
                 '<td width="25%"><input type="text" class="form-control"></td>\n' +
@@ -88,13 +109,29 @@ $this->load->view('examples/application/header');
                 '<tr class="rowAoqFile">\n' +
                 '<td colspan="5">' +
                 '<div class="row">' +
-                '<div class="col-sm-4"><input type="file"></div>' +
-                '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '<div class="col-sm-12"><input type="file"></div>' +
                 '</div>' +
                 '</td>\n' +
-                '</tr>'
-            );
+                '</tr>';
+        }
+
+        function getText2() {
+            return '<tr class="rowAoq">\n' +
+            '<th width="3%">' + rowAoq++ + '</th>\n' +
+            '<td width="25%"><input type="text" class="form-control"></td>\n' +
+            '<td width="25%"><input type="text" class="form-control"></td>\n' +
+            '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
+            '<td width="25%"><input type="text" class="form-control"></td>\n' +
+            '</tr>' +
+            '<tr class="rowAoqFile">\n' +
+            '<td colspan="5">' +
+            '<div class="row">' +
+            '<div class="col-sm-4"><input type="file"></div>' +
+            '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
+            '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+            '</div>' +
+            '</td>\n' +
+            '</tr>';
         }
 
         $(window).ready(function () {
