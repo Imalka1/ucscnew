@@ -17,9 +17,9 @@ $this->load->view('examples/application/header');
                     <tr>
                         <th width="3%"></th>
                         <th width="30%">Name of the School</th>
-                        <th width="20%">From</th>
-                        <th width="20%">To</th>
-                        <th width="15%">Examination passed</th>
+                        <th width="15%">From</th>
+                        <th width="15%">To</th>
+                        <th width="25%">Examination passed</th>
                         <th width="15%">Year</th>
                     </tr>
                     </thead>
@@ -99,11 +99,11 @@ $this->load->view('examples/application/header');
 
         function getText1() {
             return '<tr class="rowSe">\n' +
-                '<th width="3%">' + rowSe++ + '</th>\n' +
+                '<th width="3%">' + rowSe++ + '<input type="hidden"></th>\n' +
                 '<td width="30%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="25%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '</tr>';
         }
@@ -112,12 +112,23 @@ $this->load->view('examples/application/header');
             return '<tr class="rowSeButton">\n' +
                 '<td colspan="6">' +
                 '<div class="row">' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
+                '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
                 '</div>' +
                 '</td>\n' +
                 '</tr>';
         }
+
+        $('#seId').on('click', '.rowSeButtonU', function () {
+            var colCount = $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().length;
+            for (var i = 0; i < colCount; i++) {
+                console.log($(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(i).val())
+            }
+        })
+
+        $('#seId').on('click', '.rowSeButtonD', function () {
+
+        })
 
         $(window).ready(function () {
             addRowSe();
