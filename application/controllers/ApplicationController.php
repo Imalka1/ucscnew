@@ -40,17 +40,6 @@ class ApplicationController extends CI_Controller
         redirect(base_url() . "application_form/page1");
     }
 
-    public function page1()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-                $this->data['personalEmail'] = 'imalkagunawardana1@gmail.com';
-            }
-        }
-        $this->load->view('examples/application/application1', $this->data);
-    }
-
     public function startPage2()
     {
         $this->load->model('ApplicationModel');
@@ -62,6 +51,17 @@ class ApplicationController extends CI_Controller
         $this->load->library('email');
 //        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
         redirect(base_url() . "application_form/page2");
+    }
+
+    public function page1()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+                $this->data['personalEmail'] = 'imalkagunawardana1@gmail.com';
+            }
+        }
+        $this->load->view('examples/application/application1', $this->data);
     }
 
     public function page2()

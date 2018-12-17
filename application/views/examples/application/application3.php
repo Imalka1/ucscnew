@@ -66,6 +66,58 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+    <script>
+        $('#addHe').click(function () {
+            addRowHe();
+            addDataRowHe(rowHe);
+        });
+
+        $('#removeHe').click(function () {
+            if (rowHe > 1) {
+                rowHe--;
+                $('#heId tr.rowHeFile:last-child').remove();
+                $('#heId tr.rowHe:last-child').remove();
+            }
+        });
+
+        var rowHe = 1;
+
+        function addRowHe() {
+            $('#heId').append('' +
+                '<tr class="rowHe">\n' +
+                '<th width="3%">' + rowHe++ + '.</th>\n' +
+                '<td width="25%"><input type="text" class="form-control"></td>\n' +
+                '<td width="12%"><input type="date" class="form-control"></td>\n' +
+                '<td width="12%"><input type="date" class="form-control"></td>\n' +
+                '<td width="10%"><input type="number" min="1" class="form-control"></td>\n' +
+                '<td width="10%"><input type="text" class="form-control"></td>\n' +
+                '<td width="10%"><input type="text" class="form-control"></td>\n' +
+                '<td width="10%"><input type="text" class="form-control"></td>\n' +
+                '</tr>' +
+                '<tr class="rowHeFile">\n' +
+                '<td colspan="6">' +
+                '<div class="row">' +
+                '<div class="col-sm-2" style="line-height: 35px"><b>Degree Obtained</b></div>' +
+                '<div class="col-sm-5"><select class="form-control" id="degreeId' + rowHe + '"></select></div>' +
+                '<div class="col-sm-5"><select class="form-control"></select></div>' +
+                '</div>' +
+                '</td>\n' +
+                '<td colspan="2"><input type="file"></td>\n' +
+                '</tr>'
+            );
+        }
+
+        function addDataRowHe(val) {
+            for (var i = 0; i < arr1.length; i++) {
+                $('#degreeId' + val + '').append(arr1[i])
+            }
+        }
+
+        $(window).ready(function () {
+            addRowHe();
+            addDataRowHe(rowHe);
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

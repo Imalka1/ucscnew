@@ -58,6 +58,38 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+    <script>
+        $('#addEr').click(function () {
+            addRowEr();
+        });
+
+        $('#removeEr').click(function () {
+            if (rowEr > 1) {
+                rowEr--;
+                $('#erId tr.rowEr:last-child').remove();
+            }
+        });
+
+        var rowEr = 1;
+
+        function addRowEr() {
+            $('#erId').append('' +
+                '<tr class="rowEr">\n' +
+                '<th width="3%">' + rowEr++ + '</th>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="number" min="1" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '</tr>'
+            );
+        }
+
+        $(window).ready(function () {
+            addRowEr();
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

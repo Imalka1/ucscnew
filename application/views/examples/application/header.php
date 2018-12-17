@@ -1,19 +1,10 @@
 <?php
 $this->load->library('session');
-//if (basename($_SERVER['PHP_SELF']) == 'startPage1') {
-//    redirect(base_url() . 'application_form/page1');
-//}
-//if (basename($_SERVER['PHP_SELF']) == 'startPage2') {
-//    redirect(base_url() . 'application_form/page2');
-//}
 if (isset($applicationNo)) {
     if (basename($_SERVER['PHP_SELF']) != 'page1' && $applicationNo == '') {
         redirect(base_url() . 'application_form/page1');
     }
 }
-//if (basename($_SERVER['PHP_SELF']) == 'page1AppNo') {
-//    redirect(base_url() . 'application_form/page1');
-//}
 ?>
 <!doctype html>
 <html lang="en">
@@ -69,6 +60,7 @@ if (isset($applicationNo)) {
             -o-transform: scale(2); /* Opera */
         }
     </style>
+    <script src="<?= base_url('assets/js/jquery.min.js') ?>" type="text/javascript"></script>
 </head>
 
 
@@ -83,13 +75,16 @@ if (isset($applicationNo)) {
     </div>
     <div style="background-color: white;border: 2px solid #666666;margin: 50px;padding: 10px">
         <div class="row" style="margin-bottom: 10px">
-            <div class="col-sm-4" style="font-weight: bold;font-size: 20px">University of Colombo School of
+            <div class="col-sm-4" style="font-weight: bold;font-size: 21px">University of Colombo School of
                 Computing
             </div>
-            <div class="col-sm-4" style="text-align: center;margin-top: 10px">Application No : <span
-                        id="appNo"><?= $applicationNo ?></span>
+            <div class="col-sm-4"
+                 style="text-align: center;margin-top: 10px;font-size: 16px;color: red;font-weight: 600">Application No
+                : <span
+                        id="appNo"><?= $applicationNo != '' ? $applicationNo : 'Not yet' ?></span>
             </div>
-            <div class="col-sm-4" style="text-align: center;margin-top: 10px">Date issued : <span
+            <div class="col-sm-4" style="text-align: center;margin-top: 10px;font-size: 16px;font-weight: 600">Date
+                issued : <span
                         id="appDate"></span>
             </div>
             <div class="col-sm-12"
@@ -97,5 +92,20 @@ if (isset($applicationNo)) {
                 Intake
             </div>
         </div>
+
+        <script>
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            today = dd + '/' + mm + '/' + yyyy;
+            $('#appDate').text(today);
+        </script>
 
         <hr style="margin-top: 5px">

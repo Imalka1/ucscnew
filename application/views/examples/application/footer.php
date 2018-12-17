@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="color: #af0000">
         <b>Note:-</b>&nbsp;&nbsp;Your application number will display after the page 1 submission.<br>
         <span style="margin-left: 47px"></span>You will receive an email with an application number and a password to your personal email after the page 1 submission.<br>
         <span style="margin-left: 47px">If you need to complete the rest of submissions later(since page 2) or view completed form, you should get login to the system with your personal email and the password that you received.</span><br>
@@ -41,7 +41,7 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="<?= base_url('assets/js/jquery.min.js') ?>" type="text/javascript"></script>
+
 <script src="<?= base_url('assets/js/bootstrap.min.js') ?>" type="text/javascript"></script>
 <script src="<?= base_url('assets/js/material.min.js') ?>" type="text/javascript"></script>
 <script src="<?= base_url('assets/js/perfect-scrollbar.jquery.min.js') ?>" type="text/javascript"></script>

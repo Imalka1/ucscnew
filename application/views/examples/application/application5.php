@@ -57,6 +57,37 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+    <script>
+        $('#addPq').click(function () {
+            addRowPq();
+        });
+
+        $('#removePq').click(function () {
+            if (rowPq > 1) {
+                rowPq--;
+                $('#pqId tr.rowPq:last-child').remove();
+            }
+        });
+
+        var rowPq = 1;
+
+        function addRowPq() {
+            $('#pqId').append('' +
+                '<tr class="rowPq">\n' +
+                '<th width="3%">' + rowPq++ + '</th>\n' +
+                '<td width="30%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="number" min="1" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '</tr>'
+            );
+        }
+
+        $(window).ready(function () {
+            addRowPq();
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

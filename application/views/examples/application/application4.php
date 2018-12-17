@@ -61,6 +61,40 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+    <script>
+        $('#addAoq').click(function () {
+            addRowAoq()
+        });
+
+        $('#removeAoq').click(function () {
+            if (rowAoq > 1) {
+                rowAoq--;
+                $('#aoqId tr.rowAoqFile:last-child').remove();
+                $('#aoqId tr.rowAoq:last-child').remove();
+            }
+        });
+
+        var rowAoq = 1;
+
+        function addRowAoq() {
+            $('#aoqId').append('' +
+                '<tr class="rowAoq">\n' +
+                '<th width="3%">' + rowAoq++ + '</th>\n' +
+                '<td width="25%"><input type="text" class="form-control"></td>\n' +
+                '<td width="25%"><input type="text" class="form-control"></td>\n' +
+                '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
+                '<td width="25%"><input type="text" class="form-control"></td>\n' +
+                '</tr>' +
+                '<tr class="rowAoqFile">\n' +
+                '<td colspan="5"><input type="file"></td>\n' +
+                '</tr>'
+            );
+        }
+
+        $(window).ready(function () {
+            addRowAoq();
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

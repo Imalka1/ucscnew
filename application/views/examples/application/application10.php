@@ -53,6 +53,18 @@ $this->load->view('examples/application/header');
             (Page 10)
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#chkAgreement').on('change', function () {
+                console.log(1)
+                if ($('#chkAgreement').is(':checked')) {
+                    $('#submitBtn').attr('disabled', false);
+                } else {
+                    $('#submitBtn').attr('disabled', true);
+                }
+            });
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

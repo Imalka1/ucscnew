@@ -60,6 +60,37 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+    <script>
+        $('#addSe').click(function () {
+            addRowSe();
+        });
+
+        $('#removeSe').click(function () {
+            if (rowSe > 1) {
+                rowSe--;
+                $('#seId tr:last-child').remove();
+            }
+        });
+
+        var rowSe = 1;
+
+        function addRowSe() {
+            $('#seId').append('' +
+                '<tr class="rowSe">\n' +
+                '<th width="3%">' + rowSe++ + '</th>\n' +
+                '<td width="30%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '</tr>'
+            );
+        }
+
+        $(window).ready(function () {
+            addRowSe();
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

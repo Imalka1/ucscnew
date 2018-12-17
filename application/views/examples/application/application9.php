@@ -64,6 +64,37 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+    <script>
+        $('#addRef').click(function () {
+            addRowRef();
+        });
+
+        $('#removeRef').click(function () {
+            if (rowRef > 1) {
+                rowRef--;
+                $('#refId tr.rowRef:last-child').remove();
+            }
+        });
+
+        var rowRef = 1;
+
+        function addRowRef() {
+            $('#refId').append('' +
+                '<tr class="rowRef">\n' +
+                '<th width="3%">' + rowRef++ + '</th>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '<td width="20%"><input type="text" class="form-control"></td>\n' +
+                '</tr>'
+            );
+        }
+
+        $(window).ready(function () {
+            addRowRef();
+        });
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>
