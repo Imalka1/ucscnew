@@ -75,6 +75,7 @@ $this->load->view('examples/application/header');
         $('#removeHe').click(function () {
             if (rowHe > 1) {
                 rowHe--;
+                $('#heId tr.rowHeButton:last-child').remove();
                 $('#heId tr.rowHeFile:last-child').remove();
                 $('#heId tr.rowHe:last-child').remove();
             }
@@ -103,6 +104,14 @@ $this->load->view('examples/application/header');
                 '</div>' +
                 '</td>\n' +
                 '<td colspan="2"><input type="file"></td>\n' +
+                '</tr>' +
+                '<tr class="rowHeButton">\n' +
+                '<td colspan="8">' +
+                '<div class="row">' +
+                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
+                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '</div>' +
+                '</td>\n' +
                 '</tr>'
             );
         }

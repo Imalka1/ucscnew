@@ -68,7 +68,8 @@ $this->load->view('examples/application/header');
         $('#removeSe').click(function () {
             if (rowSe > 1) {
                 rowSe--;
-                $('#seId tr:last-child').remove();
+                $('#seId tr.rowSeButton:last-child').remove();
+                $('#seId tr.rowSe:last-child').remove();
             }
         });
 
@@ -83,6 +84,14 @@ $this->load->view('examples/application/header');
                 '<td width="20%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
                 '<td width="15%"><input type="text" class="form-control"></td>\n' +
+                '</tr>' +
+                '<tr class="rowSeButton">\n' +
+                '<td colspan="6">' +
+                '<div class="row">' +
+                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
+                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '</div>' +
+                '</td>\n' +
                 '</tr>'
             );
         }

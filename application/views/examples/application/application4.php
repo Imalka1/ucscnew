@@ -86,7 +86,13 @@ $this->load->view('examples/application/header');
                 '<td width="25%"><input type="text" class="form-control"></td>\n' +
                 '</tr>' +
                 '<tr class="rowAoqFile">\n' +
-                '<td colspan="5"><input type="file"></td>\n' +
+                '<td colspan="5">' +
+                '<div class="row">' +
+                '<div class="col-sm-4"><input type="file"></div>' +
+                '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
+                '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '</div>' +
+                '</td>\n' +
                 '</tr>'
             );
         }
