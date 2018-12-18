@@ -22,7 +22,7 @@ $('#addHe').click(function () {
 });
 
 $('#removeHe').click(function () {
-    if (rowHe > 1) {
+    if (rowHe > 2) {
         rowHe--;
         $('#heId tr.rowHeButton:last-child').remove();
         $('#heId tr.rowHeFile:last-child').remove();
