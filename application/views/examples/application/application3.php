@@ -13,16 +13,7 @@ $this->load->view('examples/application/header');
             <div class="col-sm-12">
                 <table class="table table-bordered">
                     <thead>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="25%">Name of the University / Institution</th>
-                        <th width="12%">From</th>
-                        <th width="12%">To</th>
-                        <th width="10%">Duration of the Course (No. of years)</th>
-                        <th width="10%">Class</th>
-                        <th width="10%">Awarding Year</th>
-                        <th width="15%">Index No</th>
-                    </tr>
+
                     </thead>
                     <tbody id="heId"></tbody>
                 </table>
@@ -66,90 +57,22 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
+    <script src="<?= base_url('application/views/js/application/application3.js') ?>"></script>
     <script>
-        $('#addHe').click(function () {
-            addRowHe();
-            addDataRowHe(rowHe);
-        });
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
 
-        $('#removeHe').click(function () {
-            if (rowHe > 1) {
-                rowHe--;
-                <?php
-                if (isset($applicantData)) {
-                ?>
-                $('#heId tr.rowHeButton:last-child').remove();
-                $('#heId tr.rowHeFile:last-child').remove();
-                $('#heId tr.rowHe:last-child').remove();
-                <?php
-                } else {
-                ?>
-                $('#heId tr.rowHeFile:last-child').remove();
-                $('#heId tr.rowHe:last-child').remove();
-                <?php
-                }
-                ?>
+        function dataExists() {
+            <?php
+            if(isset($applicantData)){
+                echo 'return true;';
+            }else{
+                echo 'return false;';
             }
-        });
-
-        var rowHe = 1;
-
-        function addRowHe() {
-            $('#heId').append(
-                <?php
-                if (isset($applicantData)) {
-                    echo 'getText1()+getText2()';
-                } else {
-                    echo 'getText1()';
-                }
-                ?>
-            );
+            ?>
         }
-
-        function addDataRowHe(val) {
-            for (var i = 0; i < arr1.length; i++) {
-                $('#degreeId' + val + '').append(arr1[i])
-            }
-        }
-
-        function getText1() {
-            return '<tr class="rowHe">\n' +
-                '<th width="3%">' + rowHe++ + '.</th>\n' +
-                '<td width="25%"><input type="text" class="form-control"></td>\n' +
-                '<td width="12%"><input type="date" class="form-control"></td>\n' +
-                '<td width="12%"><input type="date" class="form-control"></td>\n' +
-                '<td width="10%"><input type="number" min="1" class="form-control"></td>\n' +
-                '<td width="10%"><input type="text" class="form-control"></td>\n' +
-                '<td width="10%"><input type="text" class="form-control"></td>\n' +
-                '<td width="10%"><input type="text" class="form-control"></td>\n' +
-                '</tr>' +
-                '<tr class="rowHeFile">\n' +
-                '<td colspan="6">' +
-                '<div class="row">' +
-                '<div class="col-sm-2" style="line-height: 35px"><b>Degree Obtained</b></div>' +
-                '<div class="col-sm-5"><select class="form-control" id="degreeId' + rowHe + '"></select></div>' +
-                '<div class="col-sm-5"><select class="form-control"></select></div>' +
-                '</div>' +
-                '</td>\n' +
-                '<td colspan="2"><input type="file"></td>\n' +
-                '</tr>';
-        }
-
-        function getText2() {
-            return '<tr class="rowHeButton">\n' +
-                '<td colspan="8">' +
-                '<div class="row">' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
-                '</div>' +
-                '</td>\n' +
-                '</tr>';
-        }
-
-        $(window).ready(function () {
-            addRowHe();
-            addDataRowHe(rowHe);
-        });
     </script>
 <?php
 $this->load->view('examples/application/footer');

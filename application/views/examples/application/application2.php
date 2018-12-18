@@ -14,14 +14,14 @@ $this->load->view('examples/application/header');
             <div class="col-sm-12">
                 <table class="table table-bordered">
                     <thead>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="30%">Name of the School</th>
-                        <th width="15%">From</th>
-                        <th width="15%">To</th>
-                        <th width="25%">Examination passed</th>
-                        <th width="15%">Year</th>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <th width="3%"></th>-->
+<!--                        <th width="30%">Name of the School</th>-->
+<!--                        <th width="15%">From</th>-->
+<!--                        <th width="15%">To</th>-->
+<!--                        <th width="25%">Examination passed</th>-->
+<!--                        <th width="15%">Year</th>-->
+<!--                    </tr>-->
                     </thead>
                     <tbody id="seId"></tbody>
                 </table>

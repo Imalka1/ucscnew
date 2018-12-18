@@ -22,10 +22,11 @@ $('#addSe').click(function () {
 });
 
 $('#removeSe').click(function () {
-    if (rowSe > 1) {
+    if (rowSe > 2) {
         rowSe--;
         $('#seId tr.rowSeButton:last-child').remove();
         $('#seId tr.rowSe:last-child').remove();
+        $('#seId tr.rowSeHead:last-child').remove();
     }
 });
 
@@ -67,14 +68,30 @@ $('#seId').on('click', '.rowSeButtonD', function () {
 })
 
 $(window).ready(function () {
-    if(!dataExists()){
+    if (!dataExists()) {
         addNewRowSe();
     }
 });
 
-function getTextMain(dataSet) {
-    return '<tr class="rowSe">\n' +
-        '<th width="3%">' + rowSe++ + '<input type="hidden" value="' + dataSet[0] + '"></th>\n' +
+function addNewRowSe() {
+    $('#seId').append(getPanelMain(['', '', '', '', '', '']) + getPanelSubmit());
+}
+
+function addRowSe(data1, data2, data3, data4, data5, data6) {
+    $('#seId').append(getPanelMain([data1, data2, data3, data4, data5, data6]) + getPanelUpdateDelete());
+}
+
+function getPanelMain(dataSet) {
+    return '<tr class="rowSeHead">\n' +
+        '<th width="3%">' + rowSe++ + '.</th>\n' +
+        '<th width="30%">Name of the School</th>\n' +
+        '<th width="15%">From</th>\n' +
+        '<th width="15%">To</th>\n' +
+        '<th width="25%">Examination passed</th>\n' +
+        '<th width="15%">Year</th>\n' +
+        '</tr>' +
+        '<tr class="rowSe">\n' +
+        '<th width="3%"><input type="hidden" value="' + dataSet[0] + '"></th>\n' +
         '<td width="30%"><input type="text" class="form-control" value="' + dataSet[1] + '"></td>\n' +
         '<td width="15%"><input type="text" class="form-control" value="' + dataSet[2] + '"></td>\n' +
         '<td width="15%"><input type="text" class="form-control" value="' + dataSet[3] + '"></td>\n' +
@@ -83,7 +100,7 @@ function getTextMain(dataSet) {
         '</tr>';
 }
 
-function getTextSubmit() {
+function getPanelSubmit() {
     return '<tr class="rowSeButton">\n' +
         '<td colspan="6">' +
         '<div class="row">' +
@@ -96,7 +113,7 @@ function getTextSubmit() {
         '</tr>';
 }
 
-function getTextUpdateDelete() {
+function getPanelUpdateDelete() {
     return '<tr class="rowSeButton">\n' +
         '<td colspan="6">' +
         '<div class="row">' +
@@ -106,12 +123,4 @@ function getTextUpdateDelete() {
         '</div>' +
         '</td>\n' +
         '</tr>';
-}
-
-function addNewRowSe() {
-    $('#seId').append(getTextMain(['', '', '', '', '', '']) + getTextSubmit());
-}
-
-function addRowSe(data1, data2, data3, data4, data5, data6) {
-    $('#seId').append(getTextMain([data1, data2, data3, data4, data5, data6]) + getTextUpdateDelete());
 }
