@@ -23,10 +23,10 @@ function getTextMain(dataSet) {
         '</tr>';
 }
 
-var textSubmit = '<span style="left: 75%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
-var textUpdate = '<span style="left: 75%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
-var textDelete = '<span style="left: 75%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
-var textWarning = '<span style="left: 77%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
+var textSubmit = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
+var textUpdate = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
+var textDelete = '<span style="left: 70%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
+var textWarning = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
 
 var panelSubmit =
     '<div class="col-sm-12">' +
@@ -102,11 +102,11 @@ $('#seId').on('click', '.rowSeButtonS', function () {
 })
 
 $('#seId').on('click', '.rowSeButtonU', function () {
-
+    $(this).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
 })
 
 $('#seId').on('click', '.rowSeButtonD', function () {
-
+    $(this).parent().parent().html(panelSubmit + textDelete + '</div>');
 })
 
 $(window).ready(function () {
