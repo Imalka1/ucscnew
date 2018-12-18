@@ -63,6 +63,16 @@ $this->load->view('examples/application/header');
 
     <script src="<?= base_url('application/views/js/application/application2.js') ?>"></script>
     <script>
+        <?php
+        if (isset($applicantData)) {
+            foreach ($applicantData as $row) {
+//                echo "addRowSe()";
+            }
+        }
+        echo "addRowSe('q','w','e','r','t','y');";
+        echo "addRowSe('qq','ww','ee','rr','tt','yy')";
+        ?>
+
         function getUrl() {
             return "<?=base_url('')?>";
         }

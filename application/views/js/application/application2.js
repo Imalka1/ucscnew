@@ -65,11 +65,11 @@ function getTextUpdateDelete() {
 }
 
 function addNewRowSe() {
-    $('#seId').append(getTextMain([rowSe, '', '', '', '', '']) + getTextSubmit());
+    $('#seId').append(getTextMain(['', '', '', '', '', '']) + getTextSubmit());
 }
 
-function addRowSe() {
-    $('#seId').append(getTextMain([rowSe, '', '', '', '', '']) + getTextUpdateDelete());
+function addRowSe(data1, data2, data3, data4, data5, data6) {
+    $('#seId').append(getTextMain([data1, data2, data3, data4, data5, data6]) + getTextUpdateDelete());
 }
 
 $('#seId').on('click', '.rowSeButtonS', function () {
@@ -77,6 +77,7 @@ $('#seId').on('click', '.rowSeButtonS', function () {
     for (var i = 0; i < colCount; i++) {
         console.log($(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(i).val())
     }
+    $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(1).val('ad');
     $(this).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
     // $(this).parent().parent().find('span').html(textSubmit);
     // console.log($(this).parent().parent().find('span'))
