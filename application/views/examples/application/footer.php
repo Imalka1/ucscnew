@@ -56,7 +56,7 @@
 <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
 
 <!--edit-->
-<!--<script src="--><?//= base_url('application/views/js/applicantController.js') ?><!--"></script>-->
+<script src="<?= base_url('application/views/js/applicantController.js') ?>"></script>
 <script src="<?= base_url('application/views/js/applicationController.js') ?>"></script>
 
 
