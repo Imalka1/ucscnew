@@ -103,7 +103,7 @@ function getPanelMain(dataSet) {
 function getPanelSubmit() {
     return '<tr class="rowSeButton">\n' +
         '<td colspan="6">' +
-        '<div class="row">' +
+        '<div class="row" style="margin-bottom: 20px">' +
         '<div class="col-sm-12">' +
         '<button type="button" class="btn btn-warning rowSeButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>' +
         '<span></span>' +
@@ -116,7 +116,7 @@ function getPanelSubmit() {
 function getPanelUpdateDelete() {
     return '<tr class="rowSeButton">\n' +
         '<td colspan="6">' +
-        '<div class="row">' +
+        '<div class="row" style="margin-bottom: 20px">' +
         '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button></div>' +
         '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button></div>' +
         '<span></span>' +
