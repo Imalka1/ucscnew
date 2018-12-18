@@ -1,9 +1,5 @@
 <?php
 $this->load->view('examples/application/header');
-$feedback = "";
-if (!empty($_GET["feedback"])) {
-    $feedback = $_GET["feedback"];
-}
 ?>
     <!--            Any Other Qualifications-->
     <form action="<?= base_url('application_form/page3') ?>">
@@ -67,7 +63,9 @@ if (!empty($_GET["feedback"])) {
 
     <script src="<?= base_url('application/views/js/application/application2.js') ?>"></script>
     <script>
-
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
     </script>
 <?php
 $this->load->view('examples/application/footer');
