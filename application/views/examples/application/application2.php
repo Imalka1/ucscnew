@@ -1,5 +1,9 @@
 <?php
 $this->load->view('examples/application/header');
+$feedback = "";
+if (!empty($_GET["feedback"])) {
+    $feedback = $_GET["feedback"];
+}
 ?>
     <!--            Any Other Qualifications-->
     <form action="<?= base_url('application_form/page3') ?>">
@@ -60,9 +64,10 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
     <script>
         $('#addSe').click(function () {
-            addRowSe();
+            addNewRowSe();
         });
 
         $('#removeSe').click(function () {
@@ -83,21 +88,27 @@ $this->load->view('examples/application/header');
             }
         });
 
-        var rowSe = 1;
-
         function addRowSe() {
             $('#seId').append(
                 <?php
                 if (isset($applicantData)) {
-                    echo 'getText1()+getText2()';
-                } else {
-                    echo 'getText1()';
+                    echo 'getTextMain()+getTextUpdateDelete("")';
                 }
                 ?>
             );
         }
 
-        function getText1() {
+        function addNewRowSe() {
+            $('#seId').append(
+                <?php
+                echo 'getTextMain()+getTextSubmit("")';
+                ?>
+            );
+        }
+
+        var rowSe = 1;
+
+        function getTextMain() {
             return '<tr class="rowSe">\n' +
                 '<th width="3%">' + rowSe++ + '<input type="hidden"></th>\n' +
                 '<td width="30%"><input type="text" class="form-control"></td>\n' +
@@ -108,12 +119,33 @@ $this->load->view('examples/application/header');
                 '</tr>';
         }
 
-        function getText2() {
+        var textSubmit = '<span style="left: 87%;position: relative;color: green;font-weight: bold"><i class="fa fa-check"></i> Submitted</span>';
+        var textUpdate = '<span style="left: 75%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
+        var textDelete = '<span style="left: 75%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
+        var textWarning = '<span style="left: 77%;position: relative;color: #b58500;font-weight: bold"><i class="fa fa-exclamation-triangle"></i> Error</span>';
+
+        function getTextSubmit(textSubmit) {
             return '<tr class="rowSeButton">\n' +
                 '<td colspan="6">' +
                 '<div class="row">' +
-                '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
+                '<div class="col-sm-12">' +
+                '<button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>' +
+                textSubmit +
+                '</div>' +
+                '</div>' +
+                '</td>\n' +
+                '</tr>';
+        }
+
+        function getTextUpdateDelete(textUpdateDelete) {
+            return '<tr class="rowSeButton">\n' +
+                '<td colspan="6">' +
+                '<div class="row">' +
+                '<div class="col-sm-6"><button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button></div>' +
+                '<div class="col-sm-6">' +
+                '<button type="button" class="btn btn-warning rowSeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button>' +
+                textUpdateDelete +
+                '</div>' +
                 '</div>' +
                 '</td>\n' +
                 '</tr>';
