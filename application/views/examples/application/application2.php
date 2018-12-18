@@ -13,16 +13,7 @@ $this->load->view('examples/application/header');
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead>
-<!--                    <tr>-->
-<!--                        <th width="3%"></th>-->
-<!--                        <th width="30%">Name of the School</th>-->
-<!--                        <th width="15%">From</th>-->
-<!--                        <th width="15%">To</th>-->
-<!--                        <th width="25%">Examination passed</th>-->
-<!--                        <th width="15%">Year</th>-->
-<!--                    </tr>-->
-                    </thead>
+                    <thead></thead>
                     <tbody id="seId"></tbody>
                 </table>
             </div>
@@ -76,14 +67,14 @@ $this->load->view('examples/application/header');
         function getUrl() {
             return "<?=base_url('')?>";
         }
-        
+
         function dataExists() {
             <?php
-                if(!isset($applicantData)){
-                    echo 'return true;';
-                }else{
-                    echo 'return false;';
-                }
+            if (!isset($applicantData)) {
+                echo 'return true;';
+            } else {
+                echo 'return false;';
+            }
             ?>
         }
     </script>

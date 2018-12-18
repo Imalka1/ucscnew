@@ -12,9 +12,7 @@ $this->load->view('examples/application/header');
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead>
-
-                    </thead>
+                    <thead></thead>
                     <tbody id="heId"></tbody>
                 </table>
             </div>
@@ -66,9 +64,9 @@ $this->load->view('examples/application/header');
 
         function dataExists() {
             <?php
-            if(isset($applicantData)){
+            if (isset($applicantData)) {
                 echo 'return true;';
-            }else{
+            } else {
                 echo 'return false;';
             }
             ?>
