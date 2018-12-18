@@ -100,7 +100,7 @@ type = "text/javascript" ></script>
 
 
 <!--edit-->
-<script src="<?= base_url('assets/view-js/accountChange.js') ?>"></script>
+<script src="<?= base_url('application/views/js/accountChange.js') ?>"></script>
 
 
 <!-- Mirrored from demos.creative-tim.com/bs3/material-dashboard-pro/examples/pages/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Jul 2018 13:04:38 GMT -->

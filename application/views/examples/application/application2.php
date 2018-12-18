@@ -129,7 +129,7 @@ if (!empty($_GET["feedback"])) {
                 '<td colspan="6">' +
                 '<div class="row">' +
                 '<div class="col-sm-12">' +
-                '<button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>' +
+                '<button type="button" class="btn btn-warning rowSeButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>' +
                 textSubmit +
                 '</div>' +
                 '</div>' +
@@ -151,11 +151,15 @@ if (!empty($_GET["feedback"])) {
                 '</tr>';
         }
 
-        $('#seId').on('click', '.rowSeButtonU', function () {
+        $('#seId').on('click', '.rowSeButtonS', function () {
             var colCount = $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().length;
             for (var i = 0; i < colCount; i++) {
                 console.log($(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(i).val())
             }
+        })
+
+        $('#seId').on('click', '.rowSeButtonU', function () {
+
         })
 
         $('#seId').on('click', '.rowSeButtonD', function () {
