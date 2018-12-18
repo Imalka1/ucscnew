@@ -76,6 +76,16 @@ $this->load->view('examples/application/header');
         function getUrl() {
             return "<?=base_url('')?>";
         }
+        
+        function dataExists() {
+            <?php
+                if(!isset($applicantData)){
+                    echo 'return true;';
+                }else{
+                    echo 'return false;';
+                }
+            ?>
+        }
     </script>
 <?php
 $this->load->view('examples/application/footer');
