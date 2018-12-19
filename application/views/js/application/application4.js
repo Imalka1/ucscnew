@@ -23,6 +23,7 @@ $('#addAoq').click(function () {
 $('#removeAoq').click(function () {
     if (rowAoq > 2) {
         rowAoq--;
+        $('#aoqId tr.rowAoqButton:last-child').remove();
         $('#aoqId tr.rowAoqFile:last-child').remove();
         $('#aoqId tr.rowAoq:last-child').remove();
         $('#aoqId tr.rowAoqHead:last-child').remove();

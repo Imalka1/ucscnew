@@ -9,16 +9,7 @@ $this->load->view('examples/application/header');
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="20%">Name</th>
-                        <th width="20%">Designation</th>
-                        <th width="20%">Address</th>
-                        <th width="20%">Email Address</th>
-                        <th width="20%">Contact Number</th>
-                    </tr>
-                    </thead>
+                    <thead></thead>
                     <tbody id="refId"></tbody>
                 </table>
             </div>
@@ -64,68 +55,22 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
+    <script src="<?= base_url('application/views/js/application/application9.js') ?>"></script>
     <script>
-        $('#addRef').click(function () {
-            addRowRef();
-        });
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
 
-        $('#removeRef').click(function () {
-            if (rowRef > 1) {
-                rowRef--;
-                <?php
-                if (isset($applicantData)) {
-                ?>
-                $('#refId tr.rowRefButton:last-child').remove();
-                $('#refId tr.rowRef:last-child').remove();
-                <?php
-                } else {
-                ?>
-                $('#refId tr.rowRef:last-child').remove();
-                <?php
-                }
-                ?>
+        function dataExists() {
+            <?php
+            if (isset($applicantData)) {
+                echo 'return true;';
+            } else {
+                echo 'return false;';
             }
-        });
-
-        var rowRef = 1;
-
-        function addRowRef() {
-            $('#refId').append(
-                <?php
-                if (isset($applicantData)) {
-                    echo 'getText1()+getText2()';
-                } else {
-                    echo 'getText1()';
-                }
-                ?>
-            );
+            ?>
         }
-
-        function getText1() {
-            return '<tr class="rowRefButton">\n' +
-                '<td colspan="6">' +
-                '<div class="row">' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
-                '</div>' +
-                '</td>\n' +
-                '</tr>';
-        }
-
-        function getText2() {
-            return '<tr class="rowRefButton">\n' +
-                '<td colspan="6">' +
-                '<div class="row">' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
-                '</div>' +
-                '</td>\n' +
-                '</tr>';
-        }
-
-        $(window).ready(function () {
-            addRowRef();
-        });
     </script>
 <?php
 $this->load->view('examples/application/footer');

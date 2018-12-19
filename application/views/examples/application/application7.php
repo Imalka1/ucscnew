@@ -10,17 +10,7 @@ $this->load->view('examples/application/header');
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="15%">Post</th>
-                        <th width="20%">Institution / Company</th>
-                        <th width="15%">Duration</th>
-                        <th width="15%">From</th>
-                        <th width="15%">To</th>
-                        <th width="20%">Last drawn Monthly Salary (Rs.)</th>
-                    </tr>
-                    </thead>
+                    <thead></thead>
                     <tbody id="erId"></tbody>
                 </table>
             </div>
@@ -58,69 +48,22 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
+    <script src="<?= base_url('application/views/js/application/application7.js') ?>"></script>
     <script>
-        $('#addEr').click(function () {
-            addRowEr();
-        });
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
 
-        $('#removeEr').click(function () {
-            if (rowEr > 1) {
-                rowEr--;
-                <?php
-                if (isset($applicantData)) {
-                ?>
-                $('#erId tr.rowErButton:last-child').remove();
-                $('#erId tr.rowEr:last-child').remove();
-                <?php
-                } else {
-                ?>
-                $('#erId tr.rowEr:last-child').remove();
-                <?php
-                }
-                ?>
+        function dataExists() {
+            <?php
+            if (isset($applicantData)) {
+                echo 'return true;';
+            } else {
+                echo 'return false;';
             }
-        });
-
-        var rowEr = 1;
-
-        function addRowEr() {
-            $('#erId').append(
-                <?php
-                if (isset($applicantData)) {
-                    echo 'getText1()+getText2()';
-                } else {
-                    echo 'getText1()';
-                }
-                ?>
-            );
+            ?>
         }
-
-        function getText1() {
-            return '<tr class="rowEr">\n' +
-                '<th width="3%">' + rowEr++ + '</th>\n' +
-                '<td width="15%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '<td width="15%"><input type="number" min="1" class="form-control"></td>\n' +
-                '<td width="15%"><input type="text" class="form-control"></td>\n' +
-                '<td width="15%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '</tr>';
-        }
-
-        function getText2() {
-            return '<tr class="rowErButton">\n' +
-                '<td colspan="7">' +
-                '<div class="row">' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
-                '</div>' +
-                '</td>\n' +
-                '</tr>';
-        }
-
-        $(window).ready(function () {
-            addRowEr();
-        });
     </script>
 <?php
 $this->load->view('examples/application/footer');
