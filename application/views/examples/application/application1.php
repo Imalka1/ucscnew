@@ -8,7 +8,7 @@ if ($_SESSION['applicationNo'] == '') {
     <?php
 } else {
     ?>
-    <form method="post" action="<?= base_url('ApplicationController/page2') ?>">
+    <form method="post" action="<?= base_url('application_form/page2') ?>">
     <?php
 }
 ?>

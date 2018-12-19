@@ -47,8 +47,6 @@ $(window).ready(function () {
     }
 });
 
-
-
 function addRowRef() {
     $('#refId').append(
     // <?php
