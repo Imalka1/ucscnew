@@ -58,6 +58,15 @@ $this->load->view('examples/application/header');
 
     <script src="<?= base_url('application/views/js/application/application3.js') ?>"></script>
     <script>
+        var arr1 = new Array();
+        var arr2 = new Array();
+        arr1.push(<?php
+            echo "'<option>BSc</option>'";
+            ?>);
+        arr1.push(<?php
+            echo "'<option>MSc</option>'";
+            ?>);
+
         function getUrl() {
             return "<?=base_url('')?>";
         }

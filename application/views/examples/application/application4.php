@@ -10,15 +10,7 @@ $this->load->view('examples/application/header');
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="25%">Institution</th>
-                        <th width="25%">Diploma etc</th>
-                        <th width="25%">Duration</th>
-                        <th width="25%">Year</th>
-                    </tr>
-                    </thead>
+                    <thead></thead>
                     <tbody id="aoqId"></tbody>
                 </table>
             </div>
@@ -61,82 +53,22 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
+    <script src="<?= base_url('application/views/js/application/application4.js') ?>"></script>
     <script>
-        $('#addAoq').click(function () {
-            addRowAoq()
-        });
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
 
-        $('#removeAoq').click(function () {
-            if (rowAoq > 1) {
-                rowAoq--;
-                <?php
-                if (isset($applicantData)) {
-                ?>
-                $('#aoqId tr.rowAoqFile:last-child').remove();
-                $('#aoqId tr.rowAoq:last-child').remove();
-                <?php
-                } else {
-                ?>
-                $('#aoqId tr.rowAoq:last-child').remove();
-                <?php
-                }
-                ?>
+        function dataExists() {
+            <?php
+            if (isset($applicantData)) {
+                echo 'return true;';
+            } else {
+                echo 'return false;';
             }
-        });
-
-        var rowAoq = 1;
-
-        function addRowAoq() {
-            $('#aoqId').append(
-                <?php
-                if (isset($applicantData)) {
-                    echo 'getText2()';
-                } else {
-                    echo 'getText1()';
-                }
-                ?>
-            );
+            ?>
         }
-
-        function getText1() {
-            return '<tr class="rowAoq">\n' +
-                '<th width="3%">' + rowAoq++ + '</th>\n' +
-                '<td width="25%"><input type="text" class="form-control"></td>\n' +
-                '<td width="25%"><input type="text" class="form-control"></td>\n' +
-                '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
-                '<td width="25%"><input type="text" class="form-control"></td>\n' +
-                '</tr>' +
-                '<tr class="rowAoqFile">\n' +
-                '<td colspan="5">' +
-                '<div class="row">' +
-                '<div class="col-sm-12"><input type="file"></div>' +
-                '</div>' +
-                '</td>\n' +
-                '</tr>';
-        }
-
-        function getText2() {
-            return '<tr class="rowAoq">\n' +
-            '<th width="3%">' + rowAoq++ + '</th>\n' +
-            '<td width="25%"><input type="text" class="form-control"></td>\n' +
-            '<td width="25%"><input type="text" class="form-control"></td>\n' +
-            '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
-            '<td width="25%"><input type="text" class="form-control"></td>\n' +
-            '</tr>' +
-            '<tr class="rowAoqFile">\n' +
-            '<td colspan="5">' +
-            '<div class="row">' +
-            '<div class="col-sm-4"><input type="file"></div>' +
-            '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-            '<div class="col-sm-4"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
-            '</div>' +
-            '</td>\n' +
-            '</tr>';
-        }
-
-        $(window).ready(function () {
-            addRowAoq();
-        });
     </script>
 <?php
 $this->load->view('examples/application/footer');

@@ -11,14 +11,7 @@ $this->load->view('examples/application/header');
             <div class="col-sm-12">
                 <table class="table table-bordered">
                     <thead>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="30%">Institution</th>
-                        <th width="15%">From</th>
-                        <th width="15%">To</th>
-                        <th width="20%">Duration</th>
-                        <th width="20%">Type of Qualification</th>
-                    </tr>
+
                     </thead>
                     <tbody id="pqId"></tbody>
                 </table>
@@ -57,68 +50,22 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
+    <script src="<?= base_url('application/views/js/application/application5.js') ?>"></script>
     <script>
-        $('#addPq').click(function () {
-            addRowPq();
-        });
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
 
-        $('#removePq').click(function () {
-            if (rowPq > 1) {
-                rowPq--;
-                <?php
-                if (isset($applicantData)) {
-                ?>
-                $('#pqId tr.rowPqButton:last-child').remove();
-                $('#pqId tr.rowPq:last-child').remove();
-                <?php
-                } else {
-                ?>
-                $('#pqId tr.rowPq:last-child').remove();
-                <?php
-                }
-                ?>
+        function dataExists() {
+            <?php
+            if (isset($applicantData)) {
+                echo 'return true;';
+            } else {
+                echo 'return false;';
             }
-        });
-
-        var rowPq = 1;
-
-        function addRowPq() {
-            $('#pqId').append(
-                <?php
-                if (isset($applicantData)) {
-                    echo 'getText1()+getText2()';
-                } else {
-                    echo 'getText1()';
-                }
-                ?>
-            );
+            ?>
         }
-
-        function getText1() {
-            return '<tr class="rowPq">\n' +
-                '<th width="3%">' + rowPq++ + '</th>\n' +
-                '<td width="30%"><input type="text" class="form-control"></td>\n' +
-                '<td width="15%"><input type="text" class="form-control"></td>\n' +
-                '<td width="15%"><input type="text" class="form-control"></td>\n' +
-                '<td width="20%"><input type="number" min="1" class="form-control"></td>\n' +
-                '<td width="20%"><input type="text" class="form-control"></td>\n' +
-                '</tr>';
-        }
-
-        function getText2() {
-            return '<tr class="rowPqButton">\n' +
-                '<td colspan="6">' +
-                '<div class="row">' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Update</div>' +
-                '<div class="col-sm-6"><button class="btn btn-warning" style="left: 50%;transform: translateX(-50%);position: relative">Delete</div>' +
-                '</div>' +
-                '</td>\n' +
-                '</tr>';
-        }
-
-        $(window).ready(function () {
-            addRowPq();
-        });
     </script>
 <?php
 $this->load->view('examples/application/footer');

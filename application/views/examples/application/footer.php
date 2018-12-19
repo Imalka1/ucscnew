@@ -8,18 +8,6 @@
 </div>
 </div>
 
-<script>
-
-    var arr1 = new Array();
-    var arr2 = new Array();
-    arr1.push(<?php
-        echo "'<option>BSc</option>'";
-        ?>);
-    arr1.push(<?php
-        echo "'<option>MSc</option>'";
-        ?>);
-</script>
-
 <footer class="footer">
     <div class="container-fluid">
 

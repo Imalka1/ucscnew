@@ -108,9 +108,7 @@ function getPanelSubmit() {
     return '<tr class="rowHeButton">\n' +
         '<td colspan="7">' +
         '<div class="row" style="margin-bottom: 20px">' +
-        '<div class="col-sm-12">' +
-        '<button type="button" class="btn btn-warning rowHeButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>' +
-        '<span></span>' +
+        panelSubmit +
         '</div>' +
         '</div>' +
         '</td>\n' +
@@ -121,9 +119,7 @@ function getPanelUpdateDelete() {
     return '<tr class="rowHeButton">\n' +
         '<td colspan="7">' +
         '<div class="row" style="margin-bottom: 20px">' +
-        '<div class="col-sm-6"><button type="button" class="btn btn-warning rowHeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button></div>' +
-        '<div class="col-sm-6"><button type="button" class="btn btn-warning rowHeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button></div>' +
-        '<span></span>' +
+        panelUpdateDelete +
         '</div>' +
         '</td>\n' +
         '</tr>';
