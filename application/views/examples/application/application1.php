@@ -19,11 +19,11 @@ if ($_SESSION['applicationNo'] == '') {
     </div>
     <div class="row">
         <div class="col-sm-6">
-            Lecturer (Probationary)<input class="chkPostFor" name="postFor1" type="checkbox" value="lecProb"
+            Lecturer (Probationary)<input class="chkPostFor" name="postForLecProb" type="checkbox" value="lecProb"
                                           required <?= isset($postForLecProb) ? $postForLecProb : '' ?>>
         </div>
         <div class="col-sm-6">
-            Senior Lecturer Gr. II<input class="chkPostFor" name="postFor2" type="checkbox" value="senLec"
+            Senior Lecturer Gr. II<input class="chkPostFor" name="postForSenLec" type="checkbox" value="senLec"
                                          required <?= isset($postForSenLec) ? $postForSenLec : '' ?>>
         </div>
     </div>

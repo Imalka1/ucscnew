@@ -1,9 +1,9 @@
 drop database ucscnew;	
 create database ucscnew;	
 use ucscnew;	
-create table user(email varchar(50),password varchar(100),accountType varchar(30),constraint primary key(email));	
+create table user(personalEmail varchar(50),password varchar(100),accountType varchar(30),constraint primary key(personalEmail));	
 
-create table staff(sid int auto_increment,title varchar(10),email varchar(50),name varchar(100),constraint primary key(sid),constraint foreign key(email) references user(email));	
+create table staff(sid int auto_increment,title varchar(10),personalEmail varchar(50),name varchar(100),constraint primary key(sid),constraint foreign key(personalEmail) references user(personalEmail));	
 
 create table applicant(
 aid varchar(50),
@@ -29,7 +29,7 @@ interviewers_count int,
 marks int,
 dataIndex int,
 constraint primary key(aid),
-constraint foreign key(email) references user(email));	
+constraint foreign key(personalEmail) references user(personalEmail));	
 
 create table comment(cmid int auto_increment,sid int,aid varchar(50),description varchar(100),constraint primary key(cmid),constraint foreign key(sid) references staff(sid),constraint foreign key(aid) references applicant(aid));	
 
@@ -43,10 +43,9 @@ insert into user values ('in1@gmail.com','900150983cd24fb0d6963f7d28e17f72','int
 insert into user values ('di1@gmail.com','900150983cd24fb0d6963f7d28e17f72','sar'),('di2@gmail.com','900150983cd24fb0d6963f7d28e17f72','sar');	
 insert into user values ('dimuthi1@gmail.com','900150983cd24fb0d6963f7d28e17f72','applicant'),('dimuthi2@gmail.com','900150983cd24fb0d6963f7d28e17f72','applicant');	
 insert into user values ('imalkagunawardana1@gmail.com','900150983cd24fb0d6963f7d28e17f72','operator'),('dimuthi@gmail.com','900150983cd24fb0d6963f7d28e17f72','operator'),('imalkagunawardana4@gmail.com','900150983cd24fb0d6963f7d28e17f72','operator');
-insert into staff (title,email,name) values ('Ms','in1@gmail.com','Dimuthi Tharaka'),('Ms','in2@gmail.com','Dimuthi Tharaka');	
-insert into staff (title,email,name) values ('Ms','di1@gmail.com','Dimuthi Tharaka'),('Ms','di2@gmail.com','Dimuthi Tharaka');
-insert into staff (title,email,name) values ('Mr','imalkagunawardana1@gmail.com','Imalka Gunawardana'),('Ms','dimuthi@gmail.com','Dimuthi Tharaka');
-insert into applicant values ('20180001','Ms','dimuthi1@gmail.com','Dimuthi-1','1987-03-03','2018-03-02','Hikkaduwa','123-1234567',1,0,1),('20180002','Ms','dimuthi2@gmail.com','Dimuthi-2','1987-03-03','2018-03-03','Colombo','123-1234567',1,0,2);	
+insert into staff (title,personalEmail,name) values ('Ms','in1@gmail.com','Dimuthi Tharaka'),('Ms','in2@gmail.com','Dimuthi Tharaka');	
+insert into staff (title,personalEmail,name) values ('Ms','di1@gmail.com','Dimuthi Tharaka'),('Ms','di2@gmail.com','Dimuthi Tharaka');
+insert into staff (title,personalEmail,name) values ('Mr','imalkagunawardana1@gmail.com','Imalka Gunawardana'),('Ms','dimuthi@gmail.com','Dimuthi Tharaka');
 insert into marking_field_heading (name,detailed) values ('Academic Qualifications',1),('Other Qualifications / Academic Achievements',1),('Publications',1),('Subject Knowledge and Experience',0),('Extra Curricular Activities',1),('Presentation to prove teaching ability',0),('Performance at the interview',0);	
 insert into marking_field (mhid,name,marks) values (1,'Bachelors Degree','0'),(1,'1st Class','15'),(1,'2nd Class','08'),(1,'3rd Class','04');	
 insert into marking_field (mhid,name,marks) values (1,'Postgraduate / Professional Qualifications','0'),(1,'PhD','20'),(1,'MPhil','10'),(1,'MSc(Research 2 years)','08'),(1,'MSc(Taught 2 years)','05');	

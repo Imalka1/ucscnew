@@ -20,12 +20,19 @@ class ApplicationModel extends CI_Model
         $appPassword = md5('abc');
         $this->load->database();
         $this->db->db_debug = false;
-        $sql = $this->db->query('select count(email) from applicant where aid like ?', array(date('Y') . '%'));
+        $sql = $this->db->query('select count(personalEmail) from applicant where aid like ?', array((date('Y') + 1) . '%'));
         $row = $sql->row_array();
         if (isset($row)) {
 
-            $postForLecProb = $this->input->post('postForLecProb');
-            $postForSenLec = $this->input->post('postForSenLec');
+            if ($this->input->post('postForLecProb') == 'lecProb' && $this->input->post('postForSenLec') == '') {
+                $postFor = 1;
+            } else if ($this->input->post('postForLecProb') == '' && $this->input->post('postForSenLec') == 'senLec') {
+                $postFor = 2;
+            } else if ($this->input->post('postForLecProb') == 'lecProb' && $this->input->post('postForSenLec') == 'senLec') {
+                $postFor = 3;
+            } else if ($this->input->post('postForLecProb') == '' && $this->input->post('postForSenLec') == '') {
+                $postFor = 0;
+            }
             $title = $this->input->post('title');
             $fullName = $this->input->post('fullName');
             $surName = $this->input->post('surName');
@@ -43,7 +50,7 @@ class ApplicationModel extends CI_Model
             $citizenship = $this->input->post('citizenship');
             $citizen = $this->input->post('citizen');
 
-            if ($row['count(email)'] != 0) {
+            if ($row['count(personalEmail)'] != 0) {
                 $sql = $this->db->query('select max(dataIndex) from applicant');
                 $row = $sql->row_array();
                 if (isset($row)) {
@@ -53,7 +60,7 @@ class ApplicationModel extends CI_Model
                             redirect(base_url() . "application_form/page1?error=pk");
                         }
                     }
-                    if (!$this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $personalEmail, '', '', '', '', '', 1, 0, $row['max(dataIndex)'] + 1))) {
+                    if (!$this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', array($id, $postFor, $title, $fullName, $surName, $nicNo, $gender, $civilStatus, $postalAddress, $permanentAddress, $mobileNumber, $homeNumber, $officeNumber, $personalEmail, $officialEmail, $dob, $citizenship, $citizen, '', 1, 0, $row['max(dataIndex)'] + 1))) {
                         redirect(base_url() . "application_form/page1?error=error");
                     }
                 }
@@ -64,7 +71,7 @@ class ApplicationModel extends CI_Model
                         redirect(base_url() . "application_form/page1?error=pk");
                     }
                 }
-                if (!$this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $personalEmail, '', '', '', '', '', 1, 0, $row['max(dataIndex)'] + 1))) {
+                if (!$this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', array($id, $postFor, $title, $fullName, $surName, $nicNo, $gender, $civilStatus, $postalAddress, $permanentAddress, $mobileNumber, $homeNumber, $officeNumber, $personalEmail, $officialEmail, $dob, $citizenship, $citizen, '', 1, 0, 1))) {
                     redirect(base_url() . "application_form/page1?error=error");
                 }
             }
@@ -74,7 +81,8 @@ class ApplicationModel extends CI_Model
         return $data;
     }
 
-    public function updateApplicant()
+    public
+    function updateApplicant()
     {
         $this->load->database();
         return $this->db->affected_rows();
