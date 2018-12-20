@@ -1,4 +1,4 @@
-var rowAoq = 1;
+var rowHe = 1;
 
 var textSubmit = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
 var textUpdate = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
@@ -7,89 +7,105 @@ var textWarning = '<span style="left: 60%;position: relative;color: #b58500"><i 
 
 var panelSubmit =
     '<div class="col-sm-12">' +
-    '<button type="button" class="btn btn-warning rowAoqButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>';
+    '<button type="button" class="btn btn-warning rowHeButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>';
 
 var panelUpdateDelete =
     '<div class="col-sm-6">' +
-    '<button type="button" class="btn btn-warning rowAoqButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button>' +
+    '<button type="button" class="btn btn-warning rowHeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button>' +
     '</div>' +
     '<div class="col-sm-6">' +
-    '<button type="button" class="btn btn-warning rowAoqButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button>';
+    '<button type="button" class="btn btn-warning rowHeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button>';
 
-$('#addAoq').click(function () {
-    addNewRowAoq()
+$('#addHe').click(function () {
+    addNewRowHe();
+    addDegreeData1RowHe(rowHe);
 });
 
-$('#removeAoq').click(function () {
-    if (rowAoq > 2) {
-        rowAoq--;
-        $('#aoqId tr.rowAoqButton:last-child').remove();
-        $('#aoqId tr.rowAoqFile:last-child').remove();
-        $('#aoqId tr.rowAoq:last-child').remove();
-        $('#aoqId tr.rowAoqHead:last-child').remove();
+$('#removeHe').click(function () {
+    if (rowHe > 2) {
+        rowHe--;
+        $('#heId tr.rowHeButton:last-child').remove();
+        $('#heId tr.rowHeFile:last-child').remove();
+        $('#heId tr.rowHe:last-child').remove();
+        $('#heId tr.rowHeHead:last-child').remove();
     }
 });
 
-$('#aoqId').on('click', '.rowAoqButtonS', function () {
+$('#heId').on('click', '.rowHeButtonS', function () {
     $(this).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
 });
 
-$('#aoqId').on('click', '.rowAoqButtonU', function () {
+$('#heId').on('click', '.rowHeButtonU', function () {
     $(this).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
 })
 
-$('#aoqId').on('click', '.rowAoqButtonD', function () {
+$('#heId').on('click', '.rowHeButtonD', function () {
     $(this).parent().parent().html(panelSubmit + textDelete + '</div>');
 })
 
 $(window).ready(function () {
     if (!dataExists()) {
-        addNewRowAoq();
+        addNewRowHe();
     }
+    addDegreeData1RowHe(rowHe);
 });
 
-function addRowAoq() {
-    $('#aoqId').append(
-        // <?php
-        // if (isset($applicantData)) {
-        //     echo 'getText2()';
-        // } else {
-        //     echo 'getText1()';
-        // }
-        //     ?>
-    );
+function addRowHe() {
+//     $('#heId').append(
+//     <?php
+//     if (isset($applicantData)) {
+//         echo 'getText1()+getText2()';
+//     } else {
+//         echo 'getText1()';
+//     }
+//         ?>
+// );
 }
 
-function addNewRowAoq() {
-    $('#aoqId').append(getPanelMain() + getPanelSubmit());
+function addNewRowHe() {
+    $('#heId').append(getPanelMain() + getPanelSubmit());
+}
+
+function addDegreeData1RowHe(val) {
+    for (var i = 0; i < arr1.length; i++) {
+        $('#degreeId' + val + '').append(arr1[i])
+    }
 }
 
 function getPanelMain() {
-    return '<tr class="rowAoqHead">\n' +
+    return '<tr class="rowHeHead">\n' +
+        '<th width="3%">' + rowHe++ + '.</th>\n' +
+        '<th width="25%">Name of the University / Institution</th>\n' +
+        '<th width="12%">From</th>\n' +
+        '<th width="12%">To</th>\n' +
+        '<th width="10%">Duration of the Course (No. of years)</th>\n' +
+        '<th width="15%">Awarding Year</th>\n' +
+        '<th width="20%">Index No</th>\n' +
+        '</tr>' +
+        '<tr class="rowHe">\n' +
         '<th width="3%"></th>\n' +
-        '<th width="25%">Institution</th>\n' +
-        '<th width="25%">Diploma etc</th>\n' +
-        '<th width="25%">Duration</th>\n' +
-        '<th width="25%">Year</th>\n' +
+        '<td width="25%"><input type="text" class="form-control"></td>\n' +
+        '<td width="12%"><input type="date" class="form-control"></td>\n' +
+        '<td width="12%"><input type="date" class="form-control"></td>\n' +
+        '<td width="10%"><input type="number" min="1" class="form-control"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control"></td>\n' +
         '</tr>' +
-        '<tr class="rowAoq">\n' +
-        '<th width="3%">' + rowAoq++ + '</th>\n' +
-        '<td width="25%"><input type="text" class="form-control"></td>\n' +
-        '<td width="25%"><input type="text" class="form-control"></td>\n' +
-        '<td width="25%"><input type="number" min="1" class="form-control"></td>\n' +
-        '<td width="25%"><input type="text" class="form-control"></td>\n' +
-        '</tr>' +
-        '<tr class="rowAoqFile">\n' +
-        '<td colspan="5">' +
+        '<tr class="rowHeFile">\n' +
+        '<td colspan="6">' +
         '<div class="row">' +
-        '<div class="col-sm-12"><input type="file"></div>' +
+        '<div class="col-sm-2" style="line-height: 35px"><b>Degree Obtained</b></div>' +
+        '<div class="col-sm-3"><select class="form-control" id="degreeId' + rowHe + '"></select></div>' +
+        '<div class="col-sm-4"><select class="form-control"></select></div>' +
+        '<div class="col-sm-3"><select class="form-control"></select></div>' +
         '</div>' +
         '</td>\n' +
+        '<td colspan="2"><input type="file"></td>\n' +
         '</tr>';
 }
 
 function getPanelSubmit() {
-    return '<tr class="rowAoqButton">\n' +
+    return '<tr class="rowHeButton">\n' +
         '<td colspan="7">' +
         '<div class="row" style="margin-bottom: 20px">' +
         panelSubmit +
@@ -100,7 +116,7 @@ function getPanelSubmit() {
 }
 
 function getPanelUpdateDelete() {
-    return '<tr class="rowAoqButton">\n' +
+    return '<tr class="rowHeButton">\n' +
         '<td colspan="7">' +
         '<div class="row" style="margin-bottom: 20px">' +
         panelUpdateDelete +

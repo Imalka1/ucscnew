@@ -1,30 +1,33 @@
 <?php
 $this->load->view('examples/application/header');
 ?>
-    <!--            Professional Qualifications-->
+    <!--            (b) Higher Education (*Graduate & Postgraduate Qualifications)-->
     <form action="<?= base_url('application_form/page6') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">11.</span>
-                Professional Qualifications
+                <span style="font-weight: bold;margin-right: 10px">10.</span>
+                **Any Other Qualifications
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead>
-
-                    </thead>
-                    <tbody id="pqId"></tbody>
+                    <thead></thead>
+                    <tbody id="aoqId"></tbody>
                 </table>
             </div>
         </div>
         <div class="row" style="margin-top: 20px">
+            <div class="col-sm-12">
+                <b>*Note:</b> Certified copies of the certificates should be attached
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addPq" type="button"
+                <button class="btn btn-primary" id="addAoq" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removePq" type="button"
+                <button class="btn btn-primary" id="removeAoq" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>

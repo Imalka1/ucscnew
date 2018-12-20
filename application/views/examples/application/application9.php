@@ -1,37 +1,24 @@
 <?php
 $this->load->view('examples/application/header');
 ?>
-    <form action="<?= base_url('application_form/page10') ?>">
+    <form action="<?= base_url('ApplicationController/saveUpdatePage9') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">16.</span>
-                Referees
+                <span style="font-weight: bold;margin-right: 10px">14.</span>
+                Experience relevant to the post applied for (Please indicate the tasks handled with the duration)
             </div>
             <div class="col-sm-12">
-                <table class="table table-bordered">
-                    <thead></thead>
-                    <tbody id="refId"></tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row" style="margin-top: 20px">
-            <div class="col-sm-6">
-                <button class="btn btn-primary" id="addRef" type="button"
-                        style="left: 50%;transform: translateX(-50%);position: relative">Add Field
-                </button>
-            </div>
-            <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeRef" type="button"
-                        style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
-                </button>
+                <textarea name="" id="" rows="7" class="form-control"></textarea>
             </div>
         </div>
 
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <b>N.B.</b> When applying for the Academic Posts, one of the referees should be either the Professor
-                or a Senior Lecturer of the Department of Study in which the applicant had his/her University
-                Education or the Head of the Institutions in which the candidate works
+                <span style="font-weight: bold;margin-right: 10px">15.</span>
+                Details of research and publications
+            </div>
+            <div class="col-sm-12">
+                <textarea name="" id="" rows="7" class="form-control"></textarea>
             </div>
         </div>
 
@@ -55,23 +42,6 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
-
-    <script src="<?= base_url('application/views/js/application/application9.js') ?>"></script>
-    <script>
-        function getUrl() {
-            return "<?=base_url('')?>";
-        }
-
-        function dataExists() {
-            <?php
-            if (isset($applicantData)) {
-                echo 'return true;';
-            } else {
-                echo 'return false;';
-            }
-            ?>
-        }
-    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

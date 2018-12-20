@@ -1,4 +1,4 @@
-var rowHe = 1;
+var rowSe = 1;
 
 var textSubmit = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
 var textUpdate = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
@@ -7,106 +7,102 @@ var textWarning = '<span style="left: 60%;position: relative;color: #b58500"><i 
 
 var panelSubmit =
     '<div class="col-sm-12">' +
-    '<button type="button" class="btn btn-warning rowHeButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>';
+    '<button type="button" class="btn btn-warning rowSeButtonS" style="left: 50%;transform: translateX(-50%);position: relative">Submit</button>';
 
 var panelUpdateDelete =
     '<div class="col-sm-6">' +
-    '<button type="button" class="btn btn-warning rowHeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button>' +
+    '<button type="button" class="btn btn-warning rowSeButtonU" style="left: 50%;transform: translateX(-50%);position: relative">Update</button>' +
     '</div>' +
     '<div class="col-sm-6">' +
-    '<button type="button" class="btn btn-warning rowHeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button>';
+    '<button type="button" class="btn btn-warning rowSeButtonD" style="left: 50%;transform: translateX(-50%);position: relative">Delete</button>';
 
-$('#addHe').click(function () {
-    addNewRowHe();
-    addDegreeData1RowHe(rowHe);
+
+$('#addSe').click(function () {
+    addNewRowSe();
 });
 
-$('#removeHe').click(function () {
-    if (rowHe > 2) {
-        rowHe--;
-        $('#heId tr.rowHeButton:last-child').remove();
-        $('#heId tr.rowHeFile:last-child').remove();
-        $('#heId tr.rowHe:last-child').remove();
-        $('#heId tr.rowHeHead:last-child').remove();
+$('#removeSe').click(function () {
+    if (rowSe > 2) {
+        rowSe--;
+        $('#seId tr.rowSeButton:last-child').remove();
+        $('#seId tr.rowSe:last-child').remove();
+        $('#seId tr.rowSeHead:last-child').remove();
     }
 });
 
-$('#heId').on('click', '.rowHeButtonS', function () {
+$('#seId').on('click', '.rowSeButtonS', function () {
+    var colCount = $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().length;
+    for (var i = 0; i < colCount; i++) {
+        console.log($(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(i).val())
+    }
+    $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(1).val('ad');
     $(this).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
-});
 
-$('#heId').on('click', '.rowHeButtonU', function () {
+    // $.ajax(
+    //     {
+    //         type: "post",
+    //         url: url,
+    //         data: {aid: aid},
+    //         success: function (response) {
+    //             var fields = response.split('~');
+    //             var comment = '';
+    //             for (var i = 0; i < fields.length; i++) {
+    //                 comment += fields[i] + '\n';
+    //             }
+    //             $('#txtReport').val(comment);
+    //             // nicEditors.findEditor( "txtReport" ).setContent( comment );
+    //         }
+    //         // error: function () {
+    //         //     alert("Invalide!");
+    //         // }
+    //     }
+    // );
+})
+
+$('#seId').on('click', '.rowSeButtonU', function () {
     $(this).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
 })
 
-$('#heId').on('click', '.rowHeButtonD', function () {
+$('#seId').on('click', '.rowSeButtonD', function () {
     $(this).parent().parent().html(panelSubmit + textDelete + '</div>');
 })
 
 $(window).ready(function () {
     if (!dataExists()) {
-        addNewRowHe();
+        addNewRowSe();
     }
-    addDegreeData1RowHe(rowHe);
 });
 
-function addRowHe() {
-//     $('#heId').append(
-//     <?php
-//     if (isset($applicantData)) {
-//         echo 'getText1()+getText2()';
-//     } else {
-//         echo 'getText1()';
-//     }
-//         ?>
-// );
+function addNewRowSe() {
+    $('#seId').append(getPanelMain(['', '', '', '', '', '']) + getPanelSubmit());
 }
 
-function addNewRowHe() {
-    $('#heId').append(getPanelMain() + getPanelSubmit());
+function addRowSe(data1, data2, data3, data4, data5, data6) {
+    $('#seId').append(getPanelMain([data1, data2, data3, data4, data5, data6]) + getPanelUpdateDelete());
 }
 
-function addDegreeData1RowHe(val) {
-    for (var i = 0; i < arr1.length; i++) {
-        $('#degreeId' + val + '').append(arr1[i])
-    }
-}
-
-function getPanelMain() {
-    return '<tr class="rowHeHead">\n' +
-        '<th width="3%">' + rowHe++ + '.</th>\n' +
-        '<th width="25%">Name of the University / Institution</th>\n' +
-        '<th width="12%">From</th>\n' +
-        '<th width="12%">To</th>\n' +
-        '<th width="10%">Duration of the Course (No. of years)</th>\n' +
-        '<th width="15%">Awarding Year</th>\n' +
-        '<th width="20%">Index No</th>\n' +
+function getPanelMain(dataSet) {
+    return '<tr class="rowSeHead">\n' +
+        '<th width="3%">' + rowSe++ + '.</th>\n' +
+        '<th width="30%">Name of the School</th>\n' +
+        '<th width="15%">From</th>\n' +
+        '<th width="15%">To</th>\n' +
+        '<th width="25%">Examination passed</th>\n' +
+        '<th width="15%">Year</th>\n' +
         '</tr>' +
-        '<tr class="rowHe">\n' +
-        '<th width="3%"></th>\n' +
-        '<td width="25%"><input type="text" class="form-control"></td>\n' +
-        '<td width="12%"><input type="date" class="form-control"></td>\n' +
-        '<td width="12%"><input type="date" class="form-control"></td>\n' +
-        '<td width="10%"><input type="number" min="1" class="form-control"></td>\n' +
-        '<td width="15%"><input type="text" class="form-control"></td>\n' +
-        '<td width="20%"><input type="text" class="form-control"></td>\n' +
-        '</tr>' +
-        '<tr class="rowHeFile">\n' +
-        '<td colspan="6">' +
-        '<div class="row">' +
-        '<div class="col-sm-2" style="line-height: 35px"><b>Degree Obtained</b></div>' +
-        '<div class="col-sm-3"><select class="form-control" id="degreeId' + rowHe + '"></select></div>' +
-        '<div class="col-sm-4"><select class="form-control"></select></div>' +
-        '<div class="col-sm-3"><select class="form-control"></select></div>' +
-        '</div>' +
-        '</td>\n' +
-        '<td colspan="2"><input type="file"></td>\n' +
+        '<tr class="rowSe">\n' +
+        '<th width="3%"><input type="hidden" value="' + dataSet[0] + '"></th>\n' +
+        '<td width="30%"><input type="text" class="form-control" value="' + dataSet[1] + '"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control" value="' + dataSet[2] + '"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control" value="' + dataSet[3] + '"></td>\n' +
+        '<td width="25%"><input type="text" class="form-control" value="' + dataSet[4] + '"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control" value="' + dataSet[5] + '"></td>\n' +
         '</tr>';
 }
 
 function getPanelSubmit() {
-    return '<tr class="rowHeButton">\n' +
-        '<td colspan="7">' +
+    return '<tr class="rowSeButton">\n' +
+        '<td colspan="6">' +
         '<div class="row" style="margin-bottom: 20px">' +
         panelSubmit +
         '</div>' +
@@ -116,8 +112,8 @@ function getPanelSubmit() {
 }
 
 function getPanelUpdateDelete() {
-    return '<tr class="rowHeButton">\n' +
-        '<td colspan="7">' +
+    return '<tr class="rowSeButton">\n' +
+        '<td colspan="6">' +
         '<div class="row" style="margin-bottom: 20px">' +
         panelUpdateDelete +
         '</div>' +

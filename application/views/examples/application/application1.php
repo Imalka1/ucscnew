@@ -8,7 +8,7 @@ if ($_SESSION['applicationNo'] == '') {
     <?php
 } else {
     ?>
-    <form method="post" action="<?= base_url('ApplicationController/saveUpdatePage1') ?>">
+    <form method="post" action="<?= base_url('ApplicationController/updatePage1') ?>">
     <?php
 }
 ?>
@@ -19,10 +19,12 @@ if ($_SESSION['applicationNo'] == '') {
     </div>
     <div class="row">
         <div class="col-sm-6">
-            Lecturer (Probationary)<input type="checkbox">
+            Lecturer (Probationary)<input class="chkPostFor" name="postFor" type="checkbox"
+                                          required <?= isset($post1) ? $post1 : '' ?>>
         </div>
         <div class="col-sm-6">
-            Senior Lecturer Gr. II<input type="checkbox">
+            Senior Lecturer Gr. II<input class="chkPostFor" name="postFor" type="checkbox"
+                                         required <?= isset($post1) ? $post1 : '' ?>>
         </div>
     </div>
 
@@ -38,8 +40,19 @@ if ($_SESSION['applicationNo'] == '') {
         </div>
     </div>
     <div class="row" id="aosId">
-        <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control"></div>
-        <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control"></div>
+        <?php
+        if (isset($areaaSpecialization)) {
+            foreach ($areaaSpecialization as $row) {
+                ?>
+                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control" value="<?= $row ?>"></div>
+                <?php
+            }
+        } else {
+            ?>
+            <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control" required></div>
+            <?php
+        }
+        ?>
     </div>
     <div class="row" style="margin-top: 20px">
         <div class="col-sm-6">
@@ -60,10 +73,10 @@ if ($_SESSION['applicationNo'] == '') {
         <div class="col-sm-12" style="font-weight: bold;margin-bottom: 10px">1.</div>
         <div class="col-sm-6">Full Name of the applicant (in block capitals)</div>
         <div class="col-sm-6">Surname with initials (in block capitals)</div>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+        <div class="col-sm-6"><input type="text" class="form-control" required></div>
+        <div class="col-sm-6"><input type="text" class="form-control" required></div>
         <div class="col-sm-12" style="margin-top: 10px">NIC No./ Passport No./ Driving License No</div>
-        <div class="col-sm-6"><input type="text" class="form-control"></div>
+        <div class="col-sm-6"><input type="text" class="form-control" required></div>
     </div>
 
     <hr>
@@ -74,10 +87,10 @@ if ($_SESSION['applicationNo'] == '') {
             Gender
         </div>
         <div class="col-sm-4">
-            Male<input type="radio" name="gender" style="margin-left: 47px">
+            Male<input type="radio" name="gender" style="margin-left: 47px" required>
         </div>
         <div class="col-sm-4">
-            Female<input type="radio" name="gender" style="margin-left: 47px">
+            Female<input type="radio" name="gender" style="margin-left: 47px" required>
         </div>
     </div>
     <div class="row" style="margin-top: 40px">
@@ -86,10 +99,10 @@ if ($_SESSION['applicationNo'] == '') {
             Civil Status
         </div>
         <div class="col-sm-4">
-            Married<input type="radio" name="civilStatus">
+            Married<input type="radio" name="civilStatus" required>
         </div>
         <div class="col-sm-4">
-            Unmarried<input type="radio" name="civilStatus">
+            Unmarried<input type="radio" name="civilStatus" required>
         </div>
     </div>
 
@@ -109,7 +122,7 @@ if ($_SESSION['applicationNo'] == '') {
             Permanent Address (if different from postal address)
         </div>
         <div class="col-sm-6">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" required>
         </div>
         <div class="col-sm-6">
             <input type="text" class="form-control">
@@ -133,7 +146,7 @@ if ($_SESSION['applicationNo'] == '') {
             Office
         </div>
         <div class="col-sm-4">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" required>
         </div>
         <div class="col-sm-4">
             <input type="text" class="form-control">
@@ -179,7 +192,7 @@ if ($_SESSION['applicationNo'] == '') {
             Age as at closing date of the application
         </div>
         <div class="col-sm-6">
-            <input type="date" class="form-control" id="dateId">
+            <input type="date" class="form-control" id="dateId" required>
         </div>
         <div class="col-sm-6" style="margin-top: 5px;text-align: center" id="ageId">
             <!--            <input type="hidden" id="txtClosingDate">-->
@@ -196,17 +209,17 @@ if ($_SESSION['applicationNo'] == '') {
             (a) Applicants citizenship
         </div>
         <div class="col-sm-12">
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" required>
         </div>
         <div class="col-sm-12" style="margin-top: 20px">
             (b) If a Citizen of Sri Lanka How obtained (Tick Relevant Cage)
         </div>
         <div class="col-sm-12" style="margin-top: 20px">
             <div class="col-sm-6">
-                By descent<input type="radio" name="citizen">
+                By descent<input type="radio" name="citizen" required>
             </div>
             <div class="col-sm-6">
-                By registration<input type="radio" name="citizen">
+                By registration<input type="radio" name="citizen" required>
             </div>
         </div>
     </div>
@@ -224,8 +237,20 @@ if ($_SESSION['applicationNo'] == '') {
         </div>
     </div>
     </form>
+
     <script>
-        var aosCount = 3;
+        $(document).ready(function () {
+            $('.chkPostFor').on('change', function () {
+                if ($('.chkPostFor').is(':checked')) {
+                    $('.chkPostFor').attr('required', false);
+                } else {
+                    $('.chkPostFor').attr('required', true);
+                }
+            });
+        });
+    </script>
+    <script>
+        var aosCount = 2;
         $('#addAos').click(function () {
             $('#aosId').append('' +
                 '<div class="col-sm-6" style="margin-bottom: 15px"><span>' + aosCount++ + '.</span> <input type="text" class="form-control"></div>')

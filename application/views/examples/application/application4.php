@@ -1,33 +1,35 @@
 <?php
 $this->load->view('examples/application/header');
 ?>
-    <!--            (b) Higher Education (*Graduate & Postgraduate Qualifications)-->
     <form action="<?= base_url('application_form/page5') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">10.</span>
-                **Any Other Qualifications
+                <span style="font-weight: bold;margin-right: 10px">9.</span>
+                Educational Qualifications
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 15px">
+                (b) Higher Education (<b>*Graduate & Postgraduate Qualifications</b>)
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
                     <thead></thead>
-                    <tbody id="aoqId"></tbody>
+                    <tbody id="heId"></tbody>
                 </table>
             </div>
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-12">
-                <b>*Note:</b> Certified copies of the certificates should be attached
+                <b>*Note:</b> Certified copies of the certificates and transcripts should be attached
             </div>
         </div>
         <div class="row" style="margin-top: 20px">
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="addAoq" type="button"
+                <button class="btn btn-primary" id="addHe" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Add Field
                 </button>
             </div>
             <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeAoq" type="button"
+                <button class="btn btn-primary" id="removeHe" type="button"
                         style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
                 </button>
             </div>
@@ -56,6 +58,15 @@ $this->load->view('examples/application/header');
 
     <script src="<?= base_url('application/views/js/application/application4.js') ?>"></script>
     <script>
+        var arr1 = new Array();
+        var arr2 = new Array();
+        arr1.push(<?php
+            echo "'<option>BSc</option>'";
+            ?>);
+        arr1.push(<?php
+            echo "'<option>MSc</option>'";
+            ?>);
+
         function getUrl() {
             return "<?=base_url('')?>";
         }

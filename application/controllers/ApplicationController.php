@@ -33,7 +33,7 @@ class ApplicationController extends CI_Controller
         $this->data['year'] = '2019';
     }
 
-    public function startPage1()
+    public function startApplication()
     {
         $_SESSION['applicationNo'] = '';
         $this->data['applicationNo'] = $_SESSION['applicationNo'];
@@ -50,7 +50,7 @@ class ApplicationController extends CI_Controller
         $email = new EmailController();
         $this->load->library('email');
 //        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
-        $this->saveUpdatePage1();
+        redirect(base_url() . "application_form/page3");
     }
 
     public function page1()
@@ -163,9 +163,15 @@ class ApplicationController extends CI_Controller
         $this->load->view('examples/application/application10', $this->data);
     }
 
-    public function saveUpdatePage1()
+    public function page11()
     {
-        redirect(base_url() . "application_form/page2");
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application11', $this->data);
     }
 
     public function savePage2()
@@ -188,29 +194,45 @@ class ApplicationController extends CI_Controller
 
     }
 
-    public function saveUpdatePage6()
-    {
-        redirect(base_url() . "application_form/page7");
-    }
-
-    public function savePage7()
+    public function savePage6()
     {
 
     }
 
-    public function saveUpdatePage8()
+    public function saveUpdatePage7()
     {
-        redirect(base_url() . "application_form/page9");
+        redirect(base_url() . "application_form/page8");
     }
 
-    public function savePage9()
+    public function savePage8()
     {
 
     }
 
-    public function saveUpdatePage10()
+    public function saveUpdatePage9()
+    {
+        redirect(base_url() . "application_form/page10");
+    }
+
+    public function savePage10()
+    {
+
+    }
+
+    public function saveUpdatePage11()
     {
         redirect(base_url() . "application_form/page1");
+    }
+
+    public function updatePage1()
+    {
+        $this->load->model('ApplicationModel');
+        $result = $this->data = $this->ApplicationModel->updateApplicant();
+        if ($result > 0) {
+            redirect(base_url() . "application_form/page2");
+        } else {
+            redirect(base_url() . "application_form/page3?error=error");
+        }
     }
 
     public function updatePage2()
@@ -233,12 +255,17 @@ class ApplicationController extends CI_Controller
 
     }
 
-    public function updatePage7()
+    public function updatePage6()
     {
 
     }
 
-    public function updatePage9()
+    public function updatePage8()
+    {
+
+    }
+
+    public function updatePage10()
     {
 
     }
@@ -263,12 +290,17 @@ class ApplicationController extends CI_Controller
 
     }
 
-    public function deletePage7()
+    public function deletePage6()
     {
 
     }
 
-    public function deletePage9()
+    public function deletePage8()
+    {
+
+    }
+
+    public function deletePage10()
     {
 
     }

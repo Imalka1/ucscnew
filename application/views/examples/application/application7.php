@@ -1,30 +1,74 @@
 <?php
 $this->load->view('examples/application/header');
 ?>
-    <!--            Employment Records (from present to past)-->
-    <form action="<?= base_url('application_form/page8') ?>">
+    <!--            Proficiency in Sinhala/ Tamil/ English-->
+    <form action="<?= base_url('ApplicationController/saveUpdatePage7') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">13.</span>
-                Employment Records (from present to past)
+                <span style="font-weight: bold;margin-right: 10px">12.</span>
+                Proficiency in Sinhala/ Tamil/ English
             </div>
             <div class="col-sm-12">
                 <table class="table table-bordered">
-                    <thead></thead>
-                    <tbody id="erId"></tbody>
+                    <thead>
+                    <tr>
+                        <th width="10%">Language</th>
+                        <th width="45%" colspan="4">***Ability to Work</th>
+                        <th width="45%" colspan="4">***Ability to Teach</th>
+                    </tr>
+                    <tr>
+                        <th width="10%"></th>
+                        <th width="11.25%">Very Good</th>
+                        <th width="11.25%">Good</th>
+                        <th width="11.25%">Fair</th>
+                        <th width="11.25%">No Knowledge</th>
+                        <th width="11.25%">Very Good</th>
+                        <th width="11.25%">Good</th>
+                        <th width="11.25%">Fair</th>
+                        <th width="11.25%">No Knowledge</th>
+                    </tr>
+                    </thead>
+                    <tbody id="psteId">
+                    <tr class="rowPste">
+                        <td width="10%">Sinhala</td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachS"></td>
+                    </tr>
+                    <tr class="rowPste">
+                        <td width="10%">English</td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachE"></td>
+                    </tr>
+                    <tr class="rowPste">
+                        <td width="10%">Tamil</td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="workT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                        <td width="11.25%"><input type="radio" style="margin-left: 65px" name="teachT"></td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
         <div class="row" style="margin-top: 20px">
-            <div class="col-sm-6">
-                <button class="btn btn-primary" id="addEr" type="button"
-                        style="left: 50%;transform: translateX(-50%);position: relative">Add Field
-                </button>
-            </div>
-            <div class="col-sm-6">
-                <button class="btn btn-primary" id="removeEr" type="button"
-                        style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
-                </button>
+            <div class="col-sm-12">
+                <b>***Note:</b> indicate your level based on self-evaluation of your ability
             </div>
         </div>
 
@@ -48,23 +92,6 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
-
-    <script src="<?= base_url('application/views/js/application/application7.js') ?>"></script>
-    <script>
-        function getUrl() {
-            return "<?=base_url('')?>";
-        }
-
-        function dataExists() {
-            <?php
-            if (isset($applicantData)) {
-                echo 'return true;';
-            } else {
-                echo 'return false;';
-            }
-            ?>
-        }
-    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

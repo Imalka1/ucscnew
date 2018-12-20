@@ -1,24 +1,30 @@
 <?php
 $this->load->view('examples/application/header');
 ?>
-    <form action="<?= base_url('ApplicationController/saveUpdatePage8') ?>">
+    <!--            Employment Records (from present to past)-->
+    <form action="<?= base_url('application_form/page9') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">14.</span>
-                Experience relevant to the post applied for (Please indicate the tasks handled with the duration)
+                <span style="font-weight: bold;margin-right: 10px">13.</span>
+                Employment Records (from present to past)
             </div>
             <div class="col-sm-12">
-                <textarea name="" id="" rows="7" class="form-control"></textarea>
+                <table class="table table-bordered">
+                    <thead></thead>
+                    <tbody id="erId"></tbody>
+                </table>
             </div>
         </div>
-
-        <div class="row" style="margin-top: 50px">
-            <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">15.</span>
-                Details of research and publications
+        <div class="row" style="margin-top: 20px">
+            <div class="col-sm-6">
+                <button class="btn btn-primary" id="addEr" type="button"
+                        style="left: 50%;transform: translateX(-50%);position: relative">Add Field
+                </button>
             </div>
-            <div class="col-sm-12">
-                <textarea name="" id="" rows="7" class="form-control"></textarea>
+            <div class="col-sm-6">
+                <button class="btn btn-primary" id="removeEr" type="button"
+                        style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
+                </button>
             </div>
         </div>
 
@@ -42,6 +48,23 @@ $this->load->view('examples/application/header');
             </div>
         </div>
     </form>
+
+    <script src="<?= base_url('application/views/js/application/application8.js') ?>"></script>
+    <script>
+        function getUrl() {
+            return "<?=base_url('')?>";
+        }
+
+        function dataExists() {
+            <?php
+            if (isset($applicantData)) {
+                echo 'return true;';
+            } else {
+                echo 'return false;';
+            }
+            ?>
+        }
+    </script>
 <?php
 $this->load->view('examples/application/footer');
 ?>

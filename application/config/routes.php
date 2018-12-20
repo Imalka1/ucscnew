@@ -73,3 +73,4 @@ $route['application_form/page7'] = 'ApplicationController/page7';
 $route['application_form/page8'] = 'ApplicationController/page8';
 $route['application_form/page9'] = 'ApplicationController/page9';
 $route['application_form/page10'] = 'ApplicationController/page10';
+$route['application_form/page11'] = 'ApplicationController/page11';

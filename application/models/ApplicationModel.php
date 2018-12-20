@@ -38,4 +38,10 @@ class ApplicationModel extends CI_Model
         $data['appPassword'] = $appPassword;
         return $data;
     }
+
+    public function updateApplicant()
+    {
+        $this->load->database();
+        return $this->db->affected_rows();
+    }
 }
