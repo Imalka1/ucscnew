@@ -2,11 +2,41 @@ drop database ucscnew;
 create database ucscnew;	
 use ucscnew;	
 create table user(email varchar(50),password varchar(100),accountType varchar(30),constraint primary key(email));	
+
 create table staff(sid int auto_increment,title varchar(10),email varchar(50),name varchar(100),constraint primary key(sid),constraint foreign key(email) references user(email));	
-create table applicant(aid varchar(50),title varchar(10),email varchar(50),name varchar(100),dob varchar(20),registered_date varchar(20),address varchar(20),telephone varchar(20),interviewers_count int,marks int,dataIndex int,primary key(aid),constraint foreign key(email) references user(email));	
+
+create table applicant(
+aid varchar(50),
+postFor int,
+title varchar(10),
+fullName varchar(100),
+surName varchar(100),
+nic varchar(20),
+gender varchar(10),
+civilStatus varchar(20),
+postalAddress varchar(100),
+permanentAddress varchar(100),
+mobileNo varchar(20),
+homeNo varchar(20),
+officeNo varchar(20),
+personalEmail varchar(50),
+OfficailEmail varchar(50),
+dob varchar(30),
+citizenship varchar(30),
+citizen varchar(30),
+registered_date varchar(20),
+interviewers_count int,
+marks int,
+dataIndex int,
+constraint primary key(aid),
+constraint foreign key(email) references user(email));	
+
 create table comment(cmid int auto_increment,sid int,aid varchar(50),description varchar(100),constraint primary key(cmid),constraint foreign key(sid) references staff(sid),constraint foreign key(aid) references applicant(aid));	
+
 create table marking_field_heading(mhid int auto_increment,name varchar(100),detailed int,constraint primary key(mhid));	
+
 create table marking_field(mid int auto_increment,mhid int,name varchar(100),marks varchar(10),primary key(mid),constraint foreign key(mhid) references marking_field_heading(mhid));	
+
 create table advertisement(adid int auto_increment,message varchar(2000),notified int,confirmed int,constraint primary key(adid));
 
 insert into user values ('in1@gmail.com','900150983cd24fb0d6963f7d28e17f72','interview_panel'),('in2@gmail.com','900150983cd24fb0d6963f7d28e17f72','interview_panel');	
