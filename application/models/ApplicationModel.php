@@ -16,7 +16,8 @@ class ApplicationModel extends CI_Model
     public function submitApplicantAndGetAppNumber()
     {
         $id = '';
-        $appPassword = '';
+//        $appPassword = md5(mt_rand(100000, 999999));
+        $appPassword = md5('abc');
         $this->load->database();
         $sql = $this->db->query('select count(email) from applicant where aid like ?', array(date('Y') . '%'));
         $row = $sql->row_array();
@@ -28,9 +29,10 @@ class ApplicationModel extends CI_Model
                 if (isset($row)) {
                     $id = (date('Y') + 1) . '000' . ($row['max(dataIndex)'] + 1);
                     $this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $email, '', '', '', '', '', 1, 0, $row['max(dataIndex)'] + 1));
+                    $this->db->query('insert into user values (?,?,?)', array($email, $appPassword, 'applicant'));
                 }
             } else {
-                $this->id = (date('Y') + 1) . '0001';
+                $id = (date('Y') + 1) . '0001';
                 $this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $email, '', '', '', '', '', 1, 0, 1));
             }
         }

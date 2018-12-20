@@ -50,7 +50,7 @@ class ApplicationController extends CI_Controller
         $email = new EmailController();
         $this->load->library('email');
 //        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
-        redirect(base_url() . "application_form/page3");
+        redirect(base_url() . "application_form/page2");
     }
 
     public function page1()
@@ -231,7 +231,7 @@ class ApplicationController extends CI_Controller
         if ($result > 0) {
             redirect(base_url() . "application_form/page2");
         } else {
-            redirect(base_url() . "application_form/page3?error=error");
+            redirect(base_url() . "application_form/page2?error=error");
         }
     }
 

@@ -54,7 +54,7 @@ function getPanelMain() {
         '<div class="row">' +
         '<div class="col-sm-12" style="margin-bottom: 10px">' +
         '<span>' + aosCount++ + '.</span>' +
-        '<input type="text" class="form-control">' +
+        '<input type="text" class="form-control" required>' +
         '</div>';
 }
 
