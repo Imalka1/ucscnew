@@ -4,11 +4,11 @@ $this->load->view('examples/application/header');
 <?php
 if ($_SESSION['applicationNo'] == '') {
     ?>
-    <form method="post" action="<?= base_url('ApplicationController/startPage2') ?>">
+    <form method="post" action="<?= base_url('ApplicationController/setIdSaveUpdatePage1') ?>">
     <?php
 } else {
     ?>
-    <form method="post" action="<?= base_url('application_form/page2') ?>">
+    <form method="post" action="<?= base_url('ApplicationController/saveUpdatePage1') ?>">
     <?php
 }
 ?>

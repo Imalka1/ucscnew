@@ -81,7 +81,7 @@ if (isset($applicationNo)) {
             <div class="col-sm-4"
                  style="text-align: center;margin-top: 10px;font-size: 16px;color: red;font-weight: 600">Application No
                 : <span
-                        id="appNo"><?= $applicationNo != '' ? $applicationNo : 'Not yet' ?></span>
+                        id="appNo"><?= $applicationNo != '' ? $applicationNo : '(not yet)' ?></span>
             </div>
             <div class="col-sm-4" style="text-align: center;margin-top: 10px;font-size: 16px;font-weight: 600">Date
                 issued : <span

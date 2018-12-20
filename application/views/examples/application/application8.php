@@ -1,7 +1,7 @@
 <?php
 $this->load->view('examples/application/header');
 ?>
-    <form action="<?= base_url('application_form/page9') ?>">
+    <form action="<?= base_url('ApplicationController/saveUpdatePage8') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
                 <span style="font-weight: bold;margin-right: 10px">14.</span>

@@ -40,7 +40,7 @@ class ApplicationController extends CI_Controller
         redirect(base_url() . "application_form/page1");
     }
 
-    public function startPage2()
+    public function setIdSaveUpdatePage1()
     {
         $this->load->model('ApplicationModel');
         $this->data = $this->ApplicationModel->submitApplicantAndGetAppNumber();
@@ -50,7 +50,7 @@ class ApplicationController extends CI_Controller
         $email = new EmailController();
         $this->load->library('email');
 //        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
-        redirect(base_url() . "application_form/page2");
+        $this->saveUpdatePage1();
     }
 
     public function page1()
@@ -121,5 +121,115 @@ class ApplicationController extends CI_Controller
     {
         $this->setData();
         $this->load->view('examples/application/application10', $this->data);
+    }
+
+    public function saveUpdatePage1()
+    {
+        redirect(base_url() . "application_form/page2");
+    }
+
+    public function savePage2()
+    {
+
+    }
+
+    public function savePage3()
+    {
+
+    }
+
+    public function savePage4()
+    {
+
+    }
+
+    public function savePage5()
+    {
+
+    }
+
+    public function saveUpdatePage6()
+    {
+        redirect(base_url() . "application_form/page7");
+    }
+
+    public function savePage7()
+    {
+
+    }
+
+    public function saveUpdatePage8()
+    {
+        redirect(base_url() . "application_form/page9");
+    }
+
+    public function savePage9()
+    {
+
+    }
+
+    public function saveUpdatePage10()
+    {
+        redirect(base_url() . "application_form/page1");
+    }
+
+    public function updatePage2()
+    {
+
+    }
+
+    public function updatePage3()
+    {
+
+    }
+
+    public function updatePage4()
+    {
+
+    }
+
+    public function updatePage5()
+    {
+
+    }
+
+    public function updatePage7()
+    {
+
+    }
+
+    public function updatePage9()
+    {
+
+    }
+
+    public function deletePage2()
+    {
+
+    }
+
+    public function deletePage3()
+    {
+
+    }
+
+    public function deletePage4()
+    {
+
+    }
+
+    public function deletePage5()
+    {
+
+    }
+
+    public function deletePage7()
+    {
+
+    }
+
+    public function deletePage9()
+    {
+
     }
 }
