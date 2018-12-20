@@ -78,48 +78,88 @@ class ApplicationController extends CI_Controller
     public function page3()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application3', $this->data);
     }
 
     public function page4()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application4', $this->data);
     }
 
     public function page5()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application5', $this->data);
     }
 
     public function page6()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application6', $this->data);
     }
 
     public function page7()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application7', $this->data);
     }
 
     public function page8()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application8', $this->data);
     }
 
     public function page9()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application9', $this->data);
     }
 
     public function page10()
     {
         $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
         $this->load->view('examples/application/application10', $this->data);
     }
 

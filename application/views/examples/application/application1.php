@@ -161,7 +161,8 @@ if ($_SESSION['applicationNo'] == '') {
                    value="<?= isset($personalEmail) ? $personalEmail : '' ?>">
         </div>
         <div class="col-sm-6">
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" name="officialEmail"
+                   value="<?= isset($officialEmail) ? $officialEmail : '' ?>">
         </div>
     </div>
 
