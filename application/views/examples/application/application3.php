@@ -5,7 +5,7 @@ $this->load->view('examples/application/header');
     <form action="<?= base_url('application_form/page4') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">9.</span>
+                <span style="font-weight: bold;margin-right: 10px">10.</span>
                 Educational Qualifications
             </div>
             <div class="col-sm-12" style="margin-bottom: 15px">

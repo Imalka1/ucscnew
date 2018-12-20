@@ -5,7 +5,7 @@ $this->load->view('examples/application/header');
     <form action="<?= base_url('application_form/page9') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">13.</span>
+                <span style="font-weight: bold;margin-right: 10px">14.</span>
                 Employment Records (from present to past)
             </div>
             <div class="col-sm-12">

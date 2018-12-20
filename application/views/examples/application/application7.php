@@ -5,7 +5,7 @@ $this->load->view('examples/application/header');
     <form action="<?= base_url('ApplicationController/saveUpdatePage7') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">12.</span>
+                <span style="font-weight: bold;margin-right: 10px">13.</span>
                 Proficiency in Sinhala/ Tamil/ English
             </div>
             <div class="col-sm-12">

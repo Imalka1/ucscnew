@@ -4,7 +4,7 @@ $this->load->view('examples/application/header');
     <form action="<?= base_url('ApplicationController/saveUpdatePage9') ?>">
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">14.</span>
+                <span style="font-weight: bold;margin-right: 10px">15.</span>
                 Experience relevant to the post applied for (Please indicate the tasks handled with the duration)
             </div>
             <div class="col-sm-12">
@@ -14,7 +14,7 @@ $this->load->view('examples/application/header');
 
         <div class="row" style="margin-top: 50px">
             <div class="col-sm-12" style="margin-bottom: 10px">
-                <span style="font-weight: bold;margin-right: 10px">15.</span>
+                <span style="font-weight: bold;margin-right: 10px">16.</span>
                 Details of research and publications
             </div>
             <div class="col-sm-12">

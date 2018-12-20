@@ -30,45 +30,6 @@ if ($_SESSION['applicationNo'] == '') {
 
     <hr>
 
-    <div class="row" style="margin-bottom: 20px">
-        <div class="col-sm-12" style="font-weight: bold">
-            Areas of Specialization
-        </div>
-        <div class="col-sm-12">
-            (Please indicate the subject arrears of specialization based on your qualification and work
-            experience)
-        </div>
-    </div>
-    <div class="row" id="aosId">
-        <?php
-        if (isset($areaaSpecialization)) {
-            foreach ($areaaSpecialization as $row) {
-                ?>
-                <div class="col-sm-6"><span>2.</span> <input type="text" class="form-control" value="<?= $row ?>"></div>
-                <?php
-            }
-        } else {
-            ?>
-            <div class="col-sm-6"><span>1.</span> <input type="text" class="form-control" required></div>
-            <?php
-        }
-        ?>
-    </div>
-    <div class="row" style="margin-top: 20px">
-        <div class="col-sm-6">
-            <button class="btn btn-primary" id="addAos" type="button"
-                    style="left: 50%;transform: translateX(-50%);position: relative">Add Field
-            </button>
-        </div>
-        <div class="col-sm-6">
-            <button class="btn btn-primary" id="removeAos" type="button"
-                    style="left: 50%;transform: translateX(-50%);position: relative">Remove Field
-            </button>
-        </div>
-    </div>
-
-    <hr>
-
     <div class="row">
         <div class="col-sm-12" style="font-weight: bold;margin-bottom: 10px">1.</div>
         <div class="col-sm-6">Full Name of the applicant (in block capitals)</div>
