@@ -5,6 +5,10 @@ if (isset($applicationNo)) {
         redirect(base_url() . 'application_form/page1');
     }
 }
+$error = "";
+if (!empty($_GET["error"])) {
+    $error = $_GET["error"];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,13 +72,21 @@ if (isset($applicationNo)) {
 
 <div class="wrapper" style="background-color: #f5f5f5;padding-bottom: 5px">
 
-
     <!--        <div style="background-color: #f5f5f5">-->
     <div style="text-align: center;font-size: 40px">
         <div style="padding-top: 60px">Application Form</div>
     </div>
     <div style="background-color: white;border: 2px solid #666666;margin: 50px;padding: 10px">
         <div class="row" style="margin-bottom: 10px">
+            <?php
+            if ($error == 'pk') {
+                ?>
+                <div class="alert alert-warning" style="margin-left: 15px;margin-right: 15px">
+                    <strong>Warning!</strong> You are currently registered with the university. Please <a style="color: inherit;font-weight: bold" href="<?= base_url('signin') ?>">login</a> to continue.
+                </div>
+                <?php
+            }
+            ?>
             <div class="col-sm-4" style="font-weight: bold;font-size: 21px">University of Colombo School of
                 Computing
             </div>
