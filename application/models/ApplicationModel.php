@@ -28,11 +28,12 @@ class ApplicationModel extends CI_Model
                 $row = $sql->row_array();
                 if (isset($row)) {
                     $id = (date('Y') + 1) . '000' . ($row['max(dataIndex)'] + 1);
-                    $this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $email, '', '', '', '', '', 1, 0, $row['max(dataIndex)'] + 1));
                     $this->db->query('insert into user values (?,?,?)', array($email, $appPassword, 'applicant'));
+                    $this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $email, '', '', '', '', '', 1, 0, $row['max(dataIndex)'] + 1));
                 }
             } else {
                 $id = (date('Y') + 1) . '0001';
+                $this->db->query('insert into user values (?,?,?)', array($email, $appPassword, 'applicant'));
                 $this->db->query('insert into applicant values (?,?,?,?,?,?,?,?,?,?,?)', array($id, '', $email, '', '', '', '', '', 1, 0, 1));
             }
         }
