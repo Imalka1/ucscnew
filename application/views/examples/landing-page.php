@@ -96,7 +96,8 @@ $this->load->library('session');
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
                 <h4 class="service-heading">Applicant Details</h4>
-                <p class="text-muted">Keep a track of data of respective applicants and automatically categorize applicants for relevant positions.</p>
+                <p class="text-muted">Keep a track of data of respective applicants and automatically categorize
+                    applicants for relevant positions.</p>
             </div>
             <div class="col-md-4">
             <span class="fa-stack fa-4x">
@@ -106,10 +107,21 @@ $this->load->library('session');
                 <h4 class="service-heading">Staff Services</h4>
                 <p class="text-muted">Authorized persons can maintain applicants in a well organized atmosphere.</p>
             </div>
+            <div class="col-sm-12" style="margin-top: 100px;min-height: 700px;border-radius: 50px;margin-bottom: 100px;border: rgb(133,119,73) 2px solid">
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: center;font-weight: bold;font-size: 30px;color: #b69c62;margin-bottom: 50px">
+                        -- Announcements --
+                    </div>
+                    <div class="col-sm-12" style="text-align: left;color: #343331">
+                        Closing date - 31/12/2018
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4"></div>
-            <div class="col-md-4" style="padding-top: 80px;cursor: pointer">
+            <div class="col-md-4" style="padding-top: 20px;cursor: pointer">
                 <div>
-                    <a href="<?= base_url('advertisement') ?>" style="color: inherit;text-decoration: none;" target="_blank">
+                    <a href="<?= base_url('advertisement') ?>" style="color: inherit;text-decoration: none;"
+                       target="_blank">
                     <span class="fa-stack fa-4x">
                       <i class="fas fa-circle fa-stack-2x" style="color: #cb941e"></i>
                       <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
@@ -124,6 +136,7 @@ $this->load->library('session');
         </div>
     </div>
 </section>
+
 
 <section id="contact" style="padding-bottom: 20px">
     <div class="container">

@@ -33,6 +33,12 @@ class ApplicationController extends CI_Controller
         $this->data['year'] = '2019';
     }
 
+    public function viewApplication()
+    {
+        $this->data['applicationNo'] = $_SESSION['applicationNo'];
+        redirect(base_url() . "application_form/page1");
+    }
+
     public function startApplication()
     {
         $_SESSION['applicationNo'] = '';

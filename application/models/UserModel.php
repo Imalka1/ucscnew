@@ -16,7 +16,7 @@ class UserModel extends CI_Model
         $this->password = $this->input->post('password');
         $accountType = $this->input->post('accountType');
         $this->load->database();
-        $this->sql = $this->db->query("SELECT email,password,accountType FROM user where email=? && accountType=?", array($email, $accountType));
+        $this->sql = $this->db->query("SELECT personalEmail,password,accountType FROM user where personalEmail=? && accountType=?", array($email, $accountType));
         return $this->sql->result();
     }
 
@@ -30,18 +30,26 @@ class UserModel extends CI_Model
         return $this->password;
     }
 
+    public function getApplicant()
+    {
+        $email = $this->input->post('email');
+        $this->load->database();
+        $this->sql = $this->db->query("SELECT title,aid,surName FROM applicant a,user u where u.personalEmail=a.personalEmail && a.personalEmail=?", array($email));
+        return $this->sql->result()[0];
+    }
+
     public function getStaff()
     {
         $email = $this->input->post('email');
         $this->load->database();
-        $this->sql = $this->db->query("SELECT title,sid,name FROM staff s,user u where u.email=s.email && s.email=?", array($email));
+        $this->sql = $this->db->query("SELECT title,sid,name FROM staff s,user u where u.personalEmail=s.personalEmail && s.personalEmail=?", array($email));
         return $this->sql->result()[0];
     }
 
     public function getOperators()
     {
         $this->load->database();
-        $this->sql = $this->db->query("SELECT title,s.email,name FROM staff s,user u where u.email=s.email && u.accountType='operator'");
+        $this->sql = $this->db->query("SELECT title,s.email,name FROM staff s,user u where u.personalEmail=s.personalEmail && u.accountType='operator'");
         return $this->sql->result();
     }
 
