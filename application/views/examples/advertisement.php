@@ -57,7 +57,7 @@ $this->load->library('session');
             ?>
         </div>
         <?php
-        if ($advertisement != null && $_SESSION["accountType"] != 'applicant') {
+        if ($advertisement != null && !isset($_SESSION["accountType"])) {
             ?>
             <a href="<?= base_url('ApplicationController/startApplication') ?>" target="_blank">
                 <button type="submit" class="btn btn-fill"

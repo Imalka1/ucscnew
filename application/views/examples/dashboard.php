@@ -35,7 +35,7 @@ $this->load->view('examples/header');
                 ?>
                 <div class="row">
                     <a href="<?= base_url('ApplicationController/viewApplication') ?>" target="_blank">
-                        <div style="padding-right: 50px;font-weight: 400;font-size: 20px;top: 450px;color: #352c24;margin-top:0px;background-color: #797f6e;padding:20px;border-radius: 30px;display: inline-block;left: 50%;transform:translateX(-50%);position: absolute">
+                        <div style="padding-right: 50px;font-weight: 500;font-size: 20px;top: 450px;color: #352c24;margin-top:0px;background-color: #797f6e;padding:20px;border-radius: 30px;display: inline-block;left: 50%;transform:translateX(-50%);position: absolute">
                             View Application
                         </div>
                     </a>

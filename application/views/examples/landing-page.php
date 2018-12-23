@@ -107,6 +107,8 @@ $this->load->library('session');
                 <h4 class="service-heading">Staff Services</h4>
                 <p class="text-muted">Authorized persons can maintain applicants in a well organized atmosphere.</p>
             </div>
+
+<!--            Announcements-->
             <div class="col-sm-12" style="margin-top: 100px;min-height: 700px;border-radius: 50px;margin-bottom: 100px;border: rgb(133,119,73) 2px solid">
                 <div class="row">
                     <div class="col-sm-12" style="text-align: center;font-weight: bold;font-size: 30px;color: #b69c62;margin-bottom: 50px">
@@ -117,6 +119,7 @@ $this->load->library('session');
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4"></div>
             <div class="col-md-4" style="padding-top: 20px;cursor: pointer">
                 <div>
