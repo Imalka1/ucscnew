@@ -32,9 +32,9 @@ if ($_SESSION['applicationNo'] == '') {
 
     <div class="row">
         <div class="col-sm-12" style="font-weight: bold;margin-bottom: 10px">1.</div>
-        <div class="col-sm-6">Title</div>
-        <div class="col-sm-6">Full Name of the applicant (in block capitals)</div>
-        <div class="col-sm-6">
+        <div class="col-sm-2">Title</div>
+        <div class="col-sm-10">Full Name of the applicant (in block capitals)</div>
+        <div class="col-sm-2">
             <select class="form-control" name="title">
                 <option <?= isset($title) ? $title == 'mr' ? 'selected' : '' : '' ?> value="mr">Mr.</option>
                 <option <?= isset($title) ? $title == 'mrs' ? 'selected' : '' : '' ?> value="mrs">Mrs.</option>
@@ -43,7 +43,7 @@ if ($_SESSION['applicationNo'] == '') {
                 <option <?= isset($title) ? $title == 'dr' ? 'selected' : '' : '' ?> value="dr">Dr.</option>
             </select>
         </div>
-        <div class="col-sm-6"><input type="text" class="form-control" required name="fullName"
+        <div class="col-sm-10"><input type="text" class="form-control" required name="fullName"
                                      value="<?= isset($fullName) ? $fullName : '' ?>"></div>
         <div class="col-sm-6" style="margin-top: 10px">Surname with initials (in block capitals)</div>
         <div class="col-sm-6" style="margin-top: 10px">NIC No./ Passport No./ Driving License No</div>

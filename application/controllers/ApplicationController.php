@@ -58,7 +58,44 @@ class ApplicationController extends CI_Controller
         $this->setData();
         if (isset($_SESSION['applicationNo'])) {
             if ($_SESSION['applicationNo'] != '') {
-                $this->data['personalEmail'] = 'imalkagunawardana1@gmail.com';
+                $this->load->model('ApplicationModel');
+                $applicant = $this->ApplicationModel->getApplicantPage1($_SESSION['applicationNo']);
+                if ($applicant->postFor == 1) {
+                    $this->data['postForLecProb'] = 'checked';
+                } else if ($applicant->postFor == 2) {
+                    $this->data['postForSenLec'] = 'checked';
+                } else if ($applicant->postFor == 3) {
+                    $this->data['postForLecProb'] = 'checked';
+                    $this->data['postForSenLec'] = 'checked';
+                }
+                $this->data['title'] = $applicant->title;
+                $this->data['fullName'] = $applicant->fullName;
+                $this->data['surName'] = $applicant->surName;
+                $this->data['nicNo'] = $applicant->nic;
+                if ($applicant->gender == 'male') {
+                    $this->data['male'] = 'checked';
+                } else if ($applicant->gender == 'female') {
+                    $this->data['female'] = 'checked';
+                }
+                if ($applicant->civilStatus == 'married') {
+                    $this->data['married'] = 'checked';
+                } else if ($applicant->civilStatus == 'unmarried') {
+                    $this->data['unmarried'] = 'checked';
+                }
+                $this->data['postalAddress'] = $applicant->postalAddress;
+                $this->data['permanentAddress'] = $applicant->permanentAddress;
+                $this->data['mobileNumber'] = $applicant->mobileNo;
+                $this->data['homeNumber'] = $applicant->homeNo;
+                $this->data['officeNumber'] = $applicant->officeNo;
+                $this->data['personalEmail'] = $applicant->personalEmail;
+                $this->data['officialEmail'] = $applicant->OfficailEmail;
+                $this->data['dob'] = $applicant->dob;
+                $this->data['citizenship'] = $applicant->citizenship;
+                if ($applicant->citizen == 'citizenshipBR') {
+                    $this->data['citizenshipBR'] = 'checked';
+                } else if ($applicant->citizen == 'citizenshipBD') {
+                    $this->data['citizenshipBD'] = 'checked';
+                }
             }
         }
         $this->load->view('examples/application/application1', $this->data);

@@ -81,10 +81,16 @@ class ApplicationModel extends CI_Model
         return $data;
     }
 
-    public
-    function updateApplicant()
+    public function updateApplicant()
     {
         $this->load->database();
         return $this->db->affected_rows();
+    }
+
+    public function getApplicantPage1($aid)
+    {
+        $this->load->database();
+        $sql = $this->db->query('select * from applicant where aid=?', array($aid));
+        return $sql->result()[0];
     }
 }

@@ -6,6 +6,14 @@ $(document).ready(function () {
             $('.chkPostFor').attr('required', true);
         }
     });
+    if ($('.chkPostFor').is(':checked')) {
+        $('.chkPostFor').attr('required', false);
+    } else {
+        $('.chkPostFor').attr('required', true);
+    }
+    if ($('#dateId').val() != '') {
+        getAge($('#dateId').val())
+    }
 });
 
 //--------------------------------------------------------Calculate Age---------------------------------------------------------------------
