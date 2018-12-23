@@ -57,15 +57,31 @@ $this->load->library('session');
             ?>
         </div>
         <?php
-        if ($advertisement != null && !isset($_SESSION["accountType"])) {
+        if ($advertisement != null) {
+            if (isset($_SESSION["accountType"])) {
+                if ($_SESSION["accountType"] != 'applicant') {
+                    ?>
+                    <a href="<?= base_url('ApplicationController/startApplication') ?>" target="_blank">
+                        <button type="submit" class="btn btn-fill"
+                                style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
+                                id="submitVacancy">
+                            Apply for vacancy
+                        </button>
+                    </a>
+                    <?php
+                }
+            } else {
+                ?>
+                <a href="<?= base_url('ApplicationController/startApplication') ?>" target="_blank">
+                    <button type="submit" class="btn btn-fill"
+                            style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
+                            id="submitVacancy">
+                        Apply for vacancy
+                    </button>
+                </a>
+                <?php
+            }
             ?>
-            <a href="<?= base_url('ApplicationController/startApplication') ?>" target="_blank">
-                <button type="submit" class="btn btn-fill"
-                        style="left: 50%;transform: translateX(-50%);font-weight: bold;margin-top: 0px"
-                        id="submitVacancy">
-                    Apply for vacancy
-                </button>
-            </a>
             <?php
         }
         ?>
