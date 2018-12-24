@@ -3,7 +3,7 @@ var aosCount = 1;
 var textSubmit = '<span style="left: 45%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
 var textUpdate = '<span style="left: 45%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
 var textDelete = '<span style="left: 70%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
-var textWarning = '<span style="left: 45%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
+var textWarning = '<span style="left: 55%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
 
 var panelSubmit =
     '<div class="col-sm-12">' +
@@ -28,34 +28,75 @@ $('#removeAos').click(function () {
 });
 
 $('#aosId').on('click', '.rowAosButtonS', function () {
+    var that = this;
     $.ajax(
         {
             type: "post",
-            url: getUrl(),
+            url: getUrlSubmit(),
             data: {
-                aosDescription: $('.rowAosButtonS').parent().parent().parent().children().children('input').eq(1).val()
+                aosDescription: $(that).parent().parent().parent().children().children('input').eq(1).val()
             },
             success: function (response) {
-                if (response == 'true') {
-                    $('.rowAosButtonS').parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+                var json = $.parseJSON(response);
+                if (json[0] == 'true') {
+                    $(that).parent().parent().parent().children().children('input').eq(0).attr('value', json[1])
+                    $(that).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
                 } else {
-                    $('.rowAosButtonS').parent().parent().html(panelSubmit + textWarning + '</div>');
+                    $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
                 }
             },
             error: function () {
-                $('.rowAosButtonS').parent().parent().html(panelSubmit + textWarning + '</div>');
+                $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
             }
         }
     );
-    // console.log($(this).parent().parent().parent().children().children('input').eq(1).val())
 });
 
 $('#aosId').on('click', '.rowAosButtonU', function () {
-    $(this).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+    var that = this;
+    $.ajax(
+        {
+            type: "post",
+            url: getUrlUpdate(),
+            data: {
+                aosId: $(that).parent().parent().parent().children().children('input').eq(0).val(),
+                aosDescription: $(that).parent().parent().parent().children().children('input').eq(1).val()
+            },
+            success: function (response) {
+                if (response == 'true') {
+                    $(that).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+                } else {
+                    $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                }
+            },
+            error: function () {
+                $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+            }
+        }
+    );
 })
 
 $('#aosId').on('click', '.rowAosButtonD', function () {
-    $(this).parent().parent().html(panelSubmit + textDelete + '</div>');
+    var that = this;
+    $.ajax(
+        {
+            type: "post",
+            url: getUrlDelete(),
+            data: {
+                aosId: $(that).parent().parent().parent().children().children('input').eq(0).val()
+            },
+            success: function (response) {
+                if (response == 'true') {
+                    $(that).parent().parent().html(panelSubmit + textDelete + '</div>');
+                } else {
+                    $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                }
+            },
+            error: function () {
+                $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+            }
+        }
+    );
 })
 
 $(window).ready(function () {
@@ -65,7 +106,7 @@ $(window).ready(function () {
 });
 
 function addNewRowAos() {
-    $('#aosId').append(getPanelMain(['','']) + getPanelSubmit() + '</div></div>');
+    $('#aosId').append(getPanelMain(['', '']) + getPanelSubmit() + '</div></div>');
 }
 
 function addRowAos(data1, data2) {

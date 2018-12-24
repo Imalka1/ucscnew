@@ -96,9 +96,47 @@ class ApplicationModel extends CI_Model
 
     public function submitPage2()
     {
+        $addedResult = array('', '');
         $this->load->database();
         if ($this->db->query('insert into areas_of_specialization (aid,description) values (?,?)', array($_SESSION['applicationNo'], $this->input->post('aosDescription')))) {
-            return true;
+            if ($this->db->affected_rows() > 0) {
+                $sql = $this->db->query('select aosid from areas_of_specialization where aid=? && description=?', array($_SESSION['applicationNo'], $this->input->post('aosDescription')));
+                $addedResult[0] = 'true';
+                $addedResult[1] = $sql->result()[$this->db->affected_rows() - 1]->aosid;
+                return $addedResult;
+            } else {
+                $addedResult[0] = 'false';
+                return $addedResult;
+            }
+        } else {
+            $addedResult[0] = 'false';
+            return $addedResult;
+        }
+    }
+
+    public function updatePage2()
+    {
+        $this->load->database();
+        if ($this->db->query('update areas_of_specialization set description=? where aosid=?', array($this->input->post('aosDescription'), $this->input->post('aosId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function deletePage2()
+    {
+        $this->load->database();
+        if ($this->db->query('delete from areas_of_specialization where aosid=?', array($this->input->post('aosId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

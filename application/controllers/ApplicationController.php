@@ -221,11 +221,11 @@ class ApplicationController extends CI_Controller
     public function savePage2()
     {
         $this->load->model('ApplicationModel');
-        $reply = $this->data = $this->ApplicationModel->submitPage2();
-        if ($reply) {
-            echo 'true';
+        $reply = $this->ApplicationModel->submitPage2();
+        if ($reply[0] == 'true') {
+            echo '["' . $reply[0] . '","' . $reply[1] . '"]';
         } else {
-            echo 'false';
+            echo '["' . $reply[0] . '",""]';
         }
     }
 
@@ -287,7 +287,13 @@ class ApplicationController extends CI_Controller
 
     public function updatePage2()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->data = $this->ApplicationModel->updatePage2();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function updatePage3()
@@ -322,7 +328,13 @@ class ApplicationController extends CI_Controller
 
     public function deletePage2()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->data = $this->ApplicationModel->deletePage2();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function deletePage3()

@@ -58,14 +58,26 @@ $this->load->view('examples/application/header');
         }
         ?>
 
-        function getUrl() {
+        function getUrlSubmit() {
             return "<?= base_url('ApplicationController/savePage2')?>";
+        }
+
+        function getUrlUpdate() {
+            return "<?= base_url('ApplicationController/updatePage2')?>";
+        }
+
+        function getUrlDelete() {
+            return "<?= base_url('ApplicationController/deletePage2')?>";
         }
 
         function dataExists() {
             <?php
             if (isset($applicantData)) {
-                echo 'return true;';
+                if ($applicantData != null) {
+                    echo 'return true;';
+                } else {
+                    echo 'return false;';
+                }
             } else {
                 echo 'return false;';
             }
