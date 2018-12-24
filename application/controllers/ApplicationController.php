@@ -277,7 +277,7 @@ class ApplicationController extends CI_Controller
     public function updatePage1()
     {
         $this->load->model('ApplicationModel');
-        $result = $this->data = $this->ApplicationModel->updateApplicant();
+        $result = $this->data = $this->ApplicationModel->updatePage1();
         if ($result > 0) {
             redirect(base_url() . "application_form/page2");
         } else {

@@ -81,7 +81,7 @@ class ApplicationModel extends CI_Model
         return $data;
     }
 
-    public function updateApplicant()
+    public function updatePage1()
     {
         $this->load->database();
         return $this->db->affected_rows();
