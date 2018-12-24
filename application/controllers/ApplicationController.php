@@ -277,7 +277,7 @@ class ApplicationController extends CI_Controller
     public function updatePage1()
     {
         $this->load->model('ApplicationModel');
-        $result = $this->data = $this->ApplicationModel->updatePage1();
+        $result = $this->ApplicationModel->updatePage1();
         if ($result > 0) {
             redirect(base_url() . "application_form/page2");
         } else {
@@ -288,7 +288,7 @@ class ApplicationController extends CI_Controller
     public function updatePage2()
     {
         $this->load->model('ApplicationModel');
-        $reply = $this->data = $this->ApplicationModel->updatePage2();
+        $reply = $this->ApplicationModel->updatePage2();
         if ($reply) {
             echo 'true';
         } else {
@@ -329,7 +329,7 @@ class ApplicationController extends CI_Controller
     public function deletePage2()
     {
         $this->load->model('ApplicationModel');
-        $reply = $this->data = $this->ApplicationModel->deletePage2();
+        $reply = $this->ApplicationModel->deletePage2();
         if ($reply) {
             echo 'true';
         } else {
