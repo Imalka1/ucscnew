@@ -13,7 +13,7 @@ class ApplicationModel extends CI_Model
         parent::__construct();
     }
 
-    public function submitApplicantAndGetAppNumber()
+    public function submitPage1AndGetAppNumber()
     {
         $id = '';
 //        $appPassword = md5(mt_rand(100000, 999999));
@@ -87,10 +87,27 @@ class ApplicationModel extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function getApplicantPage1($aid)
+    public function getPage1()
     {
         $this->load->database();
-        $sql = $this->db->query('select * from applicant where aid=?', array($aid));
+        $sql = $this->db->query('select * from applicant where aid=?', array($_SESSION['applicationNo']));
         return $sql->result()[0];
+    }
+
+    public function submitPage2()
+    {
+        $this->load->database();
+        if ($this->db->query('insert into areas_of_specialization (aid,description) values (?,?)', array($_SESSION['applicationNo'], $this->input->post('aosDescription')))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getPage2()
+    {
+        $this->load->database();
+        $sql = $this->db->query('select * from areas_of_specialization where aid=?', array($_SESSION['applicationNo']));
+        return $sql->result();
     }
 }

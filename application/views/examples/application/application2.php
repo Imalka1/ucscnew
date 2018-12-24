@@ -50,8 +50,16 @@ $this->load->view('examples/application/header');
 
     <script src="<?= base_url('application/views/js/application/application2.js') ?>"></script>
     <script>
+        <?php
+        if (isset($applicantData)) {
+            foreach ($applicantData as $row) {
+                echo 'addRowAos("' . $row->aosid . '","' . $row->description . '");';
+            }
+        }
+        ?>
+
         function getUrl() {
-            return "<?=base_url('')?>";
+            return "<?= base_url('ApplicationController/savePage2')?>";
         }
 
         function dataExists() {

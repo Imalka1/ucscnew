@@ -49,7 +49,7 @@ class ApplicationController extends CI_Controller
     public function setIdSaveUpdatePage1()
     {
         $this->load->model('ApplicationModel');
-        $this->data = $this->ApplicationModel->submitApplicantAndGetAppNumber();
+        $this->data = $this->ApplicationModel->submitPage1AndGetAppNumber();
         $_SESSION['applicationNo'] = $this->data['id'];
         $this->data['applicationNo'] = $_SESSION['applicationNo'];
         $this->data['year'] = '2019';
@@ -65,7 +65,7 @@ class ApplicationController extends CI_Controller
         if (isset($_SESSION['applicationNo'])) {
             if ($_SESSION['applicationNo'] != '') {
                 $this->load->model('ApplicationModel');
-                $applicant = $this->ApplicationModel->getApplicantPage1($_SESSION['applicationNo']);
+                $applicant = $this->ApplicationModel->getPage1();
                 if ($applicant->postFor == 1) {
                     $this->data['postForLecProb'] = 'checked';
                 } else if ($applicant->postFor == 2) {
@@ -112,7 +112,8 @@ class ApplicationController extends CI_Controller
         $this->setData();
         if (isset($_SESSION['applicationNo'])) {
             if ($_SESSION['applicationNo'] != '') {
-//                $this->data['applicantData'] = 'imalkagunawardana1@gmail.com';
+                $this->load->model('ApplicationModel');
+                $this->data['applicantData'] = $this->ApplicationModel->getPage2();
             }
         }
         $this->load->view('examples/application/application2', $this->data);
@@ -219,7 +220,13 @@ class ApplicationController extends CI_Controller
 
     public function savePage2()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->data = $this->ApplicationModel->submitPage2();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function savePage3()

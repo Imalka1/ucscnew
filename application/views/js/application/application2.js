@@ -28,7 +28,26 @@ $('#removeAos').click(function () {
 });
 
 $('#aosId').on('click', '.rowAosButtonS', function () {
-    $(this).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+    $.ajax(
+        {
+            type: "post",
+            url: getUrl(),
+            data: {
+                aosDescription: $('.rowAosButtonS').parent().parent().parent().children().children('input').eq(1).val()
+            },
+            success: function (response) {
+                if (response == 'true') {
+                    $('.rowAosButtonS').parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+                } else {
+                    $('.rowAosButtonS').parent().parent().html(panelSubmit + textWarning + '</div>');
+                }
+            },
+            error: function () {
+                $('.rowAosButtonS').parent().parent().html(panelSubmit + textWarning + '</div>');
+            }
+        }
+    );
+    // console.log($(this).parent().parent().parent().children().children('input').eq(1).val())
 });
 
 $('#aosId').on('click', '.rowAosButtonU', function () {
@@ -46,30 +65,31 @@ $(window).ready(function () {
 });
 
 function addNewRowAos() {
-    $('#aosId').append(getPanelMain() + getPanelSubmit() + '</div></div>');
+    $('#aosId').append(getPanelMain(['','']) + getPanelSubmit() + '</div></div>');
 }
 
-function getPanelMain() {
+function addRowAos(data1, data2) {
+    $('#aosId').append(getPanelMain([data1, data2]) + getPanelUpdateDelete() + '</div></div>');
+}
+
+function getPanelMain(dataSet) {
     return '<div class="col-sm-6 specField" style="margin-bottom: 15px">' +
         '<div class="row">' +
         '<div class="col-sm-12" style="margin-bottom: 10px">' +
         '<span>' + aosCount++ + '.</span>' +
-        '<input type="text" class="form-control" required>' +
+        '<input type="hidden" value="' + dataSet[0] + '">' +
+        '<input type="text" class="form-control" required value="' + dataSet[1] + '">' +
         '</div>';
 }
 
 function getPanelSubmit() {
-    return '<div class="row rowAosButton" style="margin-bottom: 20px">' +
-        '<div class="col-sm-12">' +
+    return '<div class="col-sm-12 rowAosButton" style="margin-bottom: 20px">' +
         panelSubmit +
-        '</div>' +
         '</div>';
 }
 
 function getPanelUpdateDelete() {
-    return '<div class="row rowAosButton" style="margin-bottom: 20px">' +
-        '<div class="col-sm-12">' +
+    return '<div class="col-sm-12 rowAosButton" style="margin-bottom: 20px">' +
         panelUpdateDelete +
-        '</div>' +
         '</div>';
 }

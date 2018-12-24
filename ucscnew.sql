@@ -5,6 +5,8 @@ create table user(personalEmail varchar(50),password varchar(100),accountType va
 
 create table staff(sid int auto_increment,title varchar(10),personalEmail varchar(50),name varchar(100),constraint primary key(sid),constraint foreign key(personalEmail) references user(personalEmail));	
 
+-- Applicant --
+
 create table applicant(
 aid varchar(50),
 postFor int,
@@ -31,13 +33,17 @@ dataIndex int,
 constraint primary key(aid),
 constraint foreign key(personalEmail) references user(personalEmail));	
 
+create table areas_of_specialization (aosid int auto_increment,aid varchar(50),description varchar(200),constraint primary key(aosid),constraint foreign key(aid) references applicant(aid));
+
+-- Interview Panel --
+
 create table comment(cmid int auto_increment,sid int,aid varchar(50),description varchar(100),constraint primary key(cmid),constraint foreign key(sid) references staff(sid),constraint foreign key(aid) references applicant(aid));	
 
 create table marking_field_heading(mhid int auto_increment,name varchar(100),detailed int,constraint primary key(mhid));	
 
-create table marking_field(mid int auto_increment,mhid int,name varchar(100),marks varchar(10),primary key(mid),constraint foreign key(mhid) references marking_field_heading(mhid));	
+create table marking_field(mid int auto_increment,mhid int,name varchar(100),marks varchar(10),constraint primary key(mid),constraint foreign key(mhid) references marking_field_heading(mhid));	
 
-create table advertisement(adid int auto_increment,message varchar(2000),notified int,confirmed int,constraint primary key(adid));
+create table advertisement(adid int auto_increment,message varchar(3000),notified int,confirmed int,constraint primary key(adid));
 
 insert into user values ('in1@gmail.com','900150983cd24fb0d6963f7d28e17f72','interview_panel'),('in2@gmail.com','900150983cd24fb0d6963f7d28e17f72','interview_panel');	
 insert into user values ('di1@gmail.com','900150983cd24fb0d6963f7d28e17f72','sar'),('di2@gmail.com','900150983cd24fb0d6963f7d28e17f72','sar');	

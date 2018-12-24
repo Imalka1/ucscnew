@@ -82,7 +82,7 @@ if (!empty($_GET["error"])) {
             if ($error == 'pk') {
                 ?>
                 <div class="alert alert-warning" style="margin-left: 15px;margin-right: 15px">
-                    <strong>Warning!</strong> You are currently registered with the university. Please <a style="color: inherit;font-weight: bold" href="<?= base_url('signin') ?>">login</a> to continue.
+                    <strong>Warning!</strong> You are currently registered with the system. Please <a style="color: inherit;font-weight: bold" href="<?= base_url('signin') ?>">login</a> to continue.
                 </div>
                 <?php
             }
