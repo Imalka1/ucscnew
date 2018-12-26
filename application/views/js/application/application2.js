@@ -3,7 +3,8 @@ var aosCount = 1;
 var textSubmit = '<span style="left: 45%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
 var textUpdate = '<span style="left: 45%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
 var textDelete = '<span style="left: 70%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
-var textWarning = '<span style="left: 55%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
+var textWarning = '<span style="left: 55%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;An error</span>';
+var textEmpty = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Empty field</span>';
 
 var panelSubmit =
     '<div class="col-sm-12">' +
@@ -29,51 +30,61 @@ $('#removeAos').click(function () {
 
 $('#aosId').on('click', '.rowAosButtonS', function () {
     var that = this;
-    $.ajax(
-        {
-            type: "post",
-            url: getUrlSubmit(),
-            data: {
-                aosDescription: $(that).parent().parent().parent().children().children('input').eq(1).val()
-            },
-            success: function (response) {
-                var json = $.parseJSON(response);
-                if (json[0] == 'true') {
-                    $(that).parent().parent().parent().children().children('input').eq(0).attr('value', json[1])
-                    $(that).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
-                } else {
+    var areEmpty = checkEmpty(that, 1);
+    if (areEmpty) {
+        $.ajax(
+            {
+                type: "post",
+                url: getUrlSubmit(),
+                data: {
+                    aosDescription: $(that).parent().parent().parent().children().children('input').eq(1).val()
+                },
+                success: function (response) {
+                    var json = $.parseJSON(response);
+                    if (json[0] == 'true') {
+                        $(that).parent().parent().parent().children().children('input').eq(0).attr('value', json[1])
+                        $(that).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+                    } else {
+                        $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
+                    }
+                },
+                error: function () {
                     $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
                 }
-            },
-            error: function () {
-                $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
             }
-        }
-    );
+        );
+    } else {
+        $(that).parent().parent().html(panelSubmit + textEmpty + '</div>');
+    }
 });
 
 $('#aosId').on('click', '.rowAosButtonU', function () {
     var that = this;
-    $.ajax(
-        {
-            type: "post",
-            url: getUrlUpdate(),
-            data: {
-                aosId: $(that).parent().parent().parent().children().children('input').eq(0).val(),
-                aosDescription: $(that).parent().parent().parent().children().children('input').eq(1).val()
-            },
-            success: function (response) {
-                if (response == 'true') {
-                    $(that).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
-                } else {
+    var areEmpty = checkEmpty(that, 5);
+    if (areEmpty) {
+        $.ajax(
+            {
+                type: "post",
+                url: getUrlUpdate(),
+                data: {
+                    aosId: $(that).parent().parent().parent().children().children('input').eq(0).val(),
+                    aosDescription: $(that).parent().parent().parent().children().children('input').eq(1).val()
+                },
+                success: function (response) {
+                    if (response == 'true') {
+                        $(that).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+                    } else {
+                        $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                    }
+                },
+                error: function () {
                     $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
                 }
-            },
-            error: function () {
-                $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
             }
-        }
-    );
+        );
+    } else {
+        $(that).parent().parent().html(panelSubmit + textEmpty + '</div>');
+    }
 })
 
 $('#aosId').on('click', '.rowAosButtonD', function () {
@@ -104,6 +115,20 @@ $(window).ready(function () {
         addNewRowAos();
     }
 });
+
+function checkEmpty(that, fieldsLength) {
+    var count = 0;
+    for (var i = 0; i < fieldsLength; i++) {
+        if ($(that).parent().parent().parent().children().children('input').eq(i + 1).val() != '') {
+            count++;
+        }
+    }
+    if (count == fieldsLength) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function addNewRowAos() {
     $('#aosId').append(getPanelMain(['', '']) + getPanelSubmit() + '</div></div>');

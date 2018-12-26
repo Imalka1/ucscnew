@@ -46,6 +46,8 @@ class ApplicationController extends CI_Controller
         redirect(base_url() . "application_form/page1");
     }
 
+    //---------------------------------------------------Page 1---------------------------------------------------------
+
     public function setIdSaveUpdatePage1()
     {
         $this->load->model('ApplicationModel');
@@ -57,6 +59,17 @@ class ApplicationController extends CI_Controller
         $this->load->library('email');
 //        $email->sendMailToApplicant($this->email, $this->input->post('personalEmail'), $data);
         redirect(base_url() . "application_form/page2");
+    }
+
+    public function updatePage1()
+    {
+        $this->load->model('ApplicationModel');
+        $result = $this->ApplicationModel->updatePage1();
+        if ($result > 0) {
+            redirect(base_url() . "application_form/page2");
+        } else {
+            redirect(base_url() . "application_form/page2?error=error");
+        }
     }
 
     public function page1()
@@ -107,116 +120,7 @@ class ApplicationController extends CI_Controller
         $this->load->view('examples/application/application1', $this->data);
     }
 
-    public function page2()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-                $this->load->model('ApplicationModel');
-                $this->data['applicantData'] = $this->ApplicationModel->getPage2();
-            }
-        }
-        $this->load->view('examples/application/application2', $this->data);
-    }
-
-    public function page3()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application3', $this->data);
-    }
-
-    public function page4()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application4', $this->data);
-    }
-
-    public function page5()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application5', $this->data);
-    }
-
-    public function page6()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application6', $this->data);
-    }
-
-    public function page7()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application7', $this->data);
-    }
-
-    public function page8()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application8', $this->data);
-    }
-
-    public function page9()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application9', $this->data);
-    }
-
-    public function page10()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application10', $this->data);
-    }
-
-    public function page11()
-    {
-        $this->setData();
-        if (isset($_SESSION['applicationNo'])) {
-            if ($_SESSION['applicationNo'] != '') {
-
-            }
-        }
-        $this->load->view('examples/application/application11', $this->data);
-    }
+    //---------------------------------------------------Page 2---------------------------------------------------------
 
     public function savePage2()
     {
@@ -226,62 +130,6 @@ class ApplicationController extends CI_Controller
             echo '["' . $reply[0] . '","' . $reply[1] . '"]';
         } else {
             echo '["' . $reply[0] . '",""]';
-        }
-    }
-
-    public function savePage3()
-    {
-
-    }
-
-    public function savePage4()
-    {
-
-    }
-
-    public function savePage5()
-    {
-
-    }
-
-    public function savePage6()
-    {
-
-    }
-
-    public function saveUpdatePage7()
-    {
-        redirect(base_url() . "application_form/page8");
-    }
-
-    public function savePage8()
-    {
-
-    }
-
-    public function saveUpdatePage9()
-    {
-        redirect(base_url() . "application_form/page10");
-    }
-
-    public function savePage10()
-    {
-
-    }
-
-    public function saveUpdatePage11()
-    {
-        redirect(base_url() . "application_form/page1");
-    }
-
-    public function updatePage1()
-    {
-        $this->load->model('ApplicationModel');
-        $result = $this->ApplicationModel->updatePage1();
-        if ($result > 0) {
-            redirect(base_url() . "application_form/page2");
-        } else {
-            redirect(base_url() . "application_form/page2?error=error");
         }
     }
 
@@ -296,36 +144,6 @@ class ApplicationController extends CI_Controller
         }
     }
 
-    public function updatePage3()
-    {
-
-    }
-
-    public function updatePage4()
-    {
-
-    }
-
-    public function updatePage5()
-    {
-
-    }
-
-    public function updatePage6()
-    {
-
-    }
-
-    public function updatePage8()
-    {
-
-    }
-
-    public function updatePage10()
-    {
-
-    }
-
     public function deletePage2()
     {
         $this->load->model('ApplicationModel');
@@ -337,7 +155,61 @@ class ApplicationController extends CI_Controller
         }
     }
 
+    public function page2()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+                $this->load->model('ApplicationModel');
+                $this->data['applicantData'] = $this->ApplicationModel->getPage2();
+            }
+        }
+        $this->load->view('examples/application/application2', $this->data);
+    }
+
+    //---------------------------------------------------Page 3---------------------------------------------------------
+
+    public function savePage3()
+    {
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->submitPage3();
+        if ($reply[0] == 'true') {
+            echo '["' . $reply[0] . '","' . $reply[1] . '"]';
+        } else {
+            echo '["' . $reply[0] . '",""]';
+        }
+    }
+
+    public function updatePage3()
+    {
+
+    }
+
     public function deletePage3()
+    {
+
+    }
+
+    public function page3()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+                $this->load->model('ApplicationModel');
+                $this->data['applicantData'] = $this->ApplicationModel->getPage3();
+            }
+        }
+        $this->load->view('examples/application/application3', $this->data);
+    }
+
+    //---------------------------------------------------Page 4---------------------------------------------------------
+
+    public function savePage4()
+    {
+
+    }
+
+    public function updatePage4()
     {
 
     }
@@ -347,7 +219,53 @@ class ApplicationController extends CI_Controller
 
     }
 
+    public function page4()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application4', $this->data);
+    }
+
+    //---------------------------------------------------Page 5---------------------------------------------------------
+
+    public function savePage5()
+    {
+
+    }
+
+    public function updatePage5()
+    {
+
+    }
+
     public function deletePage5()
+    {
+
+    }
+
+    public function page5()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application5', $this->data);
+    }
+
+    //---------------------------------------------------Page 6---------------------------------------------------------
+
+    public function savePage6()
+    {
+
+    }
+
+    public function updatePage6()
     {
 
     }
@@ -357,7 +275,89 @@ class ApplicationController extends CI_Controller
 
     }
 
+    public function page6()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application6', $this->data);
+    }
+
+    //---------------------------------------------------Page 7---------------------------------------------------------
+
+    public function saveUpdatePage7()
+    {
+        redirect(base_url() . "application_form/page8");
+    }
+
+    public function page7()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application7', $this->data);
+    }
+
+    //---------------------------------------------------Page 8---------------------------------------------------------
+
+    public function savePage8()
+    {
+
+    }
+
+    public function updatePage8()
+    {
+
+    }
+
     public function deletePage8()
+    {
+
+    }
+
+    public function page8()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application8', $this->data);
+    }
+
+    //---------------------------------------------------Page 9---------------------------------------------------------
+
+    public function saveUpdatePage9()
+    {
+        redirect(base_url() . "application_form/page10");
+    }
+
+    public function page9()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application9', $this->data);
+    }
+
+    //---------------------------------------------------Page 10--------------------------------------------------------
+
+    public function savePage10()
+    {
+
+    }
+
+    public function updatePage10()
     {
 
     }
@@ -365,5 +365,34 @@ class ApplicationController extends CI_Controller
     public function deletePage10()
     {
 
+    }
+
+    public function page10()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application10', $this->data);
+    }
+
+    //---------------------------------------------------Page 11--------------------------------------------------------
+
+    public function saveUpdatePage11()
+    {
+        redirect(base_url() . "application_form/page1");
+    }
+
+    public function page11()
+    {
+        $this->setData();
+        if (isset($_SESSION['applicationNo'])) {
+            if ($_SESSION['applicationNo'] != '') {
+
+            }
+        }
+        $this->load->view('examples/application/application11', $this->data);
     }
 }

@@ -3,7 +3,8 @@ var rowSe = 1;
 var textSubmit = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Submitted</span>';
 var textUpdate = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
 var textDelete = '<span style="left: 70%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
-var textWarning = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
+var textWarning = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;An error</span>';
+var textEmpty = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Empty fields</span>';
 
 var panelSubmit =
     '<div class="col-sm-12">' +
@@ -31,40 +32,93 @@ $('#removeSe').click(function () {
 });
 
 $('#seId').on('click', '.rowSeButtonS', function () {
-    var colCount = $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().length;
-    for (var i = 0; i < colCount; i++) {
-        console.log($(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(i).val())
+    var that = this;
+    var areEmpty = checkEmpty(that, 5);
+    if (areEmpty) {
+        $.ajax(
+            {
+                type: "post",
+                url: getUrlSubmit(),
+                data: {
+                    seNameOfSchool: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(1).val(),
+                    seFrom: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(2).val(),
+                    seTo: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(3).val(),
+                    seExam: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(4).val(),
+                    seYear: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(5).val()
+                },
+                success: function (response) {
+                    var json = $.parseJSON(response);
+                    if (json[0] == 'true') {
+                        $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(0).attr('value', json[1])
+                        $(that).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+                    } else {
+                        $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
+                    }
+                },
+                error: function () {
+                    $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
+                }
+            }
+        );
+    } else {
+        $(that).parent().parent().html(panelSubmit + textEmpty + '</div>');
     }
-    $(this).parents('tr').parent().children("tr:nth-child(" + $(this).parents('tr').index() + ")").children().children().eq(1).val('ad');
-    $(this).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
-
-    // $.ajax(
-    //     {
-    //         type: "post",
-    //         url: url,
-    //         data: {aid: aid},
-    //         success: function (response) {
-    //             var fields = response.split('~');
-    //             var comment = '';
-    //             for (var i = 0; i < fields.length; i++) {
-    //                 comment += fields[i] + '\n';
-    //             }
-    //             $('#txtReport').val(comment);
-    //             // nicEditors.findEditor( "txtReport" ).setContent( comment );
-    //         }
-    //         // error: function () {
-    //         //     alert("Invalide!");
-    //         // }
-    //     }
-    // );
 })
 
 $('#seId').on('click', '.rowSeButtonU', function () {
-    $(this).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+    var that = this;
+    var areEmpty = checkEmpty(that, 5);
+    if (areEmpty) {
+        $.ajax(
+            {
+                type: "post",
+                url: getUrlUpdate(),
+                data: {
+                    seId: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(0).val(),
+                    seNameOfSchool: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(1).val(),
+                    seFrom: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(2).val(),
+                    seTo: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(3).val(),
+                    seExam: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(4).val(),
+                    seYear: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(5).val()
+                },
+                success: function (response) {
+                    if (response == 'true') {
+                        $(that).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+                    } else {
+                        $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                    }
+                },
+                error: function () {
+                    $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                }
+            }
+        );
+    } else {
+        $(that).parent().parent().html(panelSubmit + textEmpty + '</div>');
+    }
 })
 
 $('#seId').on('click', '.rowSeButtonD', function () {
-    $(this).parent().parent().html(panelSubmit + textDelete + '</div>');
+    var that = this;
+    $.ajax(
+        {
+            type: "post",
+            url: getUrlDelete(),
+            data: {
+                seId: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(0).val()
+            },
+            success: function (response) {
+                if (response == 'true') {
+                    $(that).parent().parent().html(panelSubmit + textDelete + '</div>');
+                } else {
+                    $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                }
+            },
+            error: function () {
+                $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+            }
+        }
+    );
 })
 
 $(window).ready(function () {
@@ -72,6 +126,20 @@ $(window).ready(function () {
         addNewRowSe();
     }
 });
+
+function checkEmpty(that, fieldsLength) {
+    var count = 0;
+    for (var i = 0; i < fieldsLength; i++) {
+        if ($(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(i + 1).val() != '') {
+            count++;
+        }
+    }
+    if (count == fieldsLength) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function addNewRowSe() {
     $('#seId').append(getPanelMain(['', '', '', '', '', '']) + getPanelSubmit());
@@ -92,11 +160,11 @@ function getPanelMain(dataSet) {
         '</tr>' +
         '<tr class="rowSe">\n' +
         '<th width="3%"><input type="hidden" value="' + dataSet[0] + '"></th>\n' +
-        '<td width="30%"><input type="text" class="form-control" value="' + dataSet[1] + '"></td>\n' +
-        '<td width="15%"><input type="text" class="form-control" value="' + dataSet[2] + '"></td>\n' +
-        '<td width="15%"><input type="text" class="form-control" value="' + dataSet[3] + '"></td>\n' +
-        '<td width="25%"><input type="text" class="form-control" value="' + dataSet[4] + '"></td>\n' +
-        '<td width="15%"><input type="text" class="form-control" value="' + dataSet[5] + '"></td>\n' +
+        '<td width="30%"><input type="text" class="form-control" required value="' + dataSet[1] + '"></td>\n' +
+        '<td width="15%"><input type="date" class="form-control" required value="' + dataSet[2] + '"></td>\n' +
+        '<td width="15%"><input type="date" class="form-control" required value="' + dataSet[3] + '"></td>\n' +
+        '<td width="25%"><input type="text" class="form-control" required value="' + dataSet[4] + '"></td>\n' +
+        '<td width="15%"><input type="text" class="form-control" required value="' + dataSet[5] + '"></td>\n' +
         '</tr>';
 }
 

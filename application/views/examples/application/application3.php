@@ -57,21 +57,31 @@ $this->load->view('examples/application/header');
         <?php
         if (isset($applicantData)) {
             foreach ($applicantData as $row) {
-//                echo "addRowSe()";
+                echo 'addRowSe("' . $row->seid . '","' . $row->seNameOfSchool . '","' . $row->seFrom . '","' . $row->seTo . '","' . $row->seExam . '","' . $row->seYear . '");';
             }
         }
-        echo "addRowSe('q','w','e','r','t','y');";
-        echo "addRowSe('qq','ww','ee','rr','tt','yy')";
         ?>
 
-        function getUrl() {
-            return "<?=base_url('')?>";
+        function getUrlSubmit() {
+            return "<?= base_url('ApplicationController/savePage3')?>";
+        }
+
+        function getUrlUpdate() {
+            return "<?= base_url('ApplicationController/updatePage3')?>";
+        }
+
+        function getUrlDelete() {
+            return "<?= base_url('ApplicationController/deletePage3')?>";
         }
 
         function dataExists() {
             <?php
-            if (!isset($applicantData)) {
-                echo 'return true;';
+            if (isset($applicantData)) {
+                if ($applicantData != null) {
+                    echo 'return true;';
+                } else {
+                    echo 'return false;';
+                }
             } else {
                 echo 'return false;';
             }

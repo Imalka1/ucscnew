@@ -82,7 +82,9 @@ if (!empty($_GET["error"])) {
             if ($error == 'pk') {
                 ?>
                 <div class="alert alert-warning" style="margin-left: 15px;margin-right: 15px">
-                    <strong>Warning!</strong> You are currently registered with the system. Please <a style="color: inherit;font-weight: bold" href="<?= base_url('signin') ?>">login</a> to continue.
+                    <strong>Warning!</strong> You are currently registered with the system. Please <a
+                            style="color: inherit;font-weight: bold" href="<?= base_url('signin') ?>">login</a> to
+                    continue.
                 </div>
                 <?php
             }
@@ -93,7 +95,7 @@ if (!empty($_GET["error"])) {
             <div class="col-sm-4"
                  style="text-align: center;margin-top: 10px;font-size: 16px;color: red;font-weight: 600">Application No
                 : <span
-                        id="appNo"><?= $applicationNo != '' ? $applicationNo : '(not yet)' ?></span>
+                        id="appNo"><?= isset($applicationNo) ? $applicationNo != '' ? $applicationNo : '(not yet)' : '(not yet)' ?></span>
             </div>
             <div class="col-sm-4" style="text-align: center;margin-top: 10px;font-size: 16px;font-weight: 600">Date
                 issued : <span

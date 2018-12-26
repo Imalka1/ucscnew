@@ -35,6 +35,8 @@ constraint foreign key(personalEmail) references user(personalEmail));
 
 create table areas_of_specialization (aosid int auto_increment,aid varchar(50),description varchar(200),constraint primary key(aosid),constraint foreign key(aid) references applicant(aid));
 
+create table secondary_education (seid int auto_increment,aid varchar(50),seNameOfSchool varchar(100),seFrom varchar(50),seTo varchar(50),seExam varchar(100),seYear varchar(10),constraint primary key(seid),constraint foreign key(aid) references applicant(aid));
+
 -- Interview Panel --
 
 create table comment(cmid int auto_increment,sid int,aid varchar(50),description varchar(100),constraint primary key(cmid),constraint foreign key(sid) references staff(sid),constraint foreign key(aid) references applicant(aid));	
