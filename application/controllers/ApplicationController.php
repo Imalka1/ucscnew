@@ -182,12 +182,24 @@ class ApplicationController extends CI_Controller
 
     public function updatePage3()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->updatePage3();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function deletePage3()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->deletePage3();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function page3()

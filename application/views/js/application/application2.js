@@ -83,7 +83,7 @@ $('#aosId').on('click', '.rowAosButtonU', function () {
             }
         );
     } else {
-        $(that).parent().parent().html(panelSubmit + textEmpty + '</div>');
+        $(that).parent().parent().html(panelUpdateDelete + textEmpty + '</div>');
     }
 })
 
