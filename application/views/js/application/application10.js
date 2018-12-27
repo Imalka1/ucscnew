@@ -21,7 +21,7 @@ $('#addRef').click(function () {
 });
 
 $('#removeRef').click(function () {
-    if (rowRef > 2) {
+    if (rowRef > 1) {
         rowRef--;
         $('#refId tr.rowRefButton:last-child').remove();
         $('#refId tr.rowRef:last-child').remove();

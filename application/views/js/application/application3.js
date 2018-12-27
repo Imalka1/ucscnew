@@ -23,7 +23,7 @@ $('#addSe').click(function () {
 });
 
 $('#removeSe').click(function () {
-    if (rowSe > 2) {
+    if (rowSe > 1) {
         rowSe--;
         $('#seId tr.rowSeButton:last-child').remove();
         $('#seId tr.rowSe:last-child').remove();
@@ -33,7 +33,7 @@ $('#removeSe').click(function () {
 
 $('#seId').on('click', '.rowSeButtonS', function () {
     var that = this;
-    var areEmpty = checkEmpty(that, 5);
+    var areEmpty = checkEmptiness(that, 5);
     if (areEmpty) {
         $.ajax(
             {
@@ -67,7 +67,7 @@ $('#seId').on('click', '.rowSeButtonS', function () {
 
 $('#seId').on('click', '.rowSeButtonU', function () {
     var that = this;
-    var areEmpty = checkEmpty(that, 5);
+    var areEmpty = checkEmptiness(that, 5);
     if (areEmpty) {
         $.ajax(
             {
@@ -127,7 +127,7 @@ $(window).ready(function () {
     }
 });
 
-function checkEmpty(that, fieldsLength) {
+function checkEmptiness(that, fieldsLength) {
     var count = 0;
     for (var i = 0; i < fieldsLength; i++) {
         if ($(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(i + 1).val() != '') {

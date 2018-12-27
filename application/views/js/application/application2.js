@@ -22,7 +22,7 @@ $('#addAos').click(function () {
 });
 
 $('#removeAos').click(function () {
-    if (aosCount > 2) {
+    if (aosCount > 1) {
         aosCount--;
         $('#aosId .specField:last-child').remove();
     }
@@ -30,7 +30,7 @@ $('#removeAos').click(function () {
 
 $('#aosId').on('click', '.rowAosButtonS', function () {
     var that = this;
-    var areEmpty = checkEmpty(that, 1);
+    var areEmpty = checkEmptiness(that, 1);
     if (areEmpty) {
         $.ajax(
             {
@@ -60,7 +60,7 @@ $('#aosId').on('click', '.rowAosButtonS', function () {
 
 $('#aosId').on('click', '.rowAosButtonU', function () {
     var that = this;
-    var areEmpty = checkEmpty(that, 5);
+    var areEmpty = checkEmptiness(that, 5);
     if (areEmpty) {
         $.ajax(
             {
@@ -116,7 +116,7 @@ $(window).ready(function () {
     }
 });
 
-function checkEmpty(that, fieldsLength) {
+function checkEmptiness(that, fieldsLength) {
     var count = 0;
     for (var i = 0; i < fieldsLength; i++) {
         if ($(that).parent().parent().parent().children().children('input').eq(i + 1).val() != '') {

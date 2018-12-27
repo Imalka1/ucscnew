@@ -51,14 +51,34 @@ $this->load->view('examples/application/header');
 
     <script src="<?= base_url('application/views/js/application/application8.js') ?>"></script>
     <script>
-        function getUrl() {
-            return "<?=base_url('')?>";
+        <?php
+        if (isset($applicantData)) {
+            foreach ($applicantData as $row) {
+                echo 'addRowEr("' . $row->erid . '","' . $row->erPost . '","' . $row->erInstitution . '","' . $row->erFrom . '","' . $row->erTo . '","' . $row->erDuration . '","' . $row->erSalary . '");';
+            }
+        }
+        ?>
+
+        function getUrlSubmit() {
+            return "<?= base_url('ApplicationController/savePage8')?>";
+        }
+
+        function getUrlUpdate() {
+            return "<?= base_url('ApplicationController/updatePage8')?>";
+        }
+
+        function getUrlDelete() {
+            return "<?= base_url('ApplicationController/deletePage8')?>";
         }
 
         function dataExists() {
             <?php
             if (isset($applicantData)) {
-                echo 'return true;';
+                if ($applicantData != null) {
+                    echo 'return true;';
+                } else {
+                    echo 'return false;';
+                }
             } else {
                 echo 'return false;';
             }

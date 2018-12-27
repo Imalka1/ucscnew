@@ -163,6 +163,8 @@ class ApplicationModel extends CI_Model
         return $sql->result();
     }
 
+    //---------------------------------------------------Page 3---------------------------------------------------------
+
     public function submitPage3()
     {
         $addedResult = array('', '');
@@ -184,8 +186,6 @@ class ApplicationModel extends CI_Model
             return $addedResult;
         }
     }
-
-    //---------------------------------------------------Page 3---------------------------------------------------------
 
     public function updatePage3()
     {
@@ -221,6 +221,130 @@ class ApplicationModel extends CI_Model
     {
         $this->load->database();
         $sql = $this->db->query('select * from secondary_education where aid=?',
+            array($_SESSION['applicationNo']));
+        return $sql->result();
+    }
+
+    //---------------------------------------------------Page 6---------------------------------------------------------
+
+    public function submitPage6()
+    {
+        $addedResult = array('', '');
+        $this->load->database();
+        if ($this->db->query('insert into professional_qualifications (aid,pqInstitution,pqFrom,pqTo,pqDuration,pqQualification) values (?,?,?,?,?,?)',
+            array($_SESSION['applicationNo'], $this->input->post('pqInstitution'), $this->input->post('pqFrom'), $this->input->post('pqTo'), $this->input->post('pqDuration'), $this->input->post('pqQualification')))) {
+            if ($this->db->affected_rows() > 0) {
+                $sql = $this->db->query('select pqid from professional_qualifications where aid=? && pqInstitution=? && pqFrom=? && pqTo=? && pqDuration=? && pqQualification=?',
+                    array($_SESSION['applicationNo'], $this->input->post('pqInstitution'), $this->input->post('pqFrom'), $this->input->post('pqTo'), $this->input->post('pqDuration'), $this->input->post('pqQualification')));
+                $addedResult[0] = 'true';
+                $addedResult[1] = $sql->result()[$this->db->affected_rows() - 1]->pqid;
+                return $addedResult;
+            } else {
+                $addedResult[0] = 'false';
+                return $addedResult;
+            }
+        } else {
+            $addedResult[0] = 'false';
+            return $addedResult;
+        }
+    }
+
+    public function updatePage6()
+    {
+        $this->load->database();
+        if ($this->db->query('update professional_qualifications set pqInstitution=?, pqFrom=?, pqTo=?, pqDuration=?, pqQualification=? where pqid=?',
+            array($this->input->post('pqInstitution'), $this->input->post('pqFrom'), $this->input->post('pqTo'), $this->input->post('pqDuration'), $this->input->post('pqQualification'), $this->input->post('pqId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function deletePage6()
+    {
+        $this->load->database();
+        if ($this->db->query('delete from professional_qualifications where pqid=?',
+            array($this->input->post('pqId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function getPage6()
+    {
+        $this->load->database();
+        $sql = $this->db->query('select * from professional_qualifications where aid=?',
+            array($_SESSION['applicationNo']));
+        return $sql->result();
+    }
+
+    //---------------------------------------------------Page 8---------------------------------------------------------
+
+    public function submitPage8()
+    {
+        $addedResult = array('', '');
+        $this->load->database();
+        if ($this->db->query('insert into employment_records (aid,erPost,erInstitution,erFrom,erTo,erDuration,erSalary) values (?,?,?,?,?,?,?)',
+            array($_SESSION['applicationNo'], $this->input->post('erPost'), $this->input->post('erInstitution'), $this->input->post('erFrom'), $this->input->post('erTo'), $this->input->post('erDuration'), $this->input->post('erSalary')))) {
+            if ($this->db->affected_rows() > 0) {
+                $sql = $this->db->query('select erid from employment_records where aid=? && erPost=? && erInstitution=? && erFrom=? && erTo=? && erDuration=? && erSalary=?',
+                    array($_SESSION['applicationNo'], $this->input->post('erPost'), $this->input->post('erInstitution'), $this->input->post('erFrom'), $this->input->post('erTo'), $this->input->post('erDuration'), $this->input->post('erSalary')));
+                $addedResult[0] = 'true';
+                $addedResult[1] = $sql->result()[$this->db->affected_rows() - 1]->erid;
+                return $addedResult;
+            } else {
+                $addedResult[0] = 'false';
+                return $addedResult;
+            }
+        } else {
+            $addedResult[0] = 'false';
+            return $addedResult;
+        }
+    }
+
+    public function updatePage8()
+    {
+        $this->load->database();
+        if ($this->db->query('update employment_records set erPost=?, erInstitution=?, erFrom=?, erTo=?, erDuration=?, erSalary=? where erid=?',
+            array($this->input->post('erPost'), $this->input->post('erInstitution'), $this->input->post('erFrom'), $this->input->post('erTo'), $this->input->post('erDuration'), $this->input->post('erSalary'), $this->input->post('erId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function deletePage8()
+    {
+        $this->load->database();
+        if ($this->db->query('delete from employment_records where erid=?',
+            array($this->input->post('erId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function getPage8()
+    {
+        $this->load->database();
+        $sql = $this->db->query('select * from employment_records where aid=?',
             array($_SESSION['applicationNo']));
         return $sql->result();
     }

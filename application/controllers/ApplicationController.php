@@ -274,17 +274,35 @@ class ApplicationController extends CI_Controller
 
     public function savePage6()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->submitPage6();
+        if ($reply[0] == 'true') {
+            echo '["' . $reply[0] . '","' . $reply[1] . '"]';
+        } else {
+            echo '["' . $reply[0] . '",""]';
+        }
     }
 
     public function updatePage6()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->updatePage6();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function deletePage6()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->deletePage6();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function page6()
@@ -292,7 +310,8 @@ class ApplicationController extends CI_Controller
         $this->setData();
         if (isset($_SESSION['applicationNo'])) {
             if ($_SESSION['applicationNo'] != '') {
-
+                $this->load->model('ApplicationModel');
+                $this->data['applicantData'] = $this->ApplicationModel->getPage6();
             }
         }
         $this->load->view('examples/application/application6', $this->data);
@@ -320,17 +339,35 @@ class ApplicationController extends CI_Controller
 
     public function savePage8()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->submitPage8();
+        if ($reply[0] == 'true') {
+            echo '["' . $reply[0] . '","' . $reply[1] . '"]';
+        } else {
+            echo '["' . $reply[0] . '",""]';
+        }
     }
 
     public function updatePage8()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->updatePage8();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function deletePage8()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->deletePage8();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function page8()
@@ -338,7 +375,8 @@ class ApplicationController extends CI_Controller
         $this->setData();
         if (isset($_SESSION['applicationNo'])) {
             if ($_SESSION['applicationNo'] != '') {
-
+                $this->load->model('ApplicationModel');
+                $this->data['applicantData'] = $this->ApplicationModel->getPage8();
             }
         }
         $this->load->view('examples/application/application8', $this->data);
