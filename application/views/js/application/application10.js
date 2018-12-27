@@ -4,6 +4,7 @@ var textSubmit = '<span style="left: 60%;position: relative;color: green"><i cla
 var textUpdate = '<span style="left: 60%;position: relative;color: green"><i class="fa fa-check"></i> Updated</span>';
 var textDelete = '<span style="left: 70%;position: relative;color: red"><i class="fa fa-times"></i> Deleted</span>';
 var textWarning = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i> Error</span>';
+var textEmpty = '<span style="left: 60%;position: relative;color: #b58500"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Empty fields</span>';
 
 var panelSubmit =
     '<div class="col-sm-12">' +
@@ -30,15 +31,93 @@ $('#removeRef').click(function () {
 });
 
 $('#refId').on('click', '.rowRefButtonS', function () {
-    $(this).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+    var that = this;
+    var areEmpty = checkEmptiness(that, 5);
+    if (areEmpty) {
+        $.ajax(
+            {
+                type: "post",
+                url: getUrlSubmit(),
+                data: {
+                    refName: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(1).val(),
+                    refDesignation: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(2).val(),
+                    refAddress: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(3).val(),
+                    refEmail: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(4).val(),
+                    refContact: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(5).val()
+                },
+                success: function (response) {
+                    var json = $.parseJSON(response);
+                    if (json[0] == 'true') {
+                        $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(0).attr('value', json[1])
+                        $(that).parent().parent().html(panelUpdateDelete + textSubmit + '</div>');
+                    } else {
+                        $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
+                    }
+                },
+                error: function () {
+                    $(that).parent().parent().html(panelSubmit + textWarning + '</div>');
+                }
+            }
+        );
+    } else {
+        $(that).parent().parent().html(panelSubmit + textEmpty + '</div>');
+    }
 });
 
 $('#refId').on('click', '.rowRefButtonU', function () {
-    $(this).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+    var that = this;
+    var areEmpty = checkEmptiness(that, 5);
+    if (areEmpty) {
+        $.ajax(
+            {
+                type: "post",
+                url: getUrlUpdate(),
+                data: {
+                    refId: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(0).val(),
+                    refName: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(1).val(),
+                    refDesignation: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(2).val(),
+                    refAddress: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(3).val(),
+                    refEmail: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(4).val(),
+                    refContact: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(5).val()
+                },
+                success: function (response) {
+                    if (response == 'true') {
+                        $(that).parent().parent().html(panelUpdateDelete + textUpdate + '</div>');
+                    } else {
+                        $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                    }
+                },
+                error: function () {
+                    $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                }
+            }
+        );
+    } else {
+        $(that).parent().parent().html(panelUpdateDelete + textEmpty + '</div>');
+    }
 })
 
 $('#refId').on('click', '.rowRefButtonD', function () {
-    $(this).parent().parent().html(panelSubmit + textDelete + '</div>');
+    var that = this;
+    $.ajax(
+        {
+            type: "post",
+            url: getUrlDelete(),
+            data: {
+                refId: $(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(0).val()
+            },
+            success: function (response) {
+                if (response == 'true') {
+                    $(that).parent().parent().html(panelSubmit + textDelete + '</div>');
+                } else {
+                    $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+                }
+            },
+            error: function () {
+                $(that).parent().parent().html(panelUpdateDelete + textWarning + '</div>');
+            }
+        }
+    );
 })
 
 $(window).ready(function () {
@@ -47,38 +126,44 @@ $(window).ready(function () {
     }
 });
 
-function addRowRef() {
-    $('#refId').append(
-    // <?php
-    // if (isset($applicantData)) {
-    //     echo 'getText1()+getText2()';
-    // } else {
-    //     echo 'getText1()';
-    // }
-    //     ?>
-);
+function checkEmptiness(that, fieldsLength) {
+    var count = 0;
+    for (var i = 0; i < fieldsLength; i++) {
+        if ($(that).parents('tr').parent().children("tr:nth-child(" + $(that).parents('tr').index() + ")").children().children().eq(i + 1).val() != '') {
+            count++;
+        }
+    }
+    if (count == fieldsLength) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function addNewRowRef() {
-    $('#refId').append(getPanelMain() + getPanelSubmit());
+    $('#refId').append(getPanelMain(['', '', '', '', '', '']) + getPanelSubmit());
 }
 
-function getPanelMain() {
+function addRowRef(data1, data2, data3, data4, data5, data6) {
+    $('#refId').append(getPanelMain([data1, data2, data3, data4, data5, data6]) + getPanelUpdateDelete());
+}
+
+function getPanelMain(dataSet) {
     return ' <tr class="rowRefHead">\n' +
-        '<th width="3%"></th>\n' +
+        '<th width="3%">' + rowRef++ + '.</th>\n' +
         '<th width="20%">Name</th>\n' +
         '<th width="20%">Designation</th>\n' +
         '<th width="20%">Address</th>\n' +
         '<th width="20%">Email Address</th>\n' +
         '<th width="17%">Contact Number</th>\n' +
-        '</tr>'+
+        '</tr>' +
         '<tr class="rowRef">\n' +
-        '<th width="3%">' + rowRef++ + '</th>\n' +
-        '<td width="20%"><input type="text" class="form-control"></td>\n' +
-        '<td width="20%"><input type="text" class="form-control"></td>\n' +
-        '<td width="20%"><input type="text" class="form-control"></td>\n' +
-        '<td width="20%"><input type="text" class="form-control"></td>\n' +
-        '<td width="17%"><input type="text" class="form-control"></td>\n' +
+        '<th width="3%"><input type="hidden" value="' + dataSet[0] + '"></th>\n' +
+        '<td width="20%"><input type="text" class="form-control" required value="' + dataSet[1] + '"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control" required value="' + dataSet[2] + '"></td>\n' +
+        '<td width="20%"><input type="text" class="form-control" required value="' + dataSet[3] + '"></td>\n' +
+        '<td width="20%"><input type="email" class="form-control" required value="' + dataSet[4] + '"></td>\n' +
+        '<td width="17%"><input type="text" class="form-control" required value="' + dataSet[5] + '"></td>\n' +
         '</tr>';
 }
 

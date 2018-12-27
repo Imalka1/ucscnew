@@ -58,14 +58,34 @@ $this->load->view('examples/application/header');
 
     <script src="<?= base_url('application/views/js/application/application10.js') ?>"></script>
     <script>
-        function getUrl() {
-            return "<?=base_url('')?>";
+        <?php
+        if (isset($applicantData)) {
+            foreach ($applicantData as $row) {
+                echo 'addRowRef("' . $row->refName . '","' . $row->refDesignation . '","' . $row->refAddress . '","' . $row->refEmail . '","' . $row->refContact . '");';
+            }
+        }
+        ?>
+
+        function getUrlSubmit() {
+            return "<?= base_url('ApplicationController/savePage10')?>";
+        }
+
+        function getUrlUpdate() {
+            return "<?= base_url('ApplicationController/updatePage10')?>";
+        }
+
+        function getUrlDelete() {
+            return "<?= base_url('ApplicationController/deletePage10')?>";
         }
 
         function dataExists() {
             <?php
             if (isset($applicantData)) {
-                echo 'return true;';
+                if ($applicantData != null) {
+                    echo 'return true;';
+                } else {
+                    echo 'return false;';
+                }
             } else {
                 echo 'return false;';
             }

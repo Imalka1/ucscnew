@@ -348,4 +348,66 @@ class ApplicationModel extends CI_Model
             array($_SESSION['applicationNo']));
         return $sql->result();
     }
+
+    //---------------------------------------------------Page 10--------------------------------------------------------
+
+    public function submitPage10()
+    {
+        $addedResult = array('', '');
+        $this->load->database();
+        if ($this->db->query('insert into referees (aid,refName,refDesignation,refAddress,refEmail,refContact) values (?,?,?,?,?,?)',
+            array($_SESSION['applicationNo'], $this->input->post('refName'), $this->input->post('refDesignation'), $this->input->post('refAddress'), $this->input->post('refEmail'), $this->input->post('refContact')))) {
+            if ($this->db->affected_rows() > 0) {
+                $sql = $this->db->query('select refid from referees where aid=? && refName=? && refDesignation=? && refAddress=? && refEmail=? && refContact=?',
+                    array($_SESSION['applicationNo'], $this->input->post('refName'), $this->input->post('refDesignation'), $this->input->post('refAddress'), $this->input->post('refEmail'), $this->input->post('refContact')));
+                $addedResult[0] = 'true';
+                $addedResult[1] = $sql->result()[$this->db->affected_rows() - 1]->refid;
+                return $addedResult;
+            } else {
+                $addedResult[0] = 'false';
+                return $addedResult;
+            }
+        } else {
+            $addedResult[0] = 'false';
+            return $addedResult;
+        }
+    }
+
+    public function updatePage10()
+    {
+        $this->load->database();
+        if ($this->db->query('update referees set refName=?, refDesignation=?, refAddress=?, refEmail=?, refContact=? where refid=?',
+            array($this->input->post('refName'), $this->input->post('refDesignation'), $this->input->post('refAddress'), $this->input->post('refEmail'), $this->input->post('refContact'), $this->input->post('refId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function deletePage10()
+    {
+        $this->load->database();
+        if ($this->db->query('delete from referees where refid=?',
+            array($this->input->post('refId')))) {
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function getPage10()
+    {
+        $this->load->database();
+        $sql = $this->db->query('select * from referees where aid=?',
+            array($_SESSION['applicationNo']));
+        return $sql->result();
+    }
 }

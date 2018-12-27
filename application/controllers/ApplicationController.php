@@ -404,17 +404,35 @@ class ApplicationController extends CI_Controller
 
     public function savePage10()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->submitPage10();
+        if ($reply[0] == 'true') {
+            echo '["' . $reply[0] . '","' . $reply[1] . '"]';
+        } else {
+            echo '["' . $reply[0] . '",""]';
+        }
     }
 
     public function updatePage10()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->updatePage10();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function deletePage10()
     {
-
+        $this->load->model('ApplicationModel');
+        $reply = $this->ApplicationModel->deletePage10();
+        if ($reply) {
+            echo 'true';
+        } else {
+            echo 'false';
+        }
     }
 
     public function page10()
@@ -422,7 +440,8 @@ class ApplicationController extends CI_Controller
         $this->setData();
         if (isset($_SESSION['applicationNo'])) {
             if ($_SESSION['applicationNo'] != '') {
-
+                $this->load->model('ApplicationModel');
+                $this->data['applicantData'] = $this->ApplicationModel->getPage10();
             }
         }
         $this->load->view('examples/application/application10', $this->data);
