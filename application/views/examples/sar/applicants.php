@@ -54,7 +54,7 @@ $this->load->view('examples/header');
                                                 id="tr<?= $value ?>"
                                             <td></td>
                                             <td width="10%"><?= $row->aid ?></td>
-                                            <td width="40%"><?= $row->fullName ?></td>
+                                            <td width="40%"><?= $row->surName ?></td>
                                             <td width="40%"><?= $row->personalEmail ?></td>
                                             <td width="10%"><?= $row->marks / $row->interviewers_count ?> / 100</td>
                                             </tr>
