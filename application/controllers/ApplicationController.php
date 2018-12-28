@@ -39,6 +39,18 @@ class ApplicationController extends CI_Controller
         redirect(base_url() . "application_form/page1");
     }
 
+    public function viewApplicationToSar()
+    {
+        if ($this->input->post('AppIdField') != '') {
+            $_SESSION['applicationNo'] = $this->input->post('AppIdField');
+            $this->data['applicationNo'] = $_SESSION['applicationNo'];
+            redirect(base_url() . "application_form/page1");
+        } else {
+            redirect(base_url() . "sar/applicants");
+        }
+
+    }
+
     public function startApplication()
     {
         $_SESSION['applicationNo'] = '';

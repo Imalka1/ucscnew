@@ -49,7 +49,7 @@ class UserModel extends CI_Model
     public function getOperators()
     {
         $this->load->database();
-        $this->sql = $this->db->query("SELECT title,s.email,name FROM staff s,user u where u.personalEmail=s.personalEmail && u.accountType='operator'");
+        $this->sql = $this->db->query("SELECT title,s.personalEmail,name FROM staff s,user u where u.personalEmail=s.personalEmail && u.accountType='operator'");
         return $this->sql->result();
     }
 

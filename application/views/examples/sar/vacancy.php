@@ -54,7 +54,7 @@ $this->load->view('examples/header');
                                             <?php
                                             foreach ($operators as $row) {
                                                 ?>
-                                                <option><?= $row->title . '.' . $row->name . ' - (' . $row->email . ')' ?></option>
+                                                <option><?= $row->title . '.' . $row->name . ' - (' . $row->personalEmail . ')' ?></option>
                                                 <?php
                                             }
                                             ?>
