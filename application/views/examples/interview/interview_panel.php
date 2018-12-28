@@ -33,16 +33,14 @@ $this->load->view('examples/header');
                                                 <th>Applicant Name</th>
                                                 <th>Email Address</th>
                                                 <th>Marks</th>
-                                                <th>Date</th>
                                             </tr>
                                             </thead>
                                             <tfoot>
                                             <tr>
-                                                <th>Applicant ID</th>
-                                                <th>Applicant Name</th>
-                                                <th>Email Address</th>
-                                                <th>Marks</th>
-                                                <th>Date</th>
+                                                <th width="10%">Applicant ID</th>
+                                                <th width="40%">Applicant Name</th>
+                                                <th width="40%">Email Address</th>
+                                                <th width="10%">Marks</th>
                                                 <!--                                            <th class="text-right">Remove</th>-->
                                             </tr>
                                             </tfoot>
@@ -57,11 +55,10 @@ $this->load->view('examples/header');
                                                 <tr style="font-size: 16px;background-color: white;height: 50px;cursor: pointer"
                                                     id="tr<?= $value ?>"
                                                 <td></td>
-                                                <td><?= $row->aid ?></td>
-                                                <td><?= $row->name ?></td>
-                                                <td><?= $row->email ?></td>
-                                                <td><?= $row->marks / $row->interviewers_count ?> / 100</td>
-                                                <td><?= $row->registered_date ?></td>
+                                                <td width="10%"><?= $row->aid ?></td>
+                                                <td width="40%"><?= $row->fullName ?></td>
+                                                <td width="40%"><?= $row->personalEmail ?></td>
+                                                <td width="10%"><?= $row->marks / $row->interviewers_count ?> / 100</td>
                                                 </tr>
                                                 <script>
                                                     <?php
