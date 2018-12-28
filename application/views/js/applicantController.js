@@ -1,3 +1,14 @@
+//------------------------------------------------------SAR-------------------------------------------------------------
+
+$('#tblApplicantsSar tbody tr').click(function () {
+    setToTable(this);
+    $('#AppIdField').attr("value", $(this).children('td:nth-child(1)').text());
+    if ($('#txtId').val() != '') {
+        $('#btnSubmitAppId').attr('disabled', false);
+    }
+})
+
+//--------------------------------------------------Interviewer---------------------------------------------------------
 
 $('#tblApplicants tbody tr').click(function () {
     setToTable(this);
@@ -8,30 +19,6 @@ $('#tblApplicants tbody tr').click(function () {
         $('#submitBtn').attr('disabled', false);
     }
 })
-
-$('#tblApplicantsSar tbody tr').click(function () {
-    setToTable(this);
-    $('#AppIdField').attr("value", $(this).children('td:nth-child(1)').text());
-    if ($('#txtId').val() != '') {
-        $('#btnSubmitAppId').attr('disabled', false);
-    }
-})
-
-function setToTable(that) {
-    $('#txtId').val($(that).children('td:nth-child(1)').text());
-    $('#txtName').val($(that).children('td:nth-child(2)').text());
-    $('#txtMarks').val($(that).children('td:nth-child(4)').text().split(" / ")[0]);
-    $('#txtTotal').val($(that).children('td:nth-child(4)').text());
-    $('#txtCount').val(applicants[$(that).attr('id').substring(2, $(that).attr('id').length)].interviewers_count);
-    $('#AppId').attr('value', $(that).children('td:nth-child(1)').text());
-}
-
-$(document).ready(function () {
-    $('.txtMarks').attr('disabled', true);
-    $('#txtReport').attr('disabled', true);
-    $('#submitBtn').attr('disabled', true);
-    $('#btnSubmitAppId').attr('disabled', true);
-});
 
 $('.txtMarks').bind('keyup mouseup', function () {
     var total = 0;
@@ -45,7 +32,6 @@ $('.txtMarks').bind('keyup mouseup', function () {
             }
         }
     }
-    // $('#tblApplicants tbody tr:nth-child(' + (i + 1) + ')').children('td:nth-child(4)').text(total + ' / 100');
     $('#txtTotal').val(total + ' / 100');
 })
 
@@ -59,6 +45,22 @@ $('#submitBtn').click(function () {
         demo.showSwal('interviewers-count');
     }
 });
+
+$(document).ready(function () {
+    $('.txtMarks').attr('disabled', true);
+    $('#txtReport').attr('disabled', true);
+    $('#submitBtn').attr('disabled', true);
+    $('#btnSubmitAppId').attr('disabled', true);
+});
+
+function setToTable(that) {
+    $('#txtId').val($(that).children('td:nth-child(1)').text());
+    $('#txtName').val($(that).children('td:nth-child(2)').text());
+    $('#txtMarks').val($(that).children('td:nth-child(4)').text().split(" / ")[0]);
+    $('#txtTotal').val($(that).children('td:nth-child(4)').text());
+    $('#txtCount').val(applicants[$(that).attr('id').substring(2, $(that).attr('id').length)].interviewers_count);
+    $('#AppId').attr('value', $(that).children('td:nth-child(1)').text());
+}
 
 function submitData() {
     $("#formSubmit").unbind("submit");
