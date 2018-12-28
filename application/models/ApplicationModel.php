@@ -56,7 +56,11 @@ class ApplicationModel extends CI_Model
                 $sql = $this->db->query('select max(dataIndex) from applicant');
                 $row = $sql->row_array();
                 if (isset($row)) {
-                    $id = (date('Y') + 1) . '000' . ($row['max(dataIndex)'] + 1);
+                    $id = (date('Y') + 1);
+                    for ($i = 0; $i < 4 - strlen($row['max(dataIndex)'] + 1); $i++) {
+                        $id .= '0';
+                    }
+                    $id .= ($row['max(dataIndex)'] + 1);
                     if (!$this->db->query('insert into user values (?,?,?)',
                         array($personalEmail, $appPassword, 'applicant'))) {
                         if ($this->db->error()['code'] == 1062) {

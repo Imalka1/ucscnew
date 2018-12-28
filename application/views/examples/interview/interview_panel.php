@@ -64,7 +64,8 @@ $this->load->view('examples/header');
                                                     <?php
                                                     echo "
                                                     applicants.push({
-                                                        interviewers_count: '$row->interviewers_count'
+                                                        interviewers_count: '$row->interviewers_count',
+                                                        fullName: '$row->fullName'
                                                       });
                                                     ";
                                                     ?>

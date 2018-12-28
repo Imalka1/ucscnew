@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 function setToTable(that) {
     $('#txtId').val($(that).children('td:nth-child(1)').text());
-    $('#txtName').val($(that).children('td:nth-child(2)').text());
+    $('#txtName').val(applicants[$(that).attr('id').substring(2, $(that).attr('id').length)].fullName);
     $('#txtMarks').val($(that).children('td:nth-child(4)').text().split(" / ")[0]);
     $('#txtTotal').val($(that).children('td:nth-child(4)').text());
     $('#txtCount').val(applicants[$(that).attr('id').substring(2, $(that).attr('id').length)].interviewers_count);
