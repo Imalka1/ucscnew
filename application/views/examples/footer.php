@@ -19,7 +19,6 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="<?= base_url('assets/js/jquery.min.js') ?>" type="text/javascript"></script>
 <script src="<?= base_url('assets/js/bootstrap.min.js') ?>" type="text/javascript"></script>
 <script src="<?= base_url('assets/js/material.min.js') ?>" type="text/javascript"></script>
 <script src="<?= base_url('assets/js/perfect-scrollbar.jquery.min.js') ?>" type="text/javascript"></script>
@@ -85,11 +84,6 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="<?= base_url('assets/js/demo.js') ?>"></script>
 <script src="<?= base_url('assets/js/data-tables.js') ?>"></script>
-
-<!--edit-->
-<script src="<?= base_url('application/views/js/applicantController.js') ?>"></script>
-
-
 
 <!-- Mirrored from demos.creative-tim.com/bs3/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Jul 2018 13:04:37 GMT -->
 </html>

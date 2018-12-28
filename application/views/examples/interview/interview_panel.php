@@ -256,6 +256,7 @@ $this->load->view('examples/header');
         </nav>
     </div>
 
+    <script src="<?= base_url('application/views/js/interview/applicantController.js') ?>"></script>
     <script>
         function getComments(aid) {
             $.ajax(

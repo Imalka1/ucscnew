@@ -75,6 +75,7 @@ if (!isset($_SESSION["accountType"])) {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    <script src="<?= base_url('assets/js/jquery.min.js') ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
 </head>
 

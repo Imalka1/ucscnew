@@ -123,17 +123,14 @@ $this->load->view('examples/header');
                                         <div class="col-sm-12">
                                             <input type="hidden" name="txtInterviewerId"
                                                    value="<?= $_SESSION["id"] ?>">
-                                            <form id="formSubmitAppId" method="post" action="<?= base_url('ApplicationController/viewApplicationToSar')?>"
+                                            <form id="formSubmitAppId" method="post"
+                                                  action="<?= base_url('ApplicationController/viewApplicationToSar') ?>"
                                                   enctype="application/x-www-form-urlencoded" target="_blank">
                                                 <input type="hidden" id="AppIdField" name="AppIdField">
-<!--                                                <button type="submit" id="btnSubmitAppId"-->
-<!--                                                        style="padding-right: 50px;font-weight: 500;font-size: 20px;color: #352c24;margin-top:0px;background-color: #797f6e;padding:20px;border-radius: 30px;left: 50%;transform:translateX(-50%);position: relative">-->
-<!--                                                    View Application-->
-<!--                                                </button>-->
                                                 <button type="submit" class="btn btn-fill"
                                                         style="left: 50%;transform: translateX(-50%);font-weight: bold"
                                                         id="btnSubmitAppId">
-                                                    View Application
+                                                    View Application Form
                                                 </button>
                                             </form>
                                         </div>
@@ -147,6 +144,8 @@ $this->load->view('examples/header');
             </div>
         </nav>
     </div>
+
+    <script src="<?= base_url('application/views/js/sar/applicantController.js') ?>"></script>
 <?php
 $this->load->view('examples/footer');
 ?>

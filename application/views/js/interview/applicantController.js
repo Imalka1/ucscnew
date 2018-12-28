@@ -1,13 +1,3 @@
-//------------------------------------------------------SAR-------------------------------------------------------------
-
-$('#tblApplicantsSar tbody tr').click(function () {
-    setToTable(this);
-    $('#AppIdField').attr("value", $(this).children('td:nth-child(1)').text());
-    if ($('#txtId').val() != '') {
-        $('#btnSubmitAppId').attr('disabled', false);
-    }
-})
-
 //--------------------------------------------------Interviewer---------------------------------------------------------
 
 $('#tblApplicants tbody tr').click(function () {
