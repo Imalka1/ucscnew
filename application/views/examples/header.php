@@ -77,6 +77,16 @@ if (!isset($_SESSION["accountType"])) {
           rel="stylesheet">
     <script src="<?= base_url('assets/js/jquery.min.js') ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
+
+    <style>
+        input[type=checkbox] {
+            margin-left: 30px;
+            -ms-transform: scale(2); /* IE */
+            -moz-transform: scale(2); /* FF */
+            -webkit-transform: scale(2); /* Safari and Chrome */
+            -o-transform: scale(2); /* Opera */
+        }
+    </style>
 </head>
 
 

@@ -5,7 +5,12 @@ if ($_SESSION["accountType"] != 'sar') {
 }
 $this->load->view('examples/header');
 ?>
-    <div class="content" style="padding-left: 0px;">
+    <div class="row" style="margin-top: 100px;margin-left: 10px">
+        <div class="col-sm-12">
+            <label><span style="margin-right: 5px">Do categorization(via degree)</span><input type="checkbox"></label>
+        </div>
+    </div>
+    <div class="content" style="padding-left: 0px;margin-top: 0px">
         <nav class="navbar navbar-transparent">
             <div class="container-fluid">
                 <div class="row">
